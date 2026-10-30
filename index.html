@@ -67,6 +67,7 @@ h3{font-size:1.08rem;margin:24px 0 6px}
 p{margin:10px 0}
 .lead{color:var(--muted);font-size:1.02rem}
 .box{border-radius:16px;padding:14px 18px;margin:16px 0}
+.box>.lbl .katex{text-transform:none}
 .box>.lbl{display:block;font-weight:800;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
 .term{background:var(--lav)} .term>.lbl{color:var(--lav-ink)}
 .eq{background:var(--sky)} .eq>.lbl{color:var(--sky-ink)}
@@ -2011,6 +2012,196 @@ nav.bottom{position:fixed;left:0;right:0;bottom:0;z-index:5;background:color-mix
 <details><summary>Šta je \(p(x)\) i kako se dobija iz \(\omega(x)\)?</summary><p>\(p(x)\) je gustina verovatnoće da se sudar desi na mestu \(x\) (raspodela slobodnih preleta). Dobija se kao \(p(x) = -\frac{d\omega}{dx}\).</p></details>
 <details><summary>Šta se desi sa \(l\) ako se pritisak gasa udvostruči (na istoj temperaturi)?</summary><p>Koncentracija \(n\) se udvostruči, pa se \(l = \frac{1}{\sigma n}\) prepolovi.</p></details>
 <details><summary>Zašto je \(\nu_2n_2 = \nu_1n_1\)?</summary><p>Obe strane su ukupan broj sudara u jedinici zapremine u jedinici vremena. Svaki sudar ima tačno jedan projektil i jednu metu, pa je svejedno koga brojiš.</p></details>
+</section>
+
+<!-- ===================== PITANJE 10 ===================== -->
+<section class="q" data-title="Gubitak impulsa i transportni preseci">
+<span class="qnum">PITANJE 10</span>
+<h1>Gubitak impulsa i transportni preseci</h1>
+<p class="lead">Nisu svi sudari jednako „važni”. Ako elektron samo malo skrene, i dalje ide skoro istim putem. Ako se odbije nazad, sav napredak je izgubljen. <b>Transportni presek</b> meri baš to: koliko sudari <b>usporavaju napredovanje</b> elektrona u prvobitnom pravcu.</p>
+
+<h2>0. Podsetnik i novi pojmovi</h2>
+<div class="box term"><span class="lbl">Podsetnik · impuls i komponente</span>
+<p><b>Impuls</b> \(\vec p = m\vec v\) je vektor (pitanje 2). Svaki vektor možemo „razložiti” na <b>komponente</b>: deo duž ose \(x\) i deo normalan (pod pravim uglom) na nju. Ako vektor dužine \(p'\) zaklapa ugao \(\theta\) sa osom \(x\), njegova \(x\)-komponenta je \(p'\cos\theta\), a normalna (ortogonalna) \(p'\sin\theta\).</p>
+<p>Primer: ako ideš 10 koraka „dijagonalno” pod uglom od 60° u odnosu na ulicu, duž ulice si napredovao samo \(10\cdot\cos60^\circ = 5\) koraka.</p>
+</div>
+<div class="box term"><span class="lbl">Novi pojam · Kolizioni i transportni presek</span>
+<p><b>Kolizioni presek</b> \(Q_C\) (od engl. <i>collision</i> = sudar) je presek kojim smo se do sada bavili (pitanja 7–9): <b>broji sve sudare</b>, bez obzira na to pod kojim uglom je elektron skrenuo.</p>
+<p><b>Transportni presek</b> \(Q_{TR}\) (od <i>transport</i> = prenos) <b>„meri” sudare</b> prema tome koliko impulsa elektron izgubi u prvobitnom pravcu. Važan je za sve <b>transportne pojave</b>: kako se elektroni kreću kroz gas, koliko je gas provodan, koliko brzo elektroni difunduju.</p>
+</div>
+
+<h2>1. Elastično rasejanje: energija ostaje, pravac se menja</h2>
+<p>Pored preseka kojim smo se do sada bavili i koji se inače naziva <i>kolizionim presekom</i>, postoji i <b>transportni presek</b>. Ukoliko imamo snop elektrona koji <b>nemaju dovoljnu energiju da jonizuju</b> (ili pobude) čestice gasa, ti elektroni <b>neće gubiti energiju</b>, već će se samo <b>rasejavati</b> (menjati pravac). Važiće:</p>
+<div class="box eq"><span class="lbl">Elastičan sudar</span>
+\[|\vec p| = |\vec{p}^{\,\prime}|\]
+<dl class="parts">
+<dt>\(\vec p\)</dt><dd>impuls elektrona pre sudara.</dd>
+<dt>\(\vec{p}^{\,\prime}\)</dt><dd>impuls posle sudara (crtica = „posle”).</dd>
+<dt>\(|\ |\)</dt><dd><b>intenzitet</b> (dužina) vektora. Dužina impulsa je ista jer se brzina (po iznosu) ne menja. Menja se samo <b>pravac</b>.</dd>
+</dl>
+<p>Zašto elektron ne gubi energiju? Videli smo u pitanju 2: u elastičnom sudaru sa teškim atomom elektron preda samo oko \(2m_e/M\approx10^{-4}\) svoje energije, kao ping-pong loptica od kugle za kuglanje.</p>
+</div>
+
+<figure>
+<svg viewBox="0 0 520 220" role="img" aria-label="Gubitak impulsa pri rasejanju">
+  <style>
+    .v1{stroke:var(--sky-ink);stroke-width:3.5}
+    .v2{stroke:var(--peach-ink);stroke-width:3.5}
+    .pr2{stroke:var(--mint-ink);stroke-width:3;stroke-dasharray:7 5}
+    .ax3{stroke:var(--muted);stroke-width:1.5}
+    .lt{fill:var(--ink);font:16px Nunito,sans-serif}
+    .ag2{stroke:var(--ink);stroke-width:1.8;fill:none}
+  </style>
+  <defs>
+    <marker id="b1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--sky-ink)"/></marker>
+    <marker id="b2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--peach-ink)"/></marker>
+  </defs>
+  <line class="ax3" x1="20" y1="170" x2="500" y2="170"/><text class="lt" x="485" y="192">x</text>
+  <line class="v1" x1="30" y1="170" x2="210" y2="170" marker-end="url(#b1)"/>
+  <text class="lt" x="90" y="160">p (pre)</text>
+  <circle cx="230" cy="170" r="9" fill="var(--lav-ink)"/><text class="lt" x="200" y="212">atom</text>
+  <line class="v2" x1="230" y1="170" x2="370" y2="40" marker-end="url(#b2)"/>
+  <text class="lt" x="380" y="45">p′ (posle)</text>
+  <line class="pr2" x1="370" y1="40" x2="370" y2="170"/>
+  <text class="lt" x="300" y="192">p′cosθ</text>
+  <path class="ag2" d="M290,170 A60,60 0 0,0 275,128"/>
+  <text class="lt" x="292" y="150">θ</text>
+</svg>
+<figcaption>Pre sudara ceo impuls je duž \(x\). Posle sudara duž \(x\) ostaje samo \(p'\cos\theta\).</figcaption>
+</figure>
+
+<h2>2. Gubitak impulsa u jednom sudaru</h2>
+<div class="box eq"><span class="lbl">Računamo komponente duž \(x\)</span>
+<p><i>Pre sudara:</i> \(\vec p = m\vec v_0\), a \(x\)-komponenta je \(p_{1x} = mv_1\) (ceo impuls je duž \(x\)).</p>
+<p><i>Posle sudara:</i> \(p_{2x} = mv_1\cos\theta\) (brzina je ista po iznosu, ali je skrenula za ugao \(\theta\)).</p>
+\[\Delta p = p_{1x} - p_{2x} = mv_1(1 - \cos\theta)\]
+<p>Ukoliko \(x\)-osu vežemo za <b>prvobitni pravac kretanja</b> elektrona, gubitak impulsa u tom pravcu biće:</p>
+\[\boxed{\Delta p = |\vec p| - p'\cos\theta = p\,(1 - \cos\theta)}\]
+<dl class="parts">
+<dt>\(\Delta p\)</dt><dd>za koliko se smanjio impuls <b>u prvobitnom pravcu</b>.</dd>
+<dt>\(p\)</dt><dd>iznos impulsa (isti pre i posle, jer je \(|\vec p| = |\vec{p}^{\,\prime}|\)).</dd>
+<dt>\((1 - \cos\theta)\)</dt><dd><b>„faktor važnosti”</b> sudara, broj od 0 do 2.</dd>
+</dl>
+</div>
+<div class="box num"><span class="lbl">Koliko vredi \(1 - \cos\theta\)</span>
+<div class="tablewrap"><table>
+<tr><th>ugao skretanja \(\theta\)</th><th>0°</th><th>10°</th><th>30°</th><th>90°</th><th>180°</th></tr>
+<tr><td>\(1 - \cos\theta\)</td><td>0</td><td>0,015</td><td>0,13</td><td>1</td><td>2</td></tr>
+<tr><td>značenje</td><td>ništa izgubljeno</td><td>skoro ništa</td><td>malo</td><td>sav impuls u \(x\)</td><td>duplo: sad ide unazad!</td></tr>
+</table></div>
+<p>Sudar unazad „košta” 2, jer elektron ne samo da izgubi napredovanje nego počne da se vraća: iz \(+p\) pređe u \(-p\), pa je promena \(2p\).</p>
+</div>
+<div class="box life"><span class="lbl">Analogija · fudbal</span>
+<p>Igrač vodi loptu ka golu. Ako ga protivnik samo očeše i on malo skrene (mali \(\theta\)), i dalje napreduje skoro jednako. Ako ga protivnik zaustavi i vrati loptu nazad (\(\theta = 180^\circ\)), ceo napad je izgubljen. Kolizioni presek broji <b>sve dodire</b> sa protivnikom, a transportni meri <b>koliko su ti dodiri zaista usporili napad</b>.</p>
+</div>
+
+<h2>3. Šta se dešava posle mnogo sudara</h2>
+<p>Jasno je da će nakon velikog broja rasejanja <b>ortogonalna komponenta impulsa težiti nuli</b> (skretanja levo i desno, gore i dole se u proseku ponište). Isto tako je jasno da <b>neće biti nikakvog preferabilnog pravca</b> po kom će se elektroni nakon rasejanja kretati: snop „zaboravi” odakle je došao i elektroni se haotično kreću u svim pravcima.</p>
+<div class="box life"><span class="lbl">Iz stvarnog života</span>
+<p>Svetlost kroz mleko ili oblak: zrak ulazi u jednom pravcu, ali posle mnogo rasejanja izlazi na sve strane. Zato je oblak beo i „mekan”, a ne providan, i zato se kroz maglu ne vidi oblik Sunca nego samo svetla mrlja.</p>
+</div>
+
+<h2>4. Slabljenje snopa duž puta i u vremenu</h2>
+<p>Sada nas interesuje kako se broj elektrona duž \(x\)-ose (oni koji još nisu rasejani) smanjuje sa rastojanjem. Kao u pitanju 7:</p>
+<div class="box eq"><span class="lbl">Po putu</span>
+\[dn = -nQ\,dx\]
+<p>Na putu \(dx\) iz snopa „ispadne” deo \(Q\,dx\) preostalih elektrona (\(Q\) = broj sudara po jedinici puta).</p>
+</div>
+<div class="box eq"><span class="lbl">U vremenu</span>
+<p>Takođe možemo naći i slabljenje snopa u vremenu. Za vreme \(dt\) svaki elektron doživi u proseku \(\nu\,dt\) sudara (\(\nu\) je frekvencija sudara, pitanje 9):</p>
+\[dn = -n\nu\,dt\quad\Longrightarrow\quad n(t) = n_0\,e^{-\nu t}\]
+<dl class="parts">
+<dt>\(n_0\)</dt><dd>broj (koncentracija) elektrona u snopu na početku.</dd>
+<dt>\(n(t)\)</dt><dd>koliko ih posle vremena \(t\) još nije doživelo sudar.</dd>
+<dt>\(\nu\)</dt><dd>frekvencija sudara. Posle vremena \(\tau = 1/\nu\) ostaje 37% snopa.</dd>
+</dl>
+<p>Rešenje se dobija isto kao u pitanju 7: podeli sa \(n\), integrali, „skini” logaritam.</p>
+</div>
+
+<h2>5. Gubitak impulsa i definicija transportnog preseka</h2>
+<p>Sada ne brojimo samo <b>koliko</b> elektrona ima sudar, nego <b>koliko impulsa</b> se izgubi. Na putu \(dx\) elektron doživi \(Q\,dx\) sudara, a u svakom izgubi \(p(1 - \cos\theta)\). <b>Gubitak impulsa duž prvobitne ose kretanja</b> je:</p>
+<div class="box eq"><span class="lbl">Gubitak impulsa</span>
+\[dp = -p\,(1 - \cos\theta)\,Q\,dx \equiv -Q_{TR}\,p\,dx\]
+<dl class="parts">
+<dt>\(dp\)</dt><dd>promena impulsa u pravcu \(x\) na putu \(dx\).</dd>
+<dt>\(p\)</dt><dd>trenutni impuls (gubitak je srazmeran tome koliko imaš).</dd>
+<dt>\((1 - \cos\theta)\)</dt><dd>koliki deo impulsa „ode” u jednom sudaru. Ovde se misli na <b>prosek</b> po svim uglovima rasejanja, „ponderisan” diferencijalnim presekom (pitanje 8).</dd>
+<dt>\(Q\,dx\)</dt><dd>broj sudara na putu \(dx\).</dd>
+<dt>\(\equiv\)</dt><dd>„jednako po definiciji”: ovde <b>definišemo</b> novu veličinu \(Q_{TR}\).</dd>
+</dl>
+<p>Uporedi sa \(dn = -nQ\,dx\): ista forma, samo umesto broja čestica \(n\) „slabi” impuls \(p\), a umesto \(Q\) stoji \(Q_{TR}\). Zato je \(p(x) = p_0e^{-Q_{TR}x}\).</p>
+</div>
+
+<div class="box eq"><span class="lbl">Transportni presek (uokvireno u skripti)</span>
+\[\boxed{Q_{TR} = Q\,(1 - \cos\theta)}\quad\Longleftrightarrow\quad Q_{TR} = Q_C\,(1 - \cos\theta)\]
+<p>gde je \(Q\equiv Q_C\) <b>kolizioni presek</b>.</p>
+<p>Preciznije, pošto elektroni skreću pod različitim uglovima, \((1 - \cos\theta)\) se usrednjava preko diferencijalnog preseka:</p>
+\[Q_{TR} = n\int\frac{d\sigma}{d\Omega}\,(1 - \cos\theta)\,d\Omega\qquad\text{uporedi:}\qquad Q_C = n\int\frac{d\sigma}{d\Omega}\,d\Omega\]
+<p>Jedina razlika je „težinski faktor” \((1 - \cos\theta)\): rasejanja unapred se skoro ne računaju, a rasejanja unazad se računaju duplo.</p>
+<ul>
+<li>Ako je rasejanje <b>izotropno</b> (podjednako u sve strane), prosek od \(\cos\theta\) je 0, pa je \(Q_{TR} = Q_C\).</li>
+<li>Ako elektroni skreću <b>uglavnom unapred</b> (mali uglovi), \(Q_{TR}\ll Q_C\).</li>
+<li>Ako se <b>uglavnom odbijaju unazad</b>, \(Q_{TR} \gt Q_C\) (do \(2Q_C\)).</li>
+</ul>
+</div>
+
+<h2>6. Grafici: neon i helijum</h2>
+<figure>
+<svg viewBox="0 0 520 250" role="img" aria-label="Kolizioni i transportni presek za Ne i He">
+  <style>
+    .ax{stroke:var(--ink);stroke-width:2}
+    .qc{stroke:var(--sky-ink);stroke-width:3;fill:none}
+    .qt{stroke:var(--peach-ink);stroke-width:3;fill:none}
+    .lt{fill:var(--ink);font:16px Nunito,sans-serif}
+    .lb2{fill:var(--ink);font:bold 17px Nunito,sans-serif}
+  </style>
+  <line class="ax" x1="30" y1="200" x2="240" y2="200"/><line class="ax" x1="30" y1="200" x2="30" y2="30"/>
+  <text class="lt" x="12" y="40">σ</text><text class="lt" x="200" y="225">E [eV]</text>
+  <text class="lb2" x="120" y="45">Ne</text>
+  <path class="qc" d="M35,175 C60,150 80,110 95,95 C110,110 150,112 235,110"/>
+  <path class="qt" d="M35,190 C60,175 85,150 100,140 C120,148 160,150 235,152"/>
+  <text class="lt" x="200" y="100" style="fill:var(--sky-ink)">σ<tspan baseline-shift="sub" font-size="12">C</tspan></text>
+  <text class="lt" x="200" y="142" style="fill:var(--peach-ink)">σ<tspan baseline-shift="sub" font-size="12">TR</tspan></text>
+  <line class="ax" x1="290" y1="200" x2="500" y2="200"/><line class="ax" x1="290" y1="200" x2="290" y2="30"/>
+  <text class="lt" x="272" y="40">σ</text><text class="lt" x="460" y="225">E [eV]</text>
+  <text class="lb2" x="440" y="70">He</text>
+  <path class="qc" d="M295,45 C330,70 370,130 410,160 C440,175 470,182 495,185"/>
+  <path class="qt" d="M295,120 C330,150 370,180 410,188 C440,192 470,194 495,195"/>
+  <text class="lt" x="380" y="135" style="fill:var(--sky-ink)">σ<tspan baseline-shift="sub" font-size="12">C</tspan></text>
+  <text class="lt" x="335" y="190" style="fill:var(--peach-ink)">σ<tspan baseline-shift="sub" font-size="12">TR</tspan></text>
+</svg>
+<figcaption>Kvalitativna skica (kao u skripti): kolizioni (plavo) i transportni (narandžasto) presek u zavisnosti od energije elektrona, za neon i helijum.</figcaption>
+</figure>
+<p>Prvi grafik predstavlja rasejanje elektrona na <b>neonu</b>, a drugi na <b>helijumu</b>. Na oba je <b>transportni presek manji od kolizionog</b>, i ta razlika raste sa energijom.</p>
+<div class="box term"><span class="lbl">Kako čitati grafike</span>
+<p><b>Mali transportni presek govori o tome da se elektroni rasejavaju uglavnom unapred</b> (pod malim uglovima). Sudara ima dosta (\(Q_C\) je veliko), ali su skretanja mala, pa elektron ne gubi mnogo impulsa u prvobitnom pravcu.</p>
+<p>Što je elektron brži (veća \(E\)), to ga atom teže „skrene”: brz projektil prolazi pored mete uz malo skretanje. Zato kriva \(\sigma_{TR}\) pada brže od \(\sigma_C\).</p>
+</div>
+<div class="box life"><span class="lbl">Zašto je ovo važno u praksi</span>
+<ul>
+<li><b>Pokretljivost i provodnost</b>: koliko brzo elektroni „driftuju” kroz gas u električnom polju (a time i kolika struja teče kroz gasnu lampu) zavisi od \(Q_{TR}\), a ne od \(Q_C\). Ako elektroni samo malo skreću, polje ih lako „vodi” dalje.</li>
+<li><b>Difuzija</b> elektrona ka zidovima (pitanje 1) takođe zavisi od transportnog preseka.</li>
+<li>Kad inženjeri modeluju plazma reaktore za proizvodnju čipova, fluorescentne lampe ili plazma displeje, u proračune unose upravo tablice transportnih preseka za svaki gas.</li>
+</ul>
+</div>
+
+<div class="box exam"><span class="lbl">Ukratko za ispit (šta napisati)</span>
+<ol>
+<li>Pored kolizionog postoji i transportni presek. Elektroni bez dovoljno energije za jonizaciju ne gube energiju, već se samo rasejavaju: \(|\vec p| = |\vec{p}^{\,\prime}|\).</li>
+<li>Pre sudara \(p_{1x} = mv_1\), posle \(p_{2x} = mv_1\cos\theta\), pa je \(\Delta p = mv_1(1 - \cos\theta)\). Sa \(x\)-osom duž prvobitnog pravca: \(\Delta p = |\vec p| - p'\cos\theta = p(1 - \cos\theta)\).</li>
+<li>Posle mnogo rasejanja ortogonalna komponenta impulsa teži nuli i nema preferabilnog pravca kretanja.</li>
+<li>\(dn = -nQ\,dx\), a u vremenu \(dn = -n\nu\,dt\Rightarrow n(t) = n_0e^{-\nu t}\).</li>
+<li>Gubitak impulsa: \(dp = -p(1 - \cos\theta)Q\,dx \equiv -Q_{TR}\,p\,dx\), pa je \(Q_{TR} = Q_C(1 - \cos\theta)\), gde je \(Q_C\) kolizioni presek.</li>
+<li>Grafici \(\sigma_C\) i \(\sigma_{TR}\) za Ne i He: mali transportni presek znači da se elektroni rasejavaju uglavnom unapred.</li>
+</ol>
+</div>
+
+<h3>Proveri sebe</h3>
+<details><summary>Zašto je \(|\vec p| = |\vec{p}^{\,\prime}|\) u ovom pitanju?</summary><p>Jer elektroni nemaju dovoljno energije za ekscitaciju ili jonizaciju, pa su sudari elastični. Zbog male mase elektron praktično ne gubi energiju, pa mu se ni brzina (po iznosu) ne menja, samo pravac.</p></details>
+<details><summary>Koliko impulsa u prvobitnom pravcu izgubi elektron koji skrene za 90°? A za 180°?</summary><p>Za 90°: \(p(1 - 0) = p\), ceo impuls u tom pravcu. Za 180°: \(p(1 - (-1)) = 2p\).</p></details>
+<details><summary>Kada je \(Q_{TR} = Q_C\)?</summary><p>Kad je rasejanje izotropno (podjednako u sve pravce), jer je tada srednja vrednost \(\cos\theta\) jednaka nuli.</p></details>
+<details><summary>Šta znači da je transportni presek mnogo manji od kolizionog?</summary><p>Da se elektroni rasejavaju uglavnom unapred, pod malim uglovima: sudara ima, ali malo usporavaju kretanje u prvobitnom pravcu.</p></details>
+<details><summary>Koja je razlika između \(dn = -nQ\,dx\) i \(dp = -Q_{TR}p\,dx\)?</summary><p>Prva opisuje koliko elektrona ispadne iz snopa (broji svaki sudar). Druga opisuje koliko impulsa se izgubi u prvobitnom pravcu (sudar se računa sa težinom \(1 - \cos\theta\)).</p></details>
 </section>
 
 <!-- KRAJ PITANJA -->
