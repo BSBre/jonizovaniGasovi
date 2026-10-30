@@ -1530,6 +1530,164 @@ nav.bottom{position:fixed;left:0;right:0;bottom:0;z-index:5;background:color-mix
 <details><summary>Zašto FM radio prolazi kroz jonosferu, a AM se odbija?</summary><p>FM (≈100 MHz) ima frekvenciju mnogo veću od \(f_p\) jonosfere (≈1–10 MHz), pa prolazi. AM (≈1 MHz) ima frekvenciju manju ili blisku \(f_p\), pa se odbija.</p></details>
 </section>
 
+<!-- ===================== PITANJE 7 ===================== -->
+<section class="q" data-title="Rasejanje čestica pri sudaru, efektivni presek">
+<span class="qnum">PITANJE 7</span>
+<h1>Rasejanje čestica pri sudaru, efektivni presek</h1>
+<p class="lead">Koliko je verovatno da će elektron koji leti kroz gas udariti u atom? Odgovor daje jedan broj: <b>efektivni presek</b>. To je „veličina mete” kako je vidi čestica koja leti.</p>
+
+<h2>0. Pojmovi koje moraš znati</h2>
+<div class="box term"><span class="lbl">Novi pojam · Rasejanje, snop i meta</span>
+<p><b>Rasejanje</b> je kada čestica pri sudaru promeni pravac kretanja (i možda energiju), tj. „rasprši se” na drugu stranu.</p>
+<p><b>Snop</b> su čestice koje šaljemo (npr. elektroni iz „topa”), sve u istom pravcu. <b>Meta</b> su čestice u koje snop udara (atomi gasa).</p>
+</div>
+<div class="box term"><span class="lbl">Novi pojam · Verovatnoća</span>
+<p><b>Verovatnoća</b> je broj od 0 do 1 (ili 0% do 100%) koji kaže koliko je nešto očekivano. Bacanje novčića: verovatnoća za „pismo” je 0,5. Kod sudara ne možemo znati da li će <b>baš ovaj</b> elektron udariti u atom, ali možemo znati <b>koliki deo</b> od milion elektrona hoće.</p>
+</div>
+
+<h2>1. Presek kao površina koju čestica „vidi”</h2>
+<p><b>Presek govori o verovatnoći da dođe do sudara.</b> Najlakše ga je zamisliti geometrijski.</p>
+<div class="box eq"><span class="lbl">Interpretacija · efikasni presek</span>
+<p>Zamislimo dve čestice kao kuglice poluprečnika \(r_1\) (projektil) i \(r_2\) (meta). Sudar se desi ako rastojanje između njihovih <b>centara</b> postane manje od \(r_1 + r_2\). To je isto kao da je projektil <b>tačka</b>, a meta <b>disk</b> poluprečnika \(r_1 + r_2\). Površina tog diska je ono što čestica „vidi”, i to je <b>efikasni presek</b>:</p>
+\[\sigma = (r_1 + r_2)^2\,\pi\]
+<dl class="parts">
+<dt>\(\sigma\)</dt><dd>(„sigma”) efikasni (efektivni) presek, površina u m² (ili cm²).</dd>
+<dt>\(r_1,\ r_2\)</dt><dd>poluprečnici čestice koja leti i čestice mete.</dd>
+<dt>\((r_1+r_2)^2\pi\)</dt><dd>površina kruga \(r^2\pi\), samo je poluprečnik zbir oba.</dd>
+</dl>
+</div>
+<figure>
+<svg viewBox="0 0 520 220" role="img" aria-label="Geometrijski presek">
+  <style>
+    .dk{fill:var(--sky);stroke:var(--sky-ink);stroke-width:2;stroke-dasharray:6 4}
+    .mt{fill:var(--lav-ink)}
+    .pr{fill:var(--peach-ink)}
+    .ln{stroke:var(--muted);stroke-width:1.8}
+    .hit{stroke:var(--mint-ink);stroke-width:2.5}
+    .lt{fill:var(--ink);font:16px Nunito,sans-serif}
+  </style>
+  <defs><marker id="ra" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/></marker>
+  <marker id="rg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--mint-ink)"/></marker></defs>
+  <circle class="dk" cx="330" cy="110" r="70"/>
+  <circle class="mt" cx="330" cy="110" r="45"/>
+  <text class="lt" x="306" y="115" style="fill:#fff">meta</text>
+  <circle class="pr" cx="60" cy="60" r="25"/>
+  <text class="lt" x="30" y="20">projektil r₁</text>
+  <line class="ln" x1="88" y1="25" x2="470" y2="25" marker-end="url(#ra)"/>
+  <text class="lt" x="380" y="18">promašaj</text>
+  <line class="hit" x1="88" y1="75" x2="255" y2="75" marker-end="url(#rg)"/>
+  <text class="lt" x="120" y="68">pogodak</text>
+  <line class="ln" x1="330" y1="110" x2="330" y2="40"/>
+  <text class="lt" x="338" y="62">r₁+r₂</text>
+  <text class="lt" x="270" y="205">presek σ = π(r₁+r₂)²</text>
+</svg>
+<figcaption>Isprekidani krug je presek: ako centar projektila prođe kroz njega, sudar se dešava.</figcaption>
+</figure>
+<div class="box life"><span class="lbl">Iz stvarnog života</span>
+<p>Trčiš kroz šumu zatvorenih očiju (ne probaj ovo!). Da li ćeš udariti u drvo zavisi od toga koliko su <b>debela</b> stabla (\(r_2\)), koliko si <b>ti širok</b> (\(r_1\)) i koliko je drveća gusto. Zato je teže proći kroz gustu šumu sa rancem na leđima: povećao si \(r_1\) i veći je presek.</p>
+<p>Ili pikado: verovatnoća da pogodiš metu zavisi od površine mete. Veća meta, veći „presek”.</p>
+</div>
+<div class="box warn"><span class="lbl">Pažnja · geometrija je samo slika</span>
+<p>Atomi nisu tvrde kuglice. Elektron „oseća” atom preko električnih sila, a u kvantnoj fizici je i on sam talas. Zato pravi presek <b>zavisi od energije</b> elektrona i od <b>vrste sudara</b> (elastični, ekscitacija, jonizacija), i to se meri eksperimentalno (vidi grafike u pitanju 10). Geometrijska slika služi da razumemo <b>smisao</b>: presek je „efektivna površina mete”.</p>
+</div>
+
+<h2>2. Druga definicija: efektivni presek za sudare \(Q\)</h2>
+<div class="box eq"><span class="lbl">Definicija</span>
+<p><b>Efektivni presek za sudare</b> \(Q\) je <b>srednji broj sudara po jedinici puta</b>:</p>
+\[Q\ [=]\ \frac{1}{\text{m}}\]
+<p>(„\([=]\)” znači „ima jedinicu”.) Ako je \(Q = 1000\) m⁻¹, čestica na putu od jednog metra u proseku doživi 1000 sudara, a na putu od 1 mm u proseku jedan.</p>
+<p>Ovo je <b>makroskopski</b> presek: zavisi i od veličine mete i od toga <b>koliko je meta</b> (gustina gasa). Ista šuma je „gušća” ako ima više stabala.</p>
+</div>
+
+<h2>3. Eksperimentalno određivanje: slabljenje snopa</h2>
+<p>Pustimo snop od \(N_0\) čestica kroz gas. Svaki put kad neka čestica doživi sudar, ona se rasprši i „ispadne” iz snopa. Koliko ih prođe kroz sloj gasa debljine \(l\) a da se ne sudare?</p>
+<div class="box eq"><span class="lbl">Izvođenje (korak po korak)</span>
+<p>Na malom putu \(dx\) svaka čestica ima \(Q\,dx\) sudara (u proseku), pa iz snopa od \(N\) čestica „ispadne”:</p>
+\[dN = -N\,Q\,dx\]
+<p>Minus jer se broj smanjuje. Gubitak je <b>srazmeran trenutnom broju</b>: što je više čestica, više ih i ispadne. Podelimo sa \(N\) i integralimo od 0 do \(l\):</p>
+\[\int_{N_0}^{N}\frac{dN}{N} = -Q\int_0^l dx\quad\Longrightarrow\quad \ln\frac{N}{N_0} = -Ql\]
+<p>Na kraju „skinemo” logaritam (\(e^{\ln a} = a\)):</p>
+\[\boxed{N = N_0\,e^{-Ql}}\]
+<dl class="parts">
+<dt>\(N_0\)</dt><dd>broj čestica u snopu na ulazu.</dd>
+<dt>\(N\)</dt><dd>broj čestica koje su prošle put \(l\) <b>bez sudara</b>.</dd>
+<dt>\(l\)</dt><dd>dužina puta kroz gas.</dd>
+<dt>\(e^{-Ql}\)</dt><dd><b>eksponencijalno slabljenje</b>: na svakom sledećem jednakom delu puta ispadne isti <b>procenat</b> preostalih.</dd>
+</dl>
+<p><b>Kako se meri:</b> izmeri se \(N_0\) i \(N\) za poznato \(l\), pa je \(Q = \frac{1}{l}\ln\frac{N_0}{N}\).</p>
+</div>
+<div class="box num"><span class="lbl">Primer sa brojevima</span>
+<p>Neka je \(Q = 10^4\) m⁻¹ (to je otprilike azot na pritisku 1 mmHg):</p>
+<div class="tablewrap"><table>
+<tr><th>put \(l\)</th><th>\(Ql\)</th><th>prošlo bez sudara \(N/N_0\)</th></tr>
+<tr><td>0,1 mm</td><td>1</td><td>37 %</td></tr>
+<tr><td>0,2 mm</td><td>2</td><td>14 %</td></tr>
+<tr><td>0,5 mm</td><td>5</td><td>0,7 %</td></tr>
+</table></div>
+</div>
+<div class="box life"><span class="lbl">Iz stvarnog života · isti zakon svuda</span>
+<ul>
+<li><b>Magla</b>: farovi se vide na 10 m, jedva na 30 m, a na 100 m nikako. Svetlost slabi eksponencijalno jer se fotoni rasejavaju na kapljicama.</li>
+<li><b>Rendgen i olovna kecelja</b>: X-zraci slabe eksponencijalno u materijalu. Olovo ima ogroman \(Q\), pa tanak sloj zaustavi skoro sve.</li>
+<li><b>Ronjenje</b>: što dublje roniš, tamnije je. Na 10 m crvena svetlost je skoro nestala (voda je jače apsorbuje), pa sve deluje plavo.</li>
+</ul>
+</div>
+
+<h2>4. Zavisnost od pritiska: \(Q = Q_0\cdot p\)</h2>
+<p>Broj sudara po metru zavisi od toga <b>koliko ima meta</b>, tj. od koncentracije gasa. Iz jednačine stanja idealnog gasa \(p = nkT\), na stalnoj temperaturi je koncentracija \(n\) <b>srazmerna pritisku</b>: duplo veći pritisak znači duplo više atoma u istoj zapremini.</p>
+<div class="box eq"><span class="lbl">Redukovani presek</span>
+<p>Ako uvedemo \(Q_0\) kao \(Q\) na \(p = 1\) mmHg i \(T = 0\,^\circ\)C, onda bilo koje \(Q\) izražavamo kao:</p>
+\[Q = Q_0\cdot p\qquad\left(Q_0\ [=]\ \frac{1}{\text{m}\cdot\text{Pa}}\ \text{ili}\ \frac{1}{\text{cm}\cdot\text{mmHg}}\right)\]
+<dl class="parts">
+<dt>\(Q_0\)</dt><dd>presek „sveden” na standardne uslove. Zavisi samo od vrste gasa (i energije čestica), a ne od toga u kakvoj je posudi gas.</dd>
+<dt>\(p\)</dt><dd>pritisak gasa (sveden na 0 °C).</dd>
+<dt>mmHg</dt><dd>„milimetar žive” (tor): pritisak stuba žive visokog 1 mm. 760 mmHg = 1 atmosfera, a 1 mmHg ≈ 133 Pa.</dd>
+</dl>
+<p><b>Zato nemaš zavisnost od temperature:</b> sve je svedeno na istu temperaturu (0 °C), pa su vrednosti \(Q_0\) u tablicama uporedive za različite gasove. U tablicama se zato daje \(Q_0\), a za svoj eksperiment ga samo pomnožiš pritiskom.</p>
+</div>
+
+<h2>5. Presek po čestici mete</h2>
+<p>\(Q\) zavisi od gustine, a mi želimo i broj koji opisuje <b>jedan</b> atom mete. Podelimo \(Q\) koncentracijom meta \(n_2\):</p>
+<div class="box eq"><span class="lbl">Mikroskopski presek</span>
+\[\sigma = \frac{Q}{n_2}\qquad\text{odnosno}\qquad Q = n_2\,\sigma\]
+<dl class="parts">
+<dt>\(n_2\)</dt><dd>koncentracija čestica mete (m⁻³ ili cm⁻³).</dd>
+<dt>\(\sigma\)</dt><dd>presek <b>jedne</b> čestice mete. Jedinica: \(\frac{1/\text{m}}{1/\text{m}^3} = \text{m}^2\), dakle <b>površina</b> (često u cm²), isto kao geometrijski \(\pi(r_1+r_2)^2\).</dd>
+</dl>
+<p><b>Smisao:</b> broj sudara po metru = (koliko meta ima po m³) × (koliku površinu svaka „zauzima”). Zamisli da kroz sloj gasa debljine 1 m i površine 1 m² leti čestica. U tom sloju je \(n_2\) meta, i svaka „zaklanja” površinu \(\sigma\). Ukupno zaklonjeno je \(n_2\sigma\) na 1 m², a to je verovatnoća udarca, tj. broj sudara po metru.</p>
+</div>
+<div class="box warn"><span class="lbl">Pažnja · jedinica</span>
+<p>U skripti uz \(\sigma = Q/n_2\) stoji jedinica „1/cm²”. Ispravno je <b>cm²</b> (površina), kao što se vidi iz deljenja jedinica gore.</p>
+</div>
+<div class="box num"><span class="lbl">Primer sa brojevima · molekuli azota</span>
+<p>Prečnik molekula N₂ je oko 0,37 nm, pa je \(\sigma = \pi(0{,}37\cdot10^{-9})^2 \approx 4\cdot10^{-19}\) m².</p>
+<div class="tablewrap"><table>
+<tr><th>pritisak</th><th>\(n_2\) [m⁻³]</th><th>\(Q = n_2\sigma\) [m⁻¹]</th><th>put između sudara \(1/Q\)</th></tr>
+<tr><td>1 atm (vazduh oko nas)</td><td>\(2{,}7\cdot10^{25}\)</td><td>\(10^7\)</td><td>≈ 0,1 μm</td></tr>
+<tr><td>1 mmHg (gasne cevi)</td><td>\(3{,}5\cdot10^{22}\)</td><td>\(1{,}5\cdot10^4\)</td><td>≈ 70 μm</td></tr>
+<tr><td>\(10^{-3}\) Pa (vakuum)</td><td>\(2{,}7\cdot10^{17}\)</td><td>0,1</td><td>≈ 9 m</td></tr>
+</table></div>
+<p>Zato se gasne lampe prave na <b>niskom</b> pritisku: elektroni moraju da prelete dovoljno dug put između sudara da bi od polja skupili energiju za jonizaciju (pitanje 2). Veličina \(1/Q\) je <b>srednji slobodni put</b>, o njemu više u pitanju 9.</p>
+</div>
+
+<div class="box exam"><span class="lbl">Ukratko za ispit (šta napisati)</span>
+<ol>
+<li>Presek govori o verovatnoći da dođe do sudara.</li>
+<li>Interpretacija: površina koju „vidi” čestica, efikasni presek \(\sigma = (r_1+r_2)^2\pi\) (skica sa diskom).</li>
+<li>Druga definicija: efektivni presek za sudare \(Q\), srednji broj sudara po jedinici puta, \(Q\ [=]\ 1/\text{m}\).</li>
+<li>Određuje se eksperimentalno iz slabljenja snopa: \(N = N_0e^{-Ql}\) (izvedi iz \(dN = -NQ\,dx\)).</li>
+<li>\(Q_0\) je \(Q\) na \(p = 1\) mmHg i \(T = 0\,^\circ\)C, pa je \(Q = Q_0\cdot p\), \(Q_0\ [=]\ \frac{1}{\text{m}\cdot\text{Pa}}\). Nema zavisnosti od temperature.</li>
+<li>Presek po čestici mete: \(\sigma = \frac{Q}{n_2}\) (površina, cm²).</li>
+</ol>
+</div>
+
+<h3>Proveri sebe</h3>
+<details><summary>Zašto je u geometrijskom preseku poluprečnik \(r_1 + r_2\), a ne samo \(r_2\)?</summary><p>Jer se kuglice sudare čim se dodirnu, a to je kad je rastojanje njihovih centara \(r_1 + r_2\). Ekvivalentno: tačkasti projektil i meta poluprečnika \(r_1 + r_2\).</p></details>
+<details><summary>Koja je razlika između \(Q\) i \(\sigma\)?</summary><p>\(Q\) je broj sudara po jedinici puta (m⁻¹) i zavisi od gustine gasa. \(\sigma = Q/n_2\) je presek jedne čestice mete (m²) i karakteriše sam par čestica.</p></details>
+<details><summary>Šta se desi sa \(Q\) ako pritisak gasa poraste 10 puta (na istoj temperaturi)?</summary><p>Poraste 10 puta, jer je \(Q = Q_0p\) (10 puta više meta po m³).</p></details>
+<details><summary>Ako je \(Ql = 1\), koliki deo snopa prođe bez sudara?</summary><p>\(e^{-1}\approx 37\%\).</p></details>
+</section>
+
 <!-- KRAJ PITANJA -->
 
 </main>
