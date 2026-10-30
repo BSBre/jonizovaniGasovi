@@ -87,7 +87,7 @@ th{background:var(--sky);color:var(--sky-ink)}
 details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 14px;margin:8px 0}
 details summary{cursor:pointer;font-weight:700}
 figure{margin:16px 0;text-align:center}
-figure svg{max-width:100%;height:auto}
+figure svg{max-width:100%;height:auto;overflow:visible}
 figcaption{font-size:.88rem;color:var(--muted)}
 .wip{text-align:center;padding:50px 10px;color:var(--muted)}
 nav.bottom{position:fixed;left:0;right:0;bottom:0;z-index:5;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-top:1px solid var(--line)}
@@ -728,6 +728,244 @@ nav.bottom{position:fixed;left:0;right:0;bottom:0;z-index:5;background:color-mix
 <details><summary>Zašto tražimo \(\frac{d(\Delta E)}{dv_1} = 0\)?</summary><p>Jer funkcija dostiže maksimum tamo gde joj je izvod (nagib) jednak nuli.</p></details>
 <details><summary>Koliki deo energije može predati jon koji udari u atom iste mase?</summary><p>\(\frac{m_2}{m_1+m_2} = \frac12\), dakle najviše polovinu.</p></details>
 <details><summary>Šta se dešava sa česticama kad je predaja energije maksimalna?</summary><p>Posle sudara se kreću zajedno istom brzinom \(\frac{v_0m_1}{m_1+m_2}\), kao da su se zalepile (savršeno neelastičan sudar).</p></details>
+</section>
+
+<!-- ===================== PITANJE 3 ===================== -->
+<section class="q" data-title="Ravnotežna plazma (Saha, Bolcman, Maksvel, Plank)">
+<span class="qnum">PITANJE 3</span>
+<h1>Ravnotežna plazma (Sahina, Bolcmanova, Maksvelova i Plankova raspodela)</h1>
+<p class="lead">Plazma ima ogroman broj čestica i ne možemo pratiti svaku posebno. Ali ako je plazma u <b>ravnoteži</b>, četiri formule nam kažu sve bitno: koliko je jonizovana (Saha), koliko atoma je pobuđeno (Bolcman), kolike su brzine čestica (Maksvel) i kakvu svetlost zrači (Plank). Sve četiri zavise od <b>temperature</b>.</p>
+
+<h2>0. Pojmovi koje moraš znati</h2>
+
+<div class="box term"><span class="lbl">Novi pojam · Makroskopski parametri</span>
+<p><b>Makroskopski</b> znači „ono što vidimo i merimo spolja, golim okom ili instrumentom”, za razliku od mikroskopskog (pojedinačni atomi). Makroskopski parametri gasa su npr. <b>temperatura</b> \(T\), <b>pritisak</b> \(p\), <b>gustina/koncentracija</b> \(n\) i zapremina.</p>
+</div>
+
+<div class="box term"><span class="lbl">Novi pojam · Termodinamička (TD) ravnoteža</span>
+<p>Pod <b>TD ravnotežom</b> podrazumevamo situaciju kada su <b>makroskopski parametri sistema nepromenljivi</b>. Posmatrano spolja, sve je <b>stacionarno</b> (ne menja se u vremenu).</p>
+<p>Važno: unutra se i dalje sve dešava! Atomi se jonizuju i rekombinuju, pobuđuju i deekscituju, ali <b>svaki proces se dešava jednako često kao i njemu suprotan</b>, pa se ukupno ništa ne menja.</p>
+<p><b>Kvazi</b>stacionarno znači „skoro stacionarno”: menja se, ali toliko sporo da to možemo zanemariti.</p>
+</div>
+<div class="box life"><span class="lbl">Iz stvarnog života</span>
+<p>Zamisli tržni centar subotom popodne. Ljudi stalno ulaze i izlaze, ali ako ih u minuti uđe isto koliko izađe, broj ljudi unutra je stalan. Spolja (makroskopski) je „ravnoteža”, a iznutra (mikroskopski) je stalno kretanje.</p>
+<p>Drugi primer: šolja čaja koja je odstajala sat vremena na stolu ima istu temperaturu kao soba i više se ne menja. Čaj i soba su u toplotnoj ravnoteži.</p>
+</div>
+
+<div class="box term"><span class="lbl">Novi pojam · Stepeni slobode</span>
+<p><b>Stepeni slobode</b> su nezavisni „načini” na koje sistem može da ima energiju: kretanje levo-desno, gore-dole, napred-nazad, rotacija molekula, oscilovanje, pobuđivanje elektrona, jonizacija…</p>
+<p>Plazma ima <b>mnogo</b> stepeni slobode. Da bi bila u potpunoj ravnoteži, svi oni moraju biti „usaglašeni” na istoj temperaturi. To je teško, pa plazma u laboratoriji uglavnom <b>nije baš u ravnoteži, nego „blizu”</b>.</p>
+</div>
+
+<div class="box term"><span class="lbl">Novi pojam · Bolcmanov faktor \(e^{-E/kT}\)</span>
+<p>U svim formulama ovog pitanja pojavljuje se izraz \(e^{-E/kT}\). Bitno je da ga razumeš:</p>
+<ul>
+<li>\(e \approx 2{,}718\) je osnova prirodnog logaritma (Ojlerov broj). Ovde to <b>nije</b> naelektrisanje elektrona!</li>
+<li>\(E\) je energija koja je „potrebna” (energija nivoa, jonizacije, kretanja).</li>
+<li>\(kT\) je „termalna energija”, tj. koliko energije prosečno ima jedna čestica na temperaturi \(T\). \(k = 1{,}38\cdot10^{-23}\) J/K je <b>Bolcmanova konstanta</b>, a \(T\) temperatura u kelvinima.</li>
+</ul>
+<p>Faktor kaže: <b>verovatnoća da čestica ima energiju \(E\) pada eksponencijalno</b> kad \(E\) postane veće od \(kT\).</p>
+<div class="tablewrap"><table>
+<tr><th>\(E/kT\)</th><th>1</th><th>2</th><th>5</th><th>10</th><th>20</th></tr>
+<tr><td>\(e^{-E/kT}\)</td><td>0,37</td><td>0,14</td><td>0,0067</td><td>0,000045</td><td>0,000000002</td></tr>
+</table></div>
+<p>Analogija: novac u društvu. Mnogo ljudi ima malo para, a sve manje i manje ljudi ima sve više. Milijardera ima jako malo. Kod atoma je „bogatstvo” energija, a „prosečna plata” je \(kT\).</p>
+</div>
+
+<div class="box term"><span class="lbl">Novi pojam · Statistička težina \(g\)</span>
+<p>Ponekad jedan energetski nivo ima <b>više različitih stanja sa istom energijom</b>. Broj tih stanja je <b>statistička težina</b> (degeneracija) \(g\).</p>
+<p>Analogija: sprat zgrade (nivo) koji ima \(g\) stanova. Ako je sprat jednako „skup”, a ima više stanova, na njemu može da živi više ljudi. Zato veće \(g\) daje veću populaciju nivoa. Npr. kod vodonika osnovni nivo ima \(g = 2\), a prvi pobuđeni \(g = 8\).</p>
+</div>
+
+<h2>1. Sahina jednačina (jonizaciona ravnoteža)</h2>
+<div class="box eq"><span class="lbl">Jednačina</span>
+\[\frac{n_e\,n_{i+1}}{n_i} = \frac{g_{i+1}}{g_i}\cdot 2\cdot\left(\frac{2\pi m_e}{h^2}\right)^{3/2}(kT)^{3/2}\,e^{-\frac{\chi_i}{kT}}\]
+<p><b>Šta daje:</b> odnos koncentracija za <b>dva uzastopna stanja jonizacije</b>. Na primer neutralni atomi (\(i = 0\)) i jednostruko jonizovani (\(i+1 = 1\)), ili \(A^+\) i \(A^{2+}\). Ukratko: <b>koliko je plazma jonizovana</b> na datoj temperaturi.</p>
+<dl class="parts">
+<dt>\(n_i\)</dt><dd>koncentracija atoma u \(i\)-tom stanju jonizacije (\(i = 0\) neutralni, \(i = 1\) jednom jonizovani, …).</dd>
+<dt>\(n_{i+1}\)</dt><dd>koncentracija u sledećem, jednom više jonizovanom stanju.</dd>
+<dt>\(n_e\)</dt><dd>koncentracija slobodnih elektrona. Stoji gore jer svaka jonizacija daje i elektron, pa jonizaciju „guraju” nazad elektroni koji traže jone za rekombinaciju.</dd>
+<dt>\(g_i,\ g_{i+1}\)</dt><dd>statističke težine (osnovnih) stanja ta dva jona.</dd>
+<dt>\(2\)</dt><dd>statistička težina slobodnog elektrona: elektron ima <b>spin</b> koji može biti „gore” ili „dole”, dakle 2 mogućnosti.</dd>
+<dt>\(m_e\)</dt><dd>masa elektrona.</dd>
+<dt>\(h\)</dt><dd>Plankova konstanta \(6{,}626\cdot10^{-34}\) J·s.</dd>
+<dt>\(\left(\frac{2\pi m_e kT}{h^2}\right)^{3/2}\)</dt><dd>koliko ima „mesta” (kvantnih stanja) po jedinici zapremine za slobodan elektron. Što je \(T\) veće, elektroni su brži i imaju više „prostora” da budu slobodni. Jedinica je m⁻³ i to je ogroman broj (≈\(10^{27}\) m⁻³ na 10 000 K).</dd>
+<dt>\(\chi_i\)</dt><dd>(grčko „hi”) <b>energija jonizacije</b> između stanja \(i\) i \(i+1\). To je isto što \(eV_j\) iz pitanja 1.</dd>
+<dt>\(e^{-\chi_i/kT}\)</dt><dd>Bolcmanov faktor: jonizacija je „skupa”, pa je retka dok \(kT\) nije dovoljno veliko.</dd>
+</dl>
+</div>
+<div class="box num"><span class="lbl">Primer sa brojevima · vodonik, \(n \approx 10^{23}\) m⁻³ (kao na površini Sunca)</span>
+<div class="tablewrap"><table>
+<tr><th>Temperatura</th><th>\(kT\)</th><th>jonizovan deo</th></tr>
+<tr><td>5 800 K</td><td>0,50 eV</td><td>≈ 0,01 %</td></tr>
+<tr><td>10 000 K</td><td>0,86 eV</td><td>≈ 6 %</td></tr>
+<tr><td>20 000 K</td><td>1,72 eV</td><td>≈ 96 %</td></tr>
+</table></div>
+<p><b>Iznenađenje:</b> kad je \(kT\) samo 1,7 eV, dakle 8 puta manje od 13,6 eV, vodonik je skoro potpuno jonizovan! Razlog je ogroman broj ispred eksponenta (\(\approx10^{27}\)): slobodan elektron ima neuporedivo više „mesta” nego vezani, pa i retki brzi sudari pobeđuju. Takođe se vidi koliko je prelaz <b>nagao</b>: za samo 2–3 puta veću temperaturu, iz skoro neutralnog dobijamo skoro potpuno jonizovan gas.</p>
+</div>
+<div class="box life"><span class="lbl">Iz stvarnog života</span>
+<p>Indijski fizičar Megnad Saha je ovu formulu napisao 1920. da objasni <b>spektre zvezda</b>. Zvezde različitih temperatura pokazuju linije različitih jona. Iz toga se, preko Sahine jednačine, odredi temperatura zvezde, a da niko nikad nije bio tamo.</p>
+</div>
+
+<h2>2. Bolcmanova raspodela (populacija nivoa)</h2>
+<div class="box eq"><span class="lbl">Jednačina</span>
+\[\frac{n_i}{n_0} = \frac{g_i}{g_0}\,e^{-\frac{E_i}{kT}},\qquad i = 1,2,\dots\]
+<p><b>Šta daje:</b> <b>populaciju određenog nivoa</b>, tj. koliko je atoma pobuđeno na \(i\)-ti nivo u odnosu na one u osnovnom stanju.</p>
+<dl class="parts">
+<dt>\(n_i\)</dt><dd>koncentracija atoma u <b>pobuđenom</b> stanju \(i\).</dd>
+<dt>\(n_0\)</dt><dd>koncentracija atoma u <b>osnovnom</b> stanju.</dd>
+<dt>\(g_i,\ g_0\)</dt><dd>statističke težine (broj „stanova na spratu”).</dd>
+<dt>\(E_i\)</dt><dd>energija \(i\)-tog nivoa iznad osnovnog stanja.</dd>
+<dt>\(e^{-E_i/kT}\)</dt><dd>što je nivo viši (veće \(E_i\)) ili temperatura niža, to je nivo manje naseljen.</dd>
+</dl>
+</div>
+<div class="box warn"><span class="lbl">Pažnja · razlika Saha vs. Bolcman</span>
+<p><b>Bolcman</b> poredi <b>dva nivoa istog atoma</b> (osnovno i pobuđeno stanje, elektron ostaje u atomu). <b>Saha</b> poredi <b>dva stanja jonizacije</b> (elektron napušta atom). Saha je zapravo „Bolcman za jonizaciju”, gde je gornji „nivo” slobodan elektron.</p>
+</div>
+<div class="box num"><span class="lbl">Primer sa brojevima · vodonik, prvi pobuđeni nivo (\(E_1 = 10{,}2\) eV, \(g_1/g_0 = 4\))</span>
+<div class="tablewrap"><table>
+<tr><th>Temperatura</th><th>\(n_1/n_0\)</th></tr>
+<tr><td>300 K (soba)</td><td>≈ \(10^{-171}\), praktično nula</td></tr>
+<tr><td>5 800 K</td><td>≈ \(5\cdot10^{-9}\)</td></tr>
+<tr><td>10 000 K</td><td>≈ \(3\cdot10^{-5}\)</td></tr>
+</table></div>
+<p>Zato vodonik u sobi ne svetli, a u zvezdi svetli.</p>
+</div>
+<div class="box life"><span class="lbl">Iz stvarnog života · ista formula, drugo mesto</span>
+<p>Vazduh je ređi na planini. Zašto? Zbog Bolcmanove raspodele! Ovde je „energija nivoa” potencijalna energija \(mgh\) na visini \(h\), pa je \(n(h) = n(0)\,e^{-mgh/kT}\) (barometarska formula). Na vrhu Mont Everesta (8,8 km) ima samo oko trećine vazduha od onog na moru. Molekulima je „skupo” da budu visoko, pa ih je gore eksponencijalno manje.</p>
+</div>
+
+<h2>3. Maksvelova raspodela (raspodela brzina)</h2>
+<div class="box eq"><span class="lbl">Jednačina</span>
+\[f_v = \left(\frac{m}{2\pi kT}\right)^{3/2} v^2\, e^{-\frac{mv^2}{2kT}}\]
+<p><b>Šta daje:</b> koliko čestica ima brzinu oko vrednosti \(v\). Nemaju sve čestice gasa istu brzinu: neke su spore, većina srednje brza, a neke vrlo brze.</p>
+<dl class="parts">
+<dt>\(f_v\)</dt><dd><b>funkcija raspodele</b> po brzinama. \(f_v\,dv\) je udeo čestica čija je brzina između \(v\) i \(v + dv\).</dd>
+<dt>\(m\)</dt><dd>masa čestice (elektrona, atoma…).</dd>
+<dt>\(\left(\frac{m}{2\pi kT}\right)^{3/2}\)</dt><dd><b>normalizacija</b>: broj koji osigurava da zbir svih udela bude 100%.</dd>
+<dt>\(v^2\)</dt><dd>što je brzina veća, više je <b>pravaca i kombinacija</b> (\(v_x, v_y, v_z\)) koje daju tu brzinu, kao što je površina lopte \(4\pi v^2\) veća za veći poluprečnik. Zato pri malim brzinama kriva <b>raste</b>.</dd>
+<dt>\(e^{-\frac{mv^2}{2kT}}\)</dt><dd>Bolcmanov faktor, gde je energija \(\frac12mv^2\) <b>kinetička energija</b>. Pri velikim brzinama on „ubija” krivu, pa ona <b>opada</b>.</dd>
+</dl>
+<p>(U mnogim knjigama ispred stoji i \(4\pi\), od površine sfere \(4\pi v^2\). U skripti je izostavljen, a oblik krive je isti.)</p>
+</div>
+<figure>
+<svg viewBox="0 0 520 250" role="img" aria-label="Maksvelova raspodela">
+  <style>
+    .ax{stroke:var(--ink);stroke-width:2}
+    .k1{stroke:var(--sky-ink);stroke-width:3;fill:none}
+    .k2{stroke:var(--peach-ink);stroke-width:3;fill:none}
+    .lt{fill:var(--ink);font:16px Nunito,sans-serif}
+  </style>
+  <line class="ax" x1="50" y1="210" x2="500" y2="210"/><line class="ax" x1="50" y1="210" x2="50" y2="20"/>
+  <text class="lt" x="440" y="235">v [m/s]</text><text class="lt" x="10" y="30">f(v)</text>
+  <text class="lt" x="155" y="228">500</text><text class="lt" x="263" y="228">1000</text><text class="lt" x="373" y="228">1500</text>
+  <path class="k1" d="M50.0,210.0 L52.2,209.7 L54.4,209.0 L56.6,207.7 L58.8,205.9 L61.0,203.6 L63.2,200.9 L65.4,197.6 L67.6,194.0 L69.8,189.9 L72.0,185.5 L74.2,180.7 L76.4,175.6 L78.6,170.1 L80.8,164.5 L83.0,158.6 L85.2,152.5 L87.4,146.3 L89.6,140.0 L91.8,133.6 L94.0,127.1 L96.2,120.7 L98.4,114.3 L100.6,108.1 L102.8,101.9 L105.0,95.9 L107.2,90.0 L109.4,84.4 L111.6,79.1 L113.8,74.0 L116.0,69.2 L118.2,64.7 L120.4,60.5 L122.6,56.7 L124.8,53.3 L127.0,50.3 L129.2,47.6 L131.4,45.3 L133.6,43.5 L135.8,42.0 L138.0,41.0 L140.2,40.3 L142.4,40.0 L144.6,40.1 L146.8,40.6 L149.0,41.4 L151.2,42.6 L153.4,44.2 L155.6,46.0 L157.8,48.2 L160.0,50.6 L162.2,53.3 L164.4,56.2 L166.6,59.4 L168.8,62.8 L171.0,66.3 L173.2,70.1 L175.4,73.9 L177.6,77.9 L179.8,82.0 L182.0,86.2 L184.2,90.4 L186.4,94.7 L188.6,99.0 L190.8,103.3 L193.0,107.7 L195.2,112.0 L197.4,116.2 L199.6,120.5 L201.8,124.6 L204.0,128.7 L206.2,132.8 L208.4,136.7 L210.6,140.5 L212.8,144.3 L215.0,147.9 L217.2,151.4 L219.4,154.8 L221.6,158.1 L223.8,161.2 L226.0,164.3 L228.2,167.2 L230.4,169.9 L232.6,172.6 L234.8,175.1 L237.0,177.5 L239.2,179.8 L241.4,181.9 L243.6,184.0 L245.8,185.9 L248.0,187.7 L250.2,189.4 L252.4,191.0 L254.6,192.5 L256.8,193.9 L259.0,195.2 L261.2,196.4 L263.4,197.6 L265.6,198.6 L267.8,199.6 L270.0,200.5 L272.2,201.4 L274.4,202.1 L276.6,202.9 L278.8,203.5 L281.0,204.1 L283.2,204.7 L285.4,205.2 L287.6,205.7 L289.8,206.1 L292.0,206.5 L294.2,206.8 L296.4,207.1 L298.6,207.4 L300.8,207.7 L303.0,207.9 L305.2,208.2 L307.4,208.4 L309.6,208.5 L311.8,208.7 L314.0,208.8 L316.2,209.0 L318.4,209.1 L320.6,209.2 L322.8,209.3 L325.0,209.4 L327.2,209.4 L329.4,209.5 L331.6,209.6 L333.8,209.6 L336.0,209.7 L338.2,209.7 L340.4,209.7 L342.6,209.8 L344.8,209.8 L347.0,209.8 L349.2,209.9 L351.4,209.9 L353.6,209.9 L355.8,209.9 L358.0,209.9 L360.2,209.9 L362.4,209.9 L364.6,209.9 L366.8,210.0 L369.0,210.0 L371.2,210.0 L373.4,210.0 L375.6,210.0 L377.8,210.0 L380.0,210.0 L382.2,210.0 L384.4,210.0 L386.6,210.0 L388.8,210.0 L391.0,210.0 L393.2,210.0 L395.4,210.0 L397.6,210.0 L399.8,210.0 L402.0,210.0 L404.2,210.0 L406.4,210.0 L408.6,210.0 L410.8,210.0 L413.0,210.0 L415.2,210.0 L417.4,210.0 L419.6,210.0 L421.8,210.0 L424.0,210.0 L426.2,210.0 L428.4,210.0 L430.6,210.0 L432.8,210.0 L435.0,210.0 L437.2,210.0 L439.4,210.0 L441.6,210.0 L443.8,210.0 L446.0,210.0 L448.2,210.0 L450.4,210.0 L452.6,210.0 L454.8,210.0 L457.0,210.0 L459.2,210.0 L461.4,210.0 L463.6,210.0 L465.8,210.0 L468.0,210.0 L470.2,210.0 L472.4,210.0 L474.6,210.0 L476.8,210.0 L479.0,210.0 L481.2,210.0 L483.4,210.0 L485.6,210.0 L487.8,210.0 L490.0,210.0"/>
+  <path class="k2" d="M50.0,210.0 L52.2,210.0 L54.4,209.8 L56.6,209.6 L58.8,209.3 L61.0,208.9 L63.2,208.5 L65.4,207.9 L67.6,207.3 L69.8,206.6 L72.0,205.8 L74.2,204.9 L76.4,204.0 L78.6,203.0 L80.8,201.9 L83.0,200.8 L85.2,199.6 L87.4,198.3 L89.6,196.9 L91.8,195.5 L94.0,194.1 L96.2,192.6 L98.4,191.0 L100.6,189.4 L102.8,187.7 L105.0,186.0 L107.2,184.3 L109.4,182.5 L111.6,180.7 L113.8,178.9 L116.0,177.0 L118.2,175.2 L120.4,173.3 L122.6,171.4 L124.8,169.5 L127.0,167.5 L129.2,165.6 L131.4,163.7 L133.6,161.8 L135.8,159.8 L138.0,157.9 L140.2,156.0 L142.4,154.2 L144.6,152.3 L146.8,150.5 L149.0,148.6 L151.2,146.9 L153.4,145.1 L155.6,143.4 L157.8,141.7 L160.0,140.1 L162.2,138.5 L164.4,136.9 L166.6,135.4 L168.8,134.0 L171.0,132.5 L173.2,131.2 L175.4,129.9 L177.6,128.6 L179.8,127.5 L182.0,126.3 L184.2,125.3 L186.4,124.2 L188.6,123.3 L190.8,122.4 L193.0,121.6 L195.2,120.9 L197.4,120.2 L199.6,119.5 L201.8,119.0 L204.0,118.5 L206.2,118.1 L208.4,117.7 L210.6,117.4 L212.8,117.2 L215.0,117.0 L217.2,116.9 L219.4,116.9 L221.6,116.9 L223.8,117.0 L226.0,117.2 L228.2,117.4 L230.4,117.6 L232.6,118.0 L234.8,118.3 L237.0,118.8 L239.2,119.3 L241.4,119.8 L243.6,120.4 L245.8,121.0 L248.0,121.7 L250.2,122.5 L252.4,123.2 L254.6,124.1 L256.8,124.9 L259.0,125.8 L261.2,126.8 L263.4,127.7 L265.6,128.8 L267.8,129.8 L270.0,130.9 L272.2,132.0 L274.4,133.1 L276.6,134.2 L278.8,135.4 L281.0,136.6 L283.2,137.8 L285.4,139.0 L287.6,140.2 L289.8,141.5 L292.0,142.8 L294.2,144.0 L296.4,145.3 L298.6,146.6 L300.8,147.9 L303.0,149.2 L305.2,150.5 L307.4,151.8 L309.6,153.1 L311.8,154.4 L314.0,155.7 L316.2,156.9 L318.4,158.2 L320.6,159.5 L322.8,160.8 L325.0,162.0 L327.2,163.3 L329.4,164.5 L331.6,165.7 L333.8,166.9 L336.0,168.1 L338.2,169.3 L340.4,170.5 L342.6,171.6 L344.8,172.8 L347.0,173.9 L349.2,175.0 L351.4,176.1 L353.6,177.1 L355.8,178.2 L358.0,179.2 L360.2,180.2 L362.4,181.2 L364.6,182.1 L366.8,183.1 L369.0,184.0 L371.2,184.9 L373.4,185.8 L375.6,186.6 L377.8,187.5 L380.0,188.3 L382.2,189.1 L384.4,189.9 L386.6,190.6 L388.8,191.3 L391.0,192.1 L393.2,192.8 L395.4,193.4 L397.6,194.1 L399.8,194.7 L402.0,195.3 L404.2,195.9 L406.4,196.5 L408.6,197.1 L410.8,197.6 L413.0,198.1 L415.2,198.6 L417.4,199.1 L419.6,199.6 L421.8,200.1 L424.0,200.5 L426.2,200.9 L428.4,201.3 L430.6,201.7 L432.8,202.1 L435.0,202.5 L437.2,202.8 L439.4,203.2 L441.6,203.5 L443.8,203.8 L446.0,204.1 L448.2,204.4 L450.4,204.7 L452.6,204.9 L454.8,205.2 L457.0,205.4 L459.2,205.6 L461.4,205.9 L463.6,206.1 L465.8,206.3 L468.0,206.5 L470.2,206.7 L472.4,206.8 L474.6,207.0 L476.8,207.2 L479.0,207.3 L481.2,207.5 L483.4,207.6 L485.6,207.7 L487.8,207.9 L490.0,208.0"/>
+  <text class="lt" x="150" y="32" style="fill:var(--sky-ink)">N₂ na 300 K</text>
+  <text class="lt" x="250" y="110" style="fill:var(--peach-ink)">N₂ na 1000 K</text>
+</svg>
+<figcaption>Maksvelova raspodela za azot. Na višoj temperaturi kriva se pomera udesno (brže čestice) i spljošti se (veće rasipanje brzina).</figcaption>
+</figure>
+<div class="box num"><span class="lbl">Primer sa brojevima</span>
+<p>Najverovatnija brzina je \(v_p = \sqrt{\dfrac{2kT}{m}}\). Tu je vrh krive, i dobija se iz \(\frac{df_v}{dv} = 0\), isti trik kao u pitanju 2.</p>
+<p>Molekul azota (vazduh) na sobnoj temperaturi: \(v_p \approx 420\) m/s, a srednja brzina oko 480 m/s. To je <b>brže od zvuka</b> (340 m/s)! Molekuli vazduha oko tebe jure kao metak, samo u svim pravcima i stalno se sudaraju.</p>
+</div>
+<div class="box life"><span class="lbl">Iz stvarnog života</span>
+<ul>
+<li><b>Hlađenje znojenjem / kafe koja se hladi:</b> isparavaju najbrži molekuli iz „repa” raspodele, a ostaju sporiji, pa se tečnost hladi.</li>
+<li><b>Zašto u atmosferi skoro nema helijuma i vodonika:</b> lagani su, pa im je raspodela pomerena ka velikim brzinama. Mali deo iz „repa” ima brzinu veću od brzine bekstva sa Zemlje i polako odleti u svemir.</li>
+<li><b>Termalna jonizacija</b> (pitanje 1): iako je prosečna energija mala, rep Maksvelove raspodele sadrži nekoliko dovoljno brzih čestica.</li>
+</ul>
+</div>
+
+<div class="box term"><span class="lbl">Šta znači „ravnotežna plazma”</span>
+<p>Ravnotežna (\(\sim\)) plazma znači da <b>ovim raspodelama</b> (Saha, Bolcman, Maksvel, a za zračenje i Plank) <b>možemo opisati sistem</b>, i to sa <b>jednom te istom temperaturom</b> \(T\). Ako znamo \(T\) (i podatke o atomu: \(g\), \(E_i\), \(\chi\)), znamo sve.</p>
+</div>
+
+<h2>4. Plankov zakon zračenja</h2>
+<div class="box term"><span class="lbl">Novi pojam · Apsolutno crno telo (ACT)</span>
+<p><b>Apsolutno crno telo</b> je idealizovano telo koje <b>upija svu svetlost</b> koja padne na njega (ništa ne odbija, zato je „crno”). Kada je u ravnoteži na temperaturi \(T\), ono i <b>zrači</b>, i to po spektru koji zavisi <b>samo od temperature</b>, a ne od materijala.</p>
+<p>Približni primeri: rupica na zatvorenoj peći, užarena ugljena, Sunce, pa čak i ti (zračiš u infracrvenom).</p>
+</div>
+<div class="box eq"><span class="lbl">Jednačina</span>
+\[L(\lambda, T) = \frac{2hc^2}{\lambda^5}\cdot\frac{1}{e^{\frac{hc}{kT\lambda}} - 1}\]
+<dl class="parts">
+<dt>\(L(\lambda,T)\)</dt><dd><b>spektralna radijansa</b>: koliko snage zračenja telo šalje na talasnoj dužini \(\lambda\), po jedinici površine, po jedinici prostornog ugla i po jedinici talasne dužine. Jednostavno: <b>koliko sija na toj boji</b>.</dd>
+<dt>\(\lambda\)</dt><dd>(grčko „lambda”) <b>talasna dužina</b> svetlosti. Za vidljivu svetlost 380 nm (ljubičasta) do 750 nm (crvena).</dd>
+<dt>\(T\)</dt><dd>temperatura tela u kelvinima.</dd>
+<dt>\(h\)</dt><dd>Plankova konstanta. Ovom formulom ju je Plank uveo 1900, i tu je rođena <b>kvantna fizika</b>.</dd>
+<dt>\(c\)</dt><dd>brzina svetlosti \(3\cdot10^8\) m/s.</dd>
+<dt>\(k\)</dt><dd>Bolcmanova konstanta.</dd>
+<dt>\(\frac{2hc^2}{\lambda^5}\)</dt><dd>deo koji <b>raste</b> kada \(\lambda\) opada (kratke talasne dužine). Sam bi davao beskonačno mnogo UV zračenja (tzv. „ultraljubičasta katastrofa” klasične fizike).</dd>
+<dt>\(\frac{1}{e^{hc/kT\lambda}-1}\)</dt><dd>deo koji <b>„gasi”</b> kratke talasne dužine. \(\frac{hc}{\lambda}\) je energija jednog fotona, a fotona velike energije (u odnosu na \(kT\)) ima eksponencijalno malo. Opet Bolcmanov faktor!</dd>
+</dl>
+<p>Proizvod ova dva dela daje krivu sa <b>maksimumom</b> (slika).</p>
+</div>
+<figure>
+<svg viewBox="0 0 520 250" role="img" aria-label="Plankove krive">
+  <style>
+    .ax{stroke:var(--ink);stroke-width:2}
+    .vis{fill:var(--butter);opacity:.9}
+    .p1{stroke:var(--sage-ink);stroke-width:3;fill:none}
+    .p2{stroke:var(--peach-ink);stroke-width:3;fill:none}
+    .p3{stroke:var(--sky-ink);stroke-width:3;fill:none}
+    .lt{fill:var(--ink);font:16px Nunito,sans-serif}
+  </style>
+  <rect class="vis" x="133.6" y="20" width="81.4" height="190"/>
+  <text class="lt" x="140" y="15">vidljivo</text>
+  <line class="ax" x1="50" y1="210" x2="500" y2="210"/><line class="ax" x1="50" y1="210" x2="50" y2="20"/>
+  <text class="lt" x="440" y="235">λ [nm]</text><text class="lt" x="22" y="30">L</text>
+  <text class="lt" x="150" y="228">500</text><text class="lt" x="260" y="228">1000</text><text class="lt" x="370" y="228">1500</text>
+  <path class="p3" d="M52.2,210.0 L54.4,210.0 L56.6,210.0 L58.8,210.0 L61.0,210.0 L63.2,210.0 L65.4,210.0 L67.6,210.0 L69.8,210.0 L72.0,210.0 L74.2,210.0 L76.4,210.0 L78.6,209.9 L80.8,209.9 L83.0,209.6 L85.2,209.2 L87.4,208.5 L89.6,207.3 L91.8,205.6 L94.0,203.2 L96.2,200.1 L98.4,196.1 L100.6,191.4 L102.8,185.9 L105.0,179.6 L107.2,172.6 L109.4,165.0 L111.6,157.0 L113.8,148.6 L116.0,140.0 L118.2,131.3 L120.4,122.6 L122.6,114.0 L124.8,105.6 L127.0,97.5 L129.2,89.7 L131.4,82.3 L133.6,75.4 L135.8,68.9 L138.0,63.0 L140.2,57.6 L142.4,52.7 L144.6,48.3 L146.8,44.4 L149.0,41.1 L151.2,38.2 L153.4,35.8 L155.6,33.8 L157.8,32.3 L160.0,31.2 L162.2,30.5 L164.4,30.1 L166.6,30.0 L168.8,30.3 L171.0,30.8 L173.2,31.6 L175.4,32.6 L177.6,33.8 L179.8,35.3 L182.0,36.9 L184.2,38.6 L186.4,40.5 L188.6,42.6 L190.8,44.7 L193.0,46.9 L195.2,49.2 L197.4,51.6 L199.6,54.0 L201.8,56.5 L204.0,59.0 L206.2,61.6 L208.4,64.1 L210.6,66.7 L212.8,69.3 L215.0,71.9 L217.2,74.4 L219.4,77.0 L221.6,79.6 L223.8,82.1 L226.0,84.6 L228.2,87.1 L230.4,89.6 L232.6,92.1 L234.8,94.5 L237.0,96.8 L239.2,99.2 L241.4,101.5 L243.6,103.8 L245.8,106.0 L248.0,108.2 L250.2,110.4 L252.4,112.5 L254.6,114.6 L256.8,116.6 L259.0,118.6 L261.2,120.6 L263.4,122.5 L265.6,124.4 L267.8,126.2 L270.0,128.0 L272.2,129.8 L274.4,131.5 L276.6,133.2 L278.8,134.9 L281.0,136.5 L283.2,138.1 L285.4,139.6 L287.6,141.1 L289.8,142.6 L292.0,144.0 L294.2,145.4 L296.4,146.8 L298.6,148.2 L300.8,149.5 L303.0,150.8 L305.2,152.0 L307.4,153.3 L309.6,154.4 L311.8,155.6 L314.0,156.8 L316.2,157.9 L318.4,159.0 L320.6,160.0 L322.8,161.1 L325.0,162.1 L327.2,163.1 L329.4,164.0 L331.6,165.0 L333.8,165.9 L336.0,166.8 L338.2,167.7 L340.4,168.5 L342.6,169.4 L344.8,170.2 L347.0,171.0 L349.2,171.8 L351.4,172.5 L353.6,173.3 L355.8,174.0 L358.0,174.7 L360.2,175.4 L362.4,176.1 L364.6,176.8 L366.8,177.4 L369.0,178.0 L371.2,178.7 L373.4,179.3 L375.6,179.9 L377.8,180.4 L380.0,181.0 L382.2,181.6 L384.4,182.1 L386.6,182.6 L388.8,183.1 L391.0,183.6 L393.2,184.1 L395.4,184.6 L397.6,185.1 L399.8,185.5 L402.0,186.0 L404.2,186.4 L406.4,186.9 L408.6,187.3 L410.8,187.7 L413.0,188.1 L415.2,188.5 L417.4,188.9 L419.6,189.3 L421.8,189.6 L424.0,190.0 L426.2,190.3 L428.4,190.7 L430.6,191.0 L432.8,191.4 L435.0,191.7 L437.2,192.0 L439.4,192.3 L441.6,192.6 L443.8,192.9 L446.0,193.2 L448.2,193.5 L450.4,193.8 L452.6,194.1 L454.8,194.3 L457.0,194.6 L459.2,194.8 L461.4,195.1 L463.6,195.4 L465.8,195.6 L468.0,195.8 L470.2,196.1 L472.4,196.3 L474.6,196.5 L476.8,196.7 L479.0,197.0 L481.2,197.2 L483.4,197.4 L485.6,197.6 L487.8,197.8 L490.0,198.0"/>
+  <path class="p2" d="M52.2,210.0 L54.4,210.0 L56.6,210.0 L58.8,210.0 L61.0,210.0 L63.2,210.0 L65.4,210.0 L67.6,210.0 L69.8,210.0 L72.0,210.0 L74.2,210.0 L76.4,210.0 L78.6,210.0 L80.8,210.0 L83.0,210.0 L85.2,210.0 L87.4,210.0 L89.6,209.9 L91.8,209.8 L94.0,209.6 L96.2,209.4 L98.4,209.0 L100.6,208.5 L102.8,207.9 L105.0,207.0 L107.2,206.0 L109.4,204.8 L111.6,203.4 L113.8,201.7 L116.0,199.9 L118.2,197.9 L120.4,195.8 L122.6,193.5 L124.8,191.1 L127.0,188.6 L129.2,186.1 L131.4,183.5 L133.6,180.9 L135.8,178.2 L138.0,175.7 L140.2,173.1 L142.4,170.6 L144.6,168.2 L146.8,165.9 L149.0,163.7 L151.2,161.6 L153.4,159.6 L155.6,157.7 L157.8,155.9 L160.0,154.3 L162.2,152.8 L164.4,151.4 L166.6,150.2 L168.8,149.1 L171.0,148.1 L173.2,147.2 L175.4,146.4 L177.6,145.8 L179.8,145.2 L182.0,144.8 L184.2,144.5 L186.4,144.2 L188.6,144.1 L190.8,144.0 L193.0,144.0 L195.2,144.1 L197.4,144.3 L199.6,144.5 L201.8,144.7 L204.0,145.1 L206.2,145.5 L208.4,145.9 L210.6,146.4 L212.8,146.9 L215.0,147.4 L217.2,148.0 L219.4,148.6 L221.6,149.2 L223.8,149.9 L226.0,150.6 L228.2,151.3 L230.4,152.0 L232.6,152.7 L234.8,153.5 L237.0,154.2 L239.2,155.0 L241.4,155.7 L243.6,156.5 L245.8,157.3 L248.0,158.1 L250.2,158.8 L252.4,159.6 L254.6,160.4 L256.8,161.2 L259.0,161.9 L261.2,162.7 L263.4,163.5 L265.6,164.2 L267.8,165.0 L270.0,165.7 L272.2,166.4 L274.4,167.2 L276.6,167.9 L278.8,168.6 L281.0,169.3 L283.2,170.0 L285.4,170.7 L287.6,171.4 L289.8,172.0 L292.0,172.7 L294.2,173.3 L296.4,174.0 L298.6,174.6 L300.8,175.2 L303.0,175.8 L305.2,176.4 L307.4,177.0 L309.6,177.6 L311.8,178.2 L314.0,178.7 L316.2,179.3 L318.4,179.8 L320.6,180.4 L322.8,180.9 L325.0,181.4 L327.2,181.9 L329.4,182.4 L331.6,182.9 L333.8,183.4 L336.0,183.8 L338.2,184.3 L340.4,184.7 L342.6,185.2 L344.8,185.6 L347.0,186.1 L349.2,186.5 L351.4,186.9 L353.6,187.3 L355.8,187.7 L358.0,188.1 L360.2,188.5 L362.4,188.8 L364.6,189.2 L366.8,189.6 L369.0,189.9 L371.2,190.3 L373.4,190.6 L375.6,190.9 L377.8,191.3 L380.0,191.6 L382.2,191.9 L384.4,192.2 L386.6,192.5 L388.8,192.8 L391.0,193.1 L393.2,193.4 L395.4,193.6 L397.6,193.9 L399.8,194.2 L402.0,194.5 L404.2,194.7 L406.4,195.0 L408.6,195.2 L410.8,195.5 L413.0,195.7 L415.2,195.9 L417.4,196.2 L419.6,196.4 L421.8,196.6 L424.0,196.8 L426.2,197.0 L428.4,197.3 L430.6,197.5 L432.8,197.7 L435.0,197.9 L437.2,198.1 L439.4,198.2 L441.6,198.4 L443.8,198.6 L446.0,198.8 L448.2,199.0 L450.4,199.1 L452.6,199.3 L454.8,199.5 L457.0,199.6 L459.2,199.8 L461.4,200.0 L463.6,200.1 L465.8,200.3 L468.0,200.4 L470.2,200.6 L472.4,200.7 L474.6,200.8 L476.8,201.0 L479.0,201.1 L481.2,201.3 L483.4,201.4 L485.6,201.5 L487.8,201.6 L490.0,201.8"/>
+  <path class="p1" d="M52.2,210.0 L54.4,210.0 L56.6,210.0 L58.8,210.0 L61.0,210.0 L63.2,210.0 L65.4,210.0 L67.6,210.0 L69.8,210.0 L72.0,210.0 L74.2,210.0 L76.4,210.0 L78.6,210.0 L80.8,210.0 L83.0,210.0 L85.2,210.0 L87.4,210.0 L89.6,210.0 L91.8,210.0 L94.0,210.0 L96.2,210.0 L98.4,210.0 L100.6,210.0 L102.8,210.0 L105.0,209.9 L107.2,209.9 L109.4,209.8 L111.6,209.7 L113.8,209.6 L116.0,209.5 L118.2,209.4 L120.4,209.2 L122.6,209.0 L124.8,208.7 L127.0,208.4 L129.2,208.1 L131.4,207.8 L133.6,207.4 L135.8,206.9 L138.0,206.5 L140.2,206.0 L142.4,205.5 L144.6,205.0 L146.8,204.5 L149.0,203.9 L151.2,203.4 L153.4,202.8 L155.6,202.2 L157.8,201.6 L160.0,201.0 L162.2,200.5 L164.4,199.9 L166.6,199.3 L168.8,198.8 L171.0,198.3 L173.2,197.7 L175.4,197.2 L177.6,196.7 L179.8,196.3 L182.0,195.8 L184.2,195.4 L186.4,195.0 L188.6,194.6 L190.8,194.2 L193.0,193.9 L195.2,193.6 L197.4,193.3 L199.6,193.0 L201.8,192.8 L204.0,192.5 L206.2,192.3 L208.4,192.1 L210.6,192.0 L212.8,191.8 L215.0,191.7 L217.2,191.6 L219.4,191.5 L221.6,191.4 L223.8,191.3 L226.0,191.3 L228.2,191.2 L230.4,191.2 L232.6,191.2 L234.8,191.2 L237.0,191.2 L239.2,191.3 L241.4,191.3 L243.6,191.4 L245.8,191.4 L248.0,191.5 L250.2,191.6 L252.4,191.7 L254.6,191.8 L256.8,191.9 L259.0,192.0 L261.2,192.1 L263.4,192.3 L265.6,192.4 L267.8,192.5 L270.0,192.7 L272.2,192.8 L274.4,193.0 L276.6,193.1 L278.8,193.3 L281.0,193.4 L283.2,193.6 L285.4,193.7 L287.6,193.9 L289.8,194.1 L292.0,194.2 L294.2,194.4 L296.4,194.6 L298.6,194.8 L300.8,194.9 L303.0,195.1 L305.2,195.3 L307.4,195.4 L309.6,195.6 L311.8,195.8 L314.0,196.0 L316.2,196.1 L318.4,196.3 L320.6,196.5 L322.8,196.6 L325.0,196.8 L327.2,197.0 L329.4,197.1 L331.6,197.3 L333.8,197.5 L336.0,197.6 L338.2,197.8 L340.4,197.9 L342.6,198.1 L344.8,198.3 L347.0,198.4 L349.2,198.6 L351.4,198.7 L353.6,198.9 L355.8,199.0 L358.0,199.2 L360.2,199.3 L362.4,199.5 L364.6,199.6 L366.8,199.7 L369.0,199.9 L371.2,200.0 L373.4,200.2 L375.6,200.3 L377.8,200.4 L380.0,200.6 L382.2,200.7 L384.4,200.8 L386.6,200.9 L388.8,201.1 L391.0,201.2 L393.2,201.3 L395.4,201.4 L397.6,201.5 L399.8,201.7 L402.0,201.8 L404.2,201.9 L406.4,202.0 L408.6,202.1 L410.8,202.2 L413.0,202.3 L415.2,202.4 L417.4,202.5 L419.6,202.6 L421.8,202.7 L424.0,202.8 L426.2,202.9 L428.4,203.0 L430.6,203.1 L432.8,203.2 L435.0,203.3 L437.2,203.4 L439.4,203.5 L441.6,203.6 L443.8,203.7 L446.0,203.8 L448.2,203.8 L450.4,203.9 L452.6,204.0 L454.8,204.1 L457.0,204.2 L459.2,204.2 L461.4,204.3 L463.6,204.4 L465.8,204.5 L468.0,204.5 L470.2,204.6 L472.4,204.7 L474.6,204.8 L476.8,204.8 L479.0,204.9 L481.2,205.0 L483.4,205.0 L485.6,205.1 L487.8,205.2 L490.0,205.2"/>
+  <line class="p3" x1="360" y1="40" x2="385" y2="40"/><text class="lt" x="392" y="45">5500 K</text>
+  <line class="p2" x1="360" y1="64" x2="385" y2="64"/><text class="lt" x="392" y="69">4500 K</text>
+  <line class="p1" x1="360" y1="88" x2="385" y2="88"/><text class="lt" x="392" y="93">3500 K</text>
+</svg>
+<figcaption>Plankove krive. Toplije telo zrači mnogo više, a vrh mu je pomeren ka kraćim talasnim dužinama (ka plavom).</figcaption>
+</figure>
+<div class="box num"><span class="lbl">Korisna posledica · Vinov zakon</span>
+<p>Položaj vrha krive: \(\lambda_{max}\cdot T \approx 2{,}9\cdot10^{-3}\) m·K. Dakle <b>što je telo toplije, vrh je na kraćoj talasnoj dužini</b>.</p>
+<div class="tablewrap"><table>
+<tr><th>Telo</th><th>T</th><th>\(\lambda_{max}\)</th><th>Šta vidimo</th></tr>
+<tr><td>ljudsko telo</td><td>310 K</td><td>≈ 9 300 nm</td><td>nevidljivo, infracrveno; vide ga termovizijske kamere</td></tr>
+<tr><td>ringla šporeta</td><td>≈ 1 000 K</td><td>≈ 2 900 nm</td><td>vidimo samo mali „rep” u crvenom, pa je tamnocrvena</td></tr>
+<tr><td>sijalica sa vlaknom</td><td>≈ 2 700 K</td><td>≈ 1 070 nm</td><td>toplo žuta, a većina energije ode na toplotu (zato su neefikasne)</td></tr>
+<tr><td>površina Sunca</td><td>≈ 5 800 K</td><td>≈ 500 nm</td><td>bela svetlost, vrh baš u vidljivom (naše oči su se tome prilagodile)</td></tr>
+</table></div>
+</div>
+<div class="box life"><span class="lbl">Iz stvarnog života</span>
+<p>Kovač procenjuje temperaturu gvožđa po boji: tamnocrveno, pa narandžasto, pa žuto, pa belo. Plave zvezde (npr. Rigel) su toplije od crvenih (npr. Betelgez). Kod sijalica piše „2700 K – topla bela” ili „6500 K – hladna bela”, a to je upravo temperatura crnog tela koje bi davalo tu boju.</p>
+</div>
+
+<h2>5. Kako sve ovo ide zajedno</h2>
+<div class="tablewrap"><table>
+<tr><th>Raspodela</th><th>Opisuje</th><th>Ključna „cena”</th></tr>
+<tr><td>Saha</td><td>jonizaciju (koliko jona i elektrona)</td><td>\(e^{-\chi/kT}\)</td></tr>
+<tr><td>Bolcman</td><td>pobuđenost (populacija nivoa)</td><td>\(e^{-E_i/kT}\)</td></tr>
+<tr><td>Maksvel</td><td>brzine (kinetičku energiju) čestica</td><td>\(e^{-mv^2/2kT}\)</td></tr>
+<tr><td>Plank</td><td>zračenje (spektar svetlosti)</td><td>\(e^{-hc/\lambda kT}\)</td></tr>
+</table></div>
+<p>Sve četiri imaju isti „duh”: <b>stanje veće energije je eksponencijalno ređe</b>, a „merilo” je \(kT\). U pravoj ravnotežnoj plazmi sve četiri važe sa <b>istom</b> temperaturom.</p>
+
+<div class="box exam"><span class="lbl">Ukratko za ispit (šta napisati)</span>
+<ol>
+<li>TD ravnoteža: makroskopski parametri sistema su nepromenljivi, sve je (kvazi)stacionarno. Plazma ima mnogo stepeni slobode i uglavnom nije baš u ravnoteži, nego „blizu”.</li>
+<li><b>Saha</b>: \(\frac{n_en_{i+1}}{n_i} = \frac{g_{i+1}}{g_i}\cdot2\cdot\left(\frac{2\pi m_e}{h^2}\right)^{3/2}(kT)^{3/2}e^{-\chi_i/kT}\), odnos koncentracija za dva uzastopna stanja jonizacije. Objasni \(n_i\), \(g_i\), \(\chi_i\).</li>
+<li><b>Bolcman</b>: \(\frac{n_i}{n_0} = \frac{g_i}{g_0}e^{-E_i/kT}\), populacija nivoa (\(n_i\) pobuđeno, \(n_0\) osnovno).</li>
+<li><b>Maksvel</b>: \(f_v = \left(\frac{m}{2\pi kT}\right)^{3/2}v^2e^{-mv^2/2kT}\), raspodela po brzinama.</li>
+<li>Ravnotežna plazma znači da je možemo opisati ovim raspodelama (i podacima o atomima).</li>
+<li><b>Plank</b>: \(L(\lambda,T) = \frac{2hc^2}{\lambda^5}\frac{1}{e^{hc/kT\lambda}-1}\). \(L\) je spektralna radijansa i opisuje zračenje ACT. Nacrtaj krivu sa maksimumom.</li>
+</ol>
+</div>
+
+<h3>Proveri sebe</h3>
+<details><summary>Da li u TD ravnoteži prestaju svi procesi?</summary><p>Ne. Procesi se i dalje dešavaju, ali svaki je uravnotežen svojim suprotnim procesom (jonizacija = rekombinacija itd.), pa se makroskopski parametri ne menjaju.</p></details>
+<details><summary>Koja je razlika između Sahine i Bolcmanove raspodele?</summary><p>Bolcman daje odnos naseljenosti dva energetska nivoa (elektron ostaje u atomu). Saha daje odnos dva uzastopna stanja jonizacije (elektron postaje slobodan).</p></details>
+<details><summary>Zašto Maksvelova kriva prvo raste pa opada?</summary><p>Faktor \(v^2\) raste (više kombinacija pravaca za veću brzinu), a eksponencijalni faktor \(e^{-mv^2/2kT}\) opada (velika energija je retka). Njihov proizvod ima maksimum.</p></details>
+<details><summary>Šta se dešava sa Plankovom krivom kad se telo zagreje?</summary><p>Ide nagore (zrači mnogo više na svim talasnim dužinama) i vrh joj se pomera ka kraćim talasnim dužinama (Vinov zakon).</p></details>
+<details><summary>Zašto je vodonik skoro potpuno jonizovan već na 20 000 K, iako je tada \(kT\) samo 1,7 eV?</summary><p>Zbog ogromnog faktora \((2\pi m_ekT/h^2)^{3/2}\approx10^{27}\)–\(10^{28}\) m⁻³ ispred eksponenta: slobodni elektroni imaju mnogo više dostupnih stanja, pa to nadjača mali Bolcmanov faktor.</p></details>
 </section>
 
 <!-- KRAJ PITANJA -->
