@@ -480,6 +480,256 @@ nav.bottom{position:fixed;left:0;right:0;bottom:0;z-index:5;background:color-mix
 <details><summary>Zašto u \(\frac{dn}{dt} = -\frac{j}{ed}\) stoji \(d\) u imeniocu?</summary><p>Isti broj čestica koje u sekundi odlaze na elektrode „raspoređuje” se na veću zapreminu gasa ako su elektrode dalje, pa je gubitak po jedinici zapremine manji.</p></details>
 </section>
 
+<!-- ===================== PITANJE 2 ===================== -->
+<section class="q" data-title="Elastični i neelastični sudari, značaj elektrona">
+<span class="qnum">PITANJE 2</span>
+<h1>Elastični i neelastični sudari, značaj elektrona</h1>
+<p class="lead">U pitanju 1 videli smo da sudari mogu jonizovati gas. Sada odgovaramo zašto su baš <b>elektroni</b> ti koji obavljaju skoro sav posao, a joni skoro ništa. Odgovor se krije u <b>masi</b>.</p>
+
+<h2>0. Pojmovi koje moraš znati</h2>
+
+<div class="box term"><span class="lbl">Novi pojam · Sudar</span>
+<p>U fizici „sudar” znači svaki kratak susret dve čestice u kome one razmene energiju i/ili impuls i promene brzinu. Ne moraju se bukvalno „dodirnuti”, dovoljno je da jedna oseti silu druge.</p>
+</div>
+
+<div class="box term"><span class="lbl">Novi pojam · Elastični sudar</span>
+<p><b>Elastičan</b> sudar je onaj u kome se <b>ukupna kinetička energija ne menja</b>. Čestice se samo odbiju i promene brzine, ali ništa se „unutra” ne promeni: atom posle sudara nije ni pobuđen ni jonizovan.</p>
+<p>Primer: bilijarske kugle, odskakanje gumene loptice od poda (skoro elastično).</p>
+</div>
+
+<div class="box term"><span class="lbl">Novi pojam · Neelastični sudar</span>
+<p><b>Neelastičan</b> sudar je onaj u kome se <b>deo kinetičke energije pretvori u nešto drugo</b>. Kod atoma to „nešto drugo” je <b>unutrašnja energija</b>: atom se pobudi (\(A^*\)) ili jonizuje (\(A^+\)). Tu predatu energiju zovemo \(\Delta E\).</p>
+<p>Primer iz života: kuglica od plastelina bačena u zid se zalepi i ne odskoči. Njena kinetička energija otišla je u deformaciju (i malo toplote). Kod sudara automobila, kinetička energija ode na gužvanje lima, a „zone gužvanja” su namerno napravljene da progutaju što više energije.</p>
+</div>
+
+<div class="box term"><span class="lbl">Novi pojam · Impuls (količina kretanja)</span>
+\[\vec p = m\vec v\]
+<p><b>Impuls</b> je proizvod mase i brzine. Kaže koliko je teško zaustaviti telo: kamion na 10 km/h ima veći impuls od bicikla na 10 km/h. Strelica znači da je to <b>vektor</b> (ima i pravac).</p>
+</div>
+
+<div class="box term"><span class="lbl">Novi pojam · Zakoni održanja (ZOI i ZOE)</span>
+<p><b>ZOI, zakon održanja impulsa</b>: ukupan impuls svih čestica pre sudara jednak je ukupnom impulsu posle sudara. Važi <b>uvek</b>, i kod elastičnih i kod neelastičnih sudara.</p>
+<p><b>ZOE, zakon održanja energije</b>: energija ne nastaje niti nestaje, samo prelazi iz jednog oblika u drugi. Kod neelastičnog sudara kinetička energija se smanji, ali tačno za onoliko koliko je otišlo u unutrašnju energiju \(\Delta E\).</p>
+<p>Primer: kad stojiš na skejtu i baciš tešku loptu napred, ti odeš unazad. To je ZOI: ukupan impuls je bio nula i mora ostati nula.</p>
+</div>
+
+<h2>1. Zašto su elektroni posebni</h2>
+<p>U skripti su navedene tri ključne stvari:</p>
+<ul>
+<li>Elektroni su <b>pokretljiviji, brži i lakši</b> od jona. Elektron je oko 1836 puta lakši od najlakšeg atoma (vodonika), a čak oko 73 000 puta lakši od atoma argona.</li>
+<li>Elektroni izazivaju sudare u kojima <b>mogu da predaju svu svoju energiju</b>, a zatim ih električno polje <b>ponovo ubrza</b>. Taj ciklus se ponavlja.</li>
+<li>Energija koju elektroni mogu da predaju dobija se iz računa ispod.</li>
+</ul>
+
+<figure>
+<svg viewBox="0 0 520 170" role="img" aria-label="Ciklus elektrona">
+  <style>
+    .bx{fill:var(--card);stroke:var(--line);stroke-width:2}
+    .tt{fill:var(--ink);font:14px Nunito,sans-serif;text-anchor:middle}
+    .ar{stroke:var(--accent);stroke-width:3;fill:none}
+  </style>
+  <defs><marker id="ca" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/></marker></defs>
+  <rect class="bx" x="10" y="20" width="150" height="56" rx="14"/>
+  <text class="tt" x="85" y="44">polje ubrzava</text><text class="tt" x="85" y="64">elektron</text>
+  <rect class="bx" x="185" y="20" width="150" height="56" rx="14"/>
+  <text class="tt" x="260" y="44">sudar sa</text><text class="tt" x="260" y="64">atomom</text>
+  <rect class="bx" x="360" y="20" width="150" height="56" rx="14"/>
+  <text class="tt" x="435" y="44">preda energiju</text><text class="tt" x="435" y="64">(A* ili A⁺)</text>
+  <line class="ar" x1="160" y1="48" x2="182" y2="48" marker-end="url(#ca)"/>
+  <line class="ar" x1="335" y1="48" x2="357" y2="48" marker-end="url(#ca)"/>
+  <path class="ar" d="M435,78 C435,150 85,150 85,82" marker-end="url(#ca)"/>
+  <text class="tt" x="260" y="140">… i sve ispočetka</text>
+</svg>
+<figcaption>Elektron je kao „radnik” koji stalno uzima energiju od polja i predaje je atomima.</figcaption>
+</figure>
+
+<h2>2. Koliko energije elektron dobije od polja</h2>
+<p>Elektron se nalazi u električnom polju jačine \(E\). Na njega deluje sila i on se ubrzava. Krećemo od <b>drugog Njutnovog zakona</b>:</p>
+
+<div class="box eq"><span class="lbl">Korak 1 · sila i ubrzanje</span>
+\[F = ma = eE \quad\Longrightarrow\quad a = \frac{dv}{dt} = \frac{eE}{m}\]
+<dl class="parts">
+<dt>\(F\)</dt><dd><b>sila</b> (njutn, N).</dd>
+<dt>\(F = ma\)</dt><dd>2. Njutnov zakon: sila = masa × ubrzanje. Što je telo lakše, ista sila ga više ubrza (lakše je gurnuti dečja kolica nego auto).</dd>
+<dt>\(F = eE\)</dt><dd><b>električna sila</b> na česticu naelektrisanja \(e\) u polju jačine \(E\).</dd>
+<dt>\(E\)</dt><dd><b>jačina električnog polja</b> (V/m). Pokazuje koliko napona „pada” po metru. Npr. 100 V na 1 cm daje \(E = 10\,000\) V/m.</dd>
+<dt>\(a = \dfrac{dv}{dt}\)</dt><dd><b>ubrzanje</b>: koliko se brzina promeni u jednoj sekundi. \(\dfrac{dv}{dt}\) je izvod brzine po vremenu, „brzina promene brzine”.</dd>
+<dt>\(\dfrac{eE}{m}\)</dt><dd>ubrzanje je <b>obrnuto srazmerno masi</b>. Ovo je ključna stvar celog pitanja.</dd>
+</dl>
+</div>
+<div class="box warn"><span class="lbl">Pažnja · isto slovo, dve stvari</span>
+<p>U ovom pitanju slovo \(E\) znači <b>jačinu električnog polja</b>, a \(E_k\) i \(\Delta E\) su <b>energije</b>. Ne mešaj ih.</p>
+</div>
+
+<div class="box eq"><span class="lbl">Korak 2 · od ubrzanja do brzine („/ ·dt / ∫” iz skripte)</span>
+\[\frac{dv}{dt} = \frac{eE}{m} \;\;\Big/\cdot dt \quad\Longrightarrow\quad dv = \frac{eE}{m}\,dt \;\;\Big/\!\int \quad\Longrightarrow\quad v = \frac{eEt}{m}\]
+<p>Šta znače oznake u skripti:</p>
+<ul>
+<li><b>„/ ·dt”</b>: obe strane pomnožimo malim vremenskim intervalom \(dt\). Dobijamo: mala promena brzine \(dv\) = ubrzanje × mali interval vremena.</li>
+<li><b>„/ ∫”</b>: <b>integralimo</b>, tj. saberemo sve te male promene od trenutka 0 (kad elektron miruje) do trenutka \(t\). Pošto je ubrzanje stalno, zbir je jednostavno ubrzanje × vreme.</li>
+</ul>
+<p>Isto ovo znaš iz srednje škole kao \(v = a\cdot t\) za ravnomerno ubrzano kretanje iz mirovanja.</p>
+<dl class="parts">
+<dt>\(v\)</dt><dd>brzina elektrona posle vremena \(t\) ubrzavanja.</dd>
+<dt>\(t\)</dt><dd>vreme koje je elektron proveo ubrzavajući se (npr. vreme između dva sudara).</dd>
+</dl>
+</div>
+
+<div class="box eq"><span class="lbl">Korak 3 · kinetička energija (uokvireno u skripti)</span>
+\[E_k = \frac12 m_e v^2 = \frac12\,\frac{(eEt)^2}{m_e}\]
+<p>Ubacili smo \(v = \dfrac{eEt}{m_e}\) u \(\dfrac12 m_e v^2\): \(\dfrac12 m_e \dfrac{(eEt)^2}{m_e^2} = \dfrac12\dfrac{(eEt)^2}{m_e}\). Jedno \(m_e\) se skrati.</p>
+<dl class="parts">
+<dt>\(E_k\)</dt><dd>kinetička energija koju elektron skupi za vreme \(t\).</dd>
+<dt>\(m_e\)</dt><dd>masa elektrona \(9{,}11\cdot10^{-31}\) kg.</dd>
+<dt>\((eEt)^2\)</dt><dd>raste sa kvadratom polja i vremena: duplo jače polje daje 4 puta više energije.</dd>
+<dt>\(m_e\) u imeniocu</dt><dd><b>Najvažnije:</b> energija je <b>obrnuto srazmerna masi</b>. Za isto vreme u istom polju, čestica 73 000 puta lakša dobije 73 000 puta više energije.</dd>
+</dl>
+</div>
+
+<div class="box num"><span class="lbl">Primer sa brojevima</span>
+<p>Polje \(E = 1000\) V/m (10 V po centimetru), vreme ubrzavanja \(t = 1\) ns \(=10^{-9}\) s:</p>
+<div class="tablewrap"><table>
+<tr><th></th><th>Elektron</th><th>Jon argona Ar⁺</th></tr>
+<tr><td>masa</td><td>\(9{,}1\cdot10^{-31}\) kg</td><td>\(6{,}6\cdot10^{-26}\) kg</td></tr>
+<tr><td>brzina \(v = eEt/m\)</td><td>≈ 176 000 m/s</td><td>≈ 2,4 m/s</td></tr>
+<tr><td>energija \(E_k\)</td><td>≈ 0,088 eV</td><td>≈ 0,0000012 eV</td></tr>
+</table></div>
+<p>Elektron je za isto vreme dobio oko <b>73 000 puta</b> više energije. Joni su kao teški kamioni na semaforu, a elektroni kao motocikli: kad se upali zeleno, motocikl je već daleko.</p>
+</div>
+
+<h2>3. Čeoni sudar: koliko energije čestica može da preda</h2>
+<p>Sad pitamo: kada elektron udari u atom, koliko najviše energije može da mu preda u unutrašnju energiju (za pobuđivanje ili jonizaciju)?</p>
+
+<div class="box term"><span class="lbl">Postavka</span>
+<p>Posmatramo <b>čeoni sudar</b>: čestice se kreću duž iste prave (udarac „u glavu”, ne ukoso). To je slučaj u kome je predaja energije najveća.</p>
+<ul>
+<li>\(m_1\): masa čestice koja udara (kod nas <b>elektron</b>), početna brzina \(v_0\).</li>
+<li>\(m_2\): masa čestice koja <b>miruje</b> (atom).</li>
+<li>\(v_1, v_2\): brzine posle sudara.</li>
+<li>\(\Delta E\): energija koja ode u unutrašnjost atoma (ekscitacija/jonizacija). Ako je \(\Delta E = 0\), sudar je elastičan.</li>
+</ul>
+</div>
+
+<figure>
+<svg viewBox="0 0 520 170" role="img" aria-label="Čeoni sudar">
+  <style>
+    .c1{fill:var(--sky-ink)} .c2{fill:var(--lav-ink)}
+    .tx{fill:var(--ink);font:14px Nunito,sans-serif}
+    .mu{fill:var(--muted);font:13px Nunito,sans-serif}
+    .av{stroke:var(--ink);stroke-width:2.5}
+  </style>
+  <defs><marker id="va" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink)"/></marker></defs>
+  <text class="mu" x="10" y="20">PRE sudara</text>
+  <circle class="c1" cx="60" cy="55" r="8"/><text class="tx" x="50" y="85">m₁</text>
+  <line class="av" x1="72" y1="55" x2="140" y2="55" marker-end="url(#va)"/><text class="tx" x="95" y="45">v₀</text>
+  <circle class="c2" cx="230" cy="55" r="26"/><text class="tx" x="220" y="100">m₂ miruje</text>
+  <text class="mu" x="290" y="20">POSLE sudara</text>
+  <circle class="c1" cx="320" cy="135" r="8"/><text class="tx" x="310" y="165">m₁</text>
+  <line class="av" x1="332" y1="135" x2="370" y2="135" marker-end="url(#va)"/><text class="tx" x="345" y="125">v₁</text>
+  <circle class="c2" cx="440" cy="135" r="26"/>
+  <line class="av" x1="470" y1="135" x2="510" y2="135" marker-end="url(#va)"/><text class="tx" x="480" y="125">v₂</text>
+  <text class="mu" x="300" y="85">+ ΔE ostaje „u” atomu</text>
+</svg>
+<figcaption>Čeoni sudar: sve brzine su duž iste prave.</figcaption>
+</figure>
+
+<div class="box eq"><span class="lbl">Korak 1 · zakoni održanja</span>
+\[\text{ZOI:}\quad m_1v_1 + m_2v_2 = m_1v_0\]
+\[\text{ZOE:}\quad \frac{m_1v_1^2}{2} + \frac{m_2v_2^2}{2} + \Delta E = \frac{m_1v_0^2}{2}\]
+<dl class="parts">
+<dt>ZOI, levo</dt><dd>ukupan impuls <b>posle</b>: impuls elektrona \(m_1v_1\) + impuls atoma \(m_2v_2\).</dd>
+<dt>ZOI, desno</dt><dd>ukupan impuls <b>pre</b>: samo elektron ima impuls \(m_1v_0\), jer atom miruje.</dd>
+<dt>ZOE, levo</dt><dd>energija posle: kinetička energija elektrona + kinetička energija atoma + energija \(\Delta E\) „uskladištena” u atomu.</dd>
+<dt>ZOE, desno</dt><dd>energija pre: samo kinetička energija elektrona.</dd>
+</dl>
+</div>
+
+<div class="box eq"><span class="lbl">Korak 2 · eliminišemo \(v_2\)</span>
+<p>Iz ZOI izrazimo brzinu atoma:</p>
+\[v_2 = \frac{m_1(v_0 - v_1)}{m_2}\]
+<p>i to zamenimo u ZOE (\(v_2^2 = \frac{m_1^2(v_0-v_1)^2}{m_2^2}\)):</p>
+\[\frac12\left(m_1v_1^2 + m_2\frac{m_1^2(v_0-v_1)^2}{m_2^2}\right) + \Delta E = \frac12 m_1v_0^2\]
+<p>Zašto ovo radimo? Imamo dve nepoznate brzine. Kad izbacimo \(v_2\), \(\Delta E\) zavisi samo od \(v_1\), pa možemo da tražimo maksimum po jednoj promenljivoj. Izrazimo \(\Delta E\):</p>
+\[\Delta E = \frac12\left[m_1v_0^2 - m_1v_1^2 - \frac{m_1^2}{m_2}(v_0-v_1)^2\right]\]
+<p>(\(m_2\) se jednom skratilo: \(m_2\cdot\frac{m_1^2}{m_2^2} = \frac{m_1^2}{m_2}\).)</p>
+</div>
+<div class="box warn"><span class="lbl">Pažnja · znak u skripti</span>
+<p>U skripti je ovaj izraz napisan sa obrnutim redosledom članova: \(\frac12\left[m_1v_1^2 + \frac{m_1^2}{m_2}(v_0-v_1)^2 - m_1v_0^2\right]\). To je isti izraz sa suprotnim znakom. Ispravno je kako piše gore, jer \(\Delta E\) mora biti pozitivno (atom <b>primi</b> energiju). Za traženje ekstremuma (izvod = 0) znak ne menja rezultat \(v_1^*\), a konačni uokvireni rezultat u skripti je tačan.</p>
+</div>
+
+<div class="box eq"><span class="lbl">Korak 3 · kada je \(\Delta E\) maksimalno?</span>
+<p><b>Ideja:</b> funkcija ima maksimum tamo gde joj je <b>izvod jednak nuli</b>. Na samom vrhu brda nagib je nula, ni gore ni dole. Zato tražimo:</p>
+\[\frac{d(\Delta E)}{dv_1} = 0\]
+\[\frac{d(\Delta E)}{dv_1} = \frac12\left(-2m_1v_1 + \frac{2m_1^2}{m_2}(v_0-v_1)\right) = -m_1v_1 + \frac{m_1^2}{m_2}(v_0-v_1) = 0\]
+<dl class="parts">
+<dt>\(\frac{d}{dv_1}(m_1v_1^2) = 2m_1v_1\)</dt><dd>izvod od \(x^2\) je \(2x\).</dd>
+<dt>\(\frac{d}{dv_1}(v_0-v_1)^2 = 2(v_0-v_1)\cdot(-1)\)</dt><dd>izvod „složene funkcije”: \(2\times\)(unutrašnjost)\(\times\) izvod unutrašnjosti, a izvod od \((v_0 - v_1)\) po \(v_1\) je \(-1\). To je onaj \((-1)\) iz skripte.</dd>
+</dl>
+<p>Sređujemo (podelimo sa \(m_1\) i prebacimo):</p>
+\[v_1\left(1 + \frac{m_1}{m_2}\right) = \frac{m_1}{m_2}v_0\]
+\[\Longrightarrow\quad\boxed{v_1^* = \frac{v_0\,m_1}{m_1+m_2}}\]
+<p>(Pomnožili smo i brojilac i imenilac sa \(m_2\).) Zvezdica znači „ona posebna vrednost za koju je \(\Delta E\) najveće”.</p>
+</div>
+
+<div class="box life"><span class="lbl">Šta \(v_1^*\) znači fizički (lepa stvar)</span>
+<p>Ako ubaciš \(v_1^*\) u \(v_2 = \frac{m_1(v_0-v_1)}{m_2}\), dobiješ \(v_2 = \frac{v_0 m_1}{m_1+m_2}\), <b>istu brzinu</b>. Dakle predaja energije je maksimalna kad se posle sudara obe čestice kreću <b>zajedno</b>, kao da su se zalepile.</p>
+<p>Baš kao plastelin bačen na drugu kuglu plastelina: zalepe se, nastave zajedno, i tad je „izgubljeno” najviše kinetičke energije.</p>
+</div>
+
+<div class="box eq"><span class="lbl">Korak 4 · maksimalna predata energija</span>
+<p>Ubacimo \(v_1^*\) u izraz za \(\Delta E\). Pošto je \(v_0 - v_1^* = \frac{v_0 m_2}{m_1+m_2}\), dobija se:</p>
+\[\Delta E_{max} = \frac12\Bigg[m_1v_0^2 - m_1\left(\frac{v_0m_1}{m_1+m_2}\right)^2\]
+\[\qquad\qquad - \frac{m_1^2}{m_2}\left(\frac{v_0m_2}{m_1+m_2}\right)^2\Bigg]\]
+<p>Poslednja dva člana zajedno daju \(\frac{m_1^2v_0^2}{m_1+m_2}\), pa:</p>
+\[\boxed{\Delta E_{max} = \frac12 m_1v_0^2\,\frac{m_2}{m_1+m_2}}\]
+<dl class="parts">
+<dt>\(\frac12 m_1v_0^2\)</dt><dd>sva kinetička energija koju je udarna čestica imala.</dd>
+<dt>\(\dfrac{m_2}{m_1+m_2}\)</dt><dd><b>koji deo</b> te energije najviše može da ode u atom. To je broj između 0 i 1 i zavisi samo od odnosa masa.</dd>
+</dl>
+</div>
+
+<div class="box eq"><span class="lbl">Korak 5 · elektron (\(m_1 \ll m_2\))</span>
+<p>Za elektron je \(m_1 \ll m_2\) („mnogo manje od”), pa je \(m_1 + m_2 \approx m_2\) i \(\frac{m_2}{m_1+m_2}\approx 1\):</p>
+\[\Delta E_{max} \approx \frac12 m_1v_0^2\]
+<p><b>→ Elektron može da preda SVU svoju kinetičku energiju!</b></p>
+</div>
+
+<div class="box num"><span class="lbl">Uporedi brojeve</span>
+<div class="tablewrap"><table>
+<tr><th>Ko udara u atom argona</th><th>\(\dfrac{m_2}{m_1+m_2}\)</th><th>Šta to znači</th></tr>
+<tr><td>elektron</td><td>0,99999</td><td>može predati praktično <b>100%</b> energije</td></tr>
+<tr><td>jon Ar⁺ (ista masa, \(m_1 = m_2\))</td><td>0,5</td><td>najviše <b>50%</b>, a pola uvek ostane kao kretanje</td></tr>
+</table></div>
+<p>Primer: elektron od 16 eV može jonizovati argon (\(eV_j = 15{,}8\) eV). Jonu argona bi trebalo bar 31,6 eV, a još je i 73 000 puta teže da toliku energiju skupi u polju.</p>
+</div>
+
+<h2>4. Elastični sudari elektrona: zašto elektron „ne gubi” energiju</h2>
+<p>Postoji i druga strana priče. Kad je sudar <b>elastičan</b> (\(\Delta E = 0\)), koliko kinetičke energije elektron preda atomu? Iz istih zakona održanja za čeoni elastični sudar dobija se da je preneti deo energije</p>
+\[\frac{4m_1m_2}{(m_1+m_2)^2}\;\approx\;\frac{4m_1}{m_2}\quad (m_1\ll m_2),\]
+<p>a u proseku po svim uglovima oko \(\frac{2m_1}{m_2}\). Za elektron na argonu to je oko \(5\cdot10^{-5}\), tj. <b>0,005%</b>.</p>
+<div class="box life"><span class="lbl">Iz stvarnog života</span>
+<p>Baci ping-pong lopticu na kuglu za kuglanje. Loptica odskoči skoro istom brzinom, a kugla se jedva pomeri. Loptica nije izgubila skoro ništa energije.</p>
+<p>Isto je sa elektronom: u elastičnim sudarima on samo menja pravac, a energiju zadržava. Zato između sudara može da <b>skuplja</b> energiju od polja sve dok ne dostigne \(eV_{ex}\) ili \(eV_j\). Tada napravi <b>neelastičan</b> sudar i preda gotovo sve odjednom.</p>
+</div>
+
+<h2>5. Zaključak: značaj elektrona</h2>
+<div class="box exam"><span class="lbl">Ukratko za ispit (šta napisati)</span>
+<ol>
+<li>Elektroni su lakši, brži i pokretljiviji od jona.</li>
+<li>U polju \(E\): \(F = ma = eE\Rightarrow a = \frac{eE}{m}\Rightarrow v = \frac{eEt}{m}\Rightarrow E_k = \frac12\frac{(eEt)^2}{m_e}\). Energija je obrnuto srazmerna masi, pa elektron od polja dobija neuporedivo više energije nego jon.</li>
+<li>Čeoni sudar (\(m_1\) sa \(v_0\), \(m_2\) miruje): napiši ZOI i ZOE, eliminiši \(v_2\), traži \(\frac{d(\Delta E)}{dv_1}=0\) i dobiješ \(v_1^* = \frac{v_0m_1}{m_1+m_2}\) i \(\Delta E_{max} = \frac12m_1v_0^2\frac{m_2}{m_1+m_2}\).</li>
+<li>Za elektron \(m_1\ll m_2\Rightarrow \Delta E_{max}\approx\frac12m_1v_0^2\): <b>može predati svu kinetičku energiju</b> (u neelastičnom sudaru), a u elastičnim sudarima skoro ništa ne gubi. Zato su elektroni glavni „jonizatori” u gasnom pražnjenju.</li>
+</ol>
+</div>
+
+<h3>Proveri sebe</h3>
+<details><summary>Koja je razlika između elastičnog i neelastičnog sudara?</summary><p>Kod elastičnog se ukupna kinetička energija održava (\(\Delta E = 0\)). Kod neelastičnog deo kinetičke energije ode u unutrašnju energiju (ekscitacija, jonizacija). Impuls se održava u oba slučaja.</p></details>
+<details><summary>Zašto u \(E_k = \frac{(eEt)^2}{2m_e}\) masa stoji u imeniocu i šta to znači?</summary><p>Ista sila \(eE\) lakšu česticu više ubrza (\(a = eE/m\)). Zato elektron za isto vreme dobije onoliko puta više energije koliko je puta lakši od jona.</p></details>
+<details><summary>Zašto tražimo \(\frac{d(\Delta E)}{dv_1} = 0\)?</summary><p>Jer funkcija dostiže maksimum tamo gde joj je izvod (nagib) jednak nuli.</p></details>
+<details><summary>Koliki deo energije može predati jon koji udari u atom iste mase?</summary><p>\(\frac{m_2}{m_1+m_2} = \frac12\), dakle najviše polovinu.</p></details>
+<details><summary>Šta se dešava sa česticama kad je predaja energije maksimalna?</summary><p>Posle sudara se kreću zajedno istom brzinom \(\frac{v_0m_1}{m_1+m_2}\), kao da su se zalepile (savršeno neelastičan sudar).</p></details>
+</section>
+
 <!-- KRAJ PITANJA -->
 
 </main>
