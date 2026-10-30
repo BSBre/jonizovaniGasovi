@@ -1166,6 +1166,209 @@ nav.bottom{position:fixed;left:0;right:0;bottom:0;z-index:5;background:color-mix
 <details><summary>Šta znači kad tačke na Bolcman plotu ne leže na pravoj?</summary><p>Da populacije nivoa ne prate Bolcmanovu raspodelu, tj. plazma nije u (L)TE, pa metoda ne važi.</p></details>
 </section>
 
+<!-- ===================== PITANJE 5 ===================== -->
+<section class="q" data-title="Debajeva teorija ekraniranja">
+<span class="qnum">PITANJE 5</span>
+<h1>Debajeva teorija ekraniranja</h1>
+<p class="lead">Ako u plazmu ubaciš jedno naelektrisanje, ostale čestice se brzo „okupe” oko njega i sakriju ga. Na dovoljnoj udaljenosti njegovo polje se više ne oseća. Ovo pitanje računa <b>koliko</b> je ta udaljenost (Debajev radijus) i <b>kako</b> opada potencijal.</p>
+
+<h2>0. Pojmovi koje moraš znati</h2>
+
+<div class="box term"><span class="lbl">Novi pojam · Ekraniranje</span>
+<p><b>Ekraniranje</b> (zaklanjanje) znači da je neko naelektrisanje „zaklonjeno” oblakom naelektrisanja suprotnog znaka, pa se njegovo dejstvo izdaleka ne oseća.</p>
+<p>Pozitivan jon u plazmi privlači elektrone i odbija druge pozitivne jone. Oko njega se zato stvori „oblak” sa viškom negativnog naelektrisanja. Gledano izdaleka, jon + oblak su skoro neutralni.</p>
+</div>
+<div class="box life"><span class="lbl">Analogija</span>
+<p>Poznata osoba uđe na žurku i odmah se oko nje stvori gužva obožavalaca. Ljudi blizu nje to osete, ali sa drugog kraja sale je ne vidiš, jer je gužva „zaklanja”. Što je više ljudi na žurci (veća gustina), to je krug oko nje manji i gušći. Što su ljudi „nemirniji” (veća temperatura), to se teže skupe i krug je širi.</p>
+</div>
+
+<div class="box term"><span class="lbl">Novi pojam · Električni potencijal \(\varphi\)</span>
+<p><b>Potencijal</b> \(\varphi\) (grčko „fi”, jedinica volt) je kao „električna nadmorska visina”. Pozitivno naelektrisanje „voli” da ide nizbrdo, ka nižem potencijalu, a negativno (elektron) uzbrdo. Potencijalna energija čestice naelektrisanja \(q\) je \(q\varphi\).</p>
+<p>Za usamljeno tačkasto naelektrisanje \(e\) u vakuumu važi <b>Kulonov potencijal</b>:</p>
+\[\varphi(r) = \frac{1}{4\pi\varepsilon_0}\frac{e}{r}\]
+<p>On opada sporo, kao \(1/r\): na 2 puta većoj udaljenosti je 2 puta slabiji, ali nikad ne nestaje.</p>
+</div>
+
+<div class="box term"><span class="lbl">Novi pojam · Gradijent \(\nabla\), divergencija \(\nabla\cdot\) i Laplasijan \(\nabla^2\)</span>
+<p>\(\nabla\) („nabla”) je oznaka za izvode po prostoru (po \(x\), \(y\) i \(z\)).</p>
+<ul>
+<li><b>Gradijent</b> \(\nabla\varphi\): pokazuje u kom pravcu i koliko strmo potencijal raste. Električno polje je \(\vec E = -\nabla\varphi\): polje pokazuje <b>nizbrdo</b>, kao smer u kome bi se otkotrljala lopta.</li>
+<li><b>Divergencija</b> \(\nabla\cdot\vec E\): koliko polje „izvire” iz neke tačke. Pozitivno naelektrisanje je „izvor”, kao česma iz koje voda teče na sve strane.</li>
+<li><b>Laplasijan</b> \(\nabla^2\varphi = \nabla\cdot\nabla\varphi\): „zakrivljenost” potencijala, tj. da li je tačka „vrh” ili „dno”. U jednoj dimenziji to je \(\frac{d^2\varphi}{dx^2}\).</li>
+</ul>
+</div>
+
+<div class="box term"><span class="lbl">Novi pojam · Gausov zakon i \(\varepsilon_0\)</span>
+\[\nabla\cdot\vec E = \frac{\rho}{\varepsilon_0}\]
+<p>Ovo je prva <b>Maksvelova jednačina</b> (Gausov zakon): naelektrisanje je izvor električnog polja. \(\rho\) („ro”) je <b>prostorna gustina naelektrisanja</b> (C/m³), tj. koliko kulona ima u kubnom metru. \(\varepsilon_0 = 8{,}85\cdot10^{-12}\) F/m je <b>dielektrična propustljivost vakuuma</b>, prirodna konstanta.</p>
+</div>
+
+<h2>1. Postavka: Puasonova jednačina za plazmu</h2>
+<p>Pretpostavimo da je plazma <b>najprostija moguća</b>: sastoji se od neutralnih atoma \(A\), jednostruko naelektrisanih jona \(A^+\) i elektrona \(e^-\). Tada je prostorna gustina naelektrisanja:</p>
+<div class="box eq"><span class="lbl">Gustina naelektrisanja</span>
+\[\rho = e\,(n_j - n_e)\]
+<dl class="parts">
+<dt>\(n_j\)</dt><dd>koncentracija <b>jona</b> (indeks \(j\) = jon). Svaki nosi \(+e\).</dd>
+<dt>\(n_e\)</dt><dd>koncentracija <b>elektrona</b>. Svaki nosi \(-e\).</dd>
+<dt>\(e(n_j - n_e)\)</dt><dd>ukupno naelektrisanje po m³. Ako je jona isto koliko i elektrona, \(\rho = 0\) (neutralno). Neutralni atomi ne doprinose.</dd>
+</dl>
+</div>
+<p>Spojimo Gausov zakon \(\nabla\cdot\vec E = \frac{\rho}{\varepsilon_0}\) i \(\vec E = -\nabla\varphi\):</p>
+<div class="box eq"><span class="lbl">Jednačina (1) · Puasonova jednačina</span>
+\[\nabla\cdot\vec E = -\nabla^2\varphi = \frac{1}{\varepsilon_0}(n_j - n_e)\,e\]
+<p>Ova jednačina povezuje <b>potencijal</b> (levo) sa <b>rasporedom naelektrisanja</b> (desno). Problem je što raspored naelektrisanja zavisi od potencijala: elektroni idu tamo gde je potencijal visok, a joni beže odatle. Zato nam treba još jedna veza.</p>
+</div>
+
+<h2>2. Kako se čestice raspoređuju: Bolcman</h2>
+<p>Pošto su koncentracije elektrona i jona u plazmi date <b>Bolcmanovom raspodelom</b> (pitanje 3), sa potencijalnom energijom \(\pm e\varphi\) umesto energije nivoa:</p>
+<div class="box eq"><span class="lbl">Raspodela jona i elektrona</span>
+\[n_j = n\,e^{-\frac{e\varphi}{k_BT}}\,;\qquad n_e = n\,e^{\frac{e\varphi}{k_BT}}\]
+<dl class="parts">
+<dt>\(n\)</dt><dd><b>srednja koncentracija</b> naelektrisanih čestica (svake vrste), daleko od bilo kakvog poremećaja, gde je \(\varphi = 0\).</dd>
+<dt>\(e\varphi\)</dt><dd>potencijalna energija jona (\(+e\varphi\)) u tački gde je potencijal \(\varphi\). Za elektron je \(-e\varphi\).</dd>
+<dt>\(e^{-e\varphi/k_BT}\)</dt><dd>joni <b>izbegavaju</b> mesta visokog potencijala (tamo im je energija velika), pa ih tamo ima manje.</dd>
+<dt>\(e^{+e\varphi/k_BT}\)</dt><dd>elektroni <b>vole</b> mesta visokog potencijala (energija im je tamo niska), pa ih tamo ima više.</dd>
+<dt>\(k_BT\)</dt><dd>termalna energija. Haotično kretanje „razmazuje” raspored i ne dozvoljava da se svi elektroni nagomilaju u jednu tačku.</dd>
+</dl>
+</div>
+<div class="box warn"><span class="lbl">Pažnja · dva „e”</span>
+<p>U \(n\,e^{e\varphi/k_BT}\) prvo (veliko) \(e\) je osnova eksponencijalne funkcije (2,718…), a \(e\) u eksponentu je naelektrisanje elektrona (\(1{,}6\cdot10^{-19}\) C).</p>
+</div>
+
+<p>Ubacimo ovo u (1):</p>
+<div class="box eq"><span class="lbl">Posle zamene</span>
+\[\nabla^2\varphi = \frac{1}{\varepsilon_0}\,ne\left(e^{\frac{e\varphi}{k_BT}} - e^{-\frac{e\varphi}{k_BT}}\right) = \frac{2}{\varepsilon_0}\,ne\cdot\mathrm{sh}\!\left(\frac{e\varphi}{k_BT}\right)\]
+<p>Znak se okrenuo jer smo minus sa leve strane prebacili: \(-(n_j - n_e) = n_e - n_j\).</p>
+<dl class="parts">
+<dt>\(\mathrm{sh}\,x\)</dt><dd><b>sinus hiperbolički</b>: \(\mathrm{sh}\,x = \dfrac{e^x - e^{-x}}{2}\). Zato se pojavila dvojka ispred: \(e^x - e^{-x} = 2\,\mathrm{sh}\,x\). Na engleskom se piše \(\sinh x\).</dd>
+</dl>
+</div>
+
+<h2>3. Linearizacija: kada je \(\frac{e\varphi}{k_BT} \ll 1\)</h2>
+<p>Gornja jednačina je teška za rešavanje. Ali ako je potencijalna energija <b>mnogo manja</b> od termalne (\(e\varphi \ll k_BT\)), što važi svuda osim jako blizu samog jona, možemo da uprostimo:</p>
+<div class="box eq"><span class="lbl">Aproksimacija</span>
+\[\mathrm{sh}\!\left(\frac{e\varphi}{k_BT}\right) \approx \frac{e\varphi}{k_BT}\qquad\text{za } \frac{e\varphi}{k_BT}\ll 1\]
+<div class="tablewrap"><table>
+<tr><th>\(x\)</th><th>0,01</th><th>0,1</th><th>0,5</th><th>1</th></tr>
+<tr><td>\(\mathrm{sh}\,x\)</td><td>0,0100</td><td>0,1002</td><td>0,521</td><td>1,175</td></tr>
+</table></div>
+<p>Za male \(x\) zaista je \(\mathrm{sh}\,x\approx x\). Slično znaš i za \(\sin x\approx x\) kod malih uglova.</p>
+</div>
+<p>Jednačina tada postaje:</p>
+<div class="box eq"><span class="lbl">Linearizovana jednačina</span>
+\[\nabla^2\varphi = \frac{2e^2n}{k_BT\,\varepsilon_0}\,\varphi = \frac{\varphi}{r_D^2}\]
+<p>Sve konstante smo „spakovali” u jednu veličinu \(r_D\), i to je <b>Debajev radijus</b>:</p>
+\[\boxed{r_D = \sqrt{\frac{k_BT\,\varepsilon_0}{2ne^2}}}\]
+</div>
+<div class="box eq"><span class="lbl">Debajev radijus ekraniranja: šta zavisi od čega</span>
+<dl class="parts">
+<dt>\(r_D\)</dt><dd>dužina (u metrima) na kojoj plazma „sakrije” naelektrisanje.</dd>
+<dt>\(T\) u brojiocu</dt><dd>toplija plazma, veće \(r_D\). Brze čestice se teže „skupe” oko naelektrisanja, pa je oblak širi.</dd>
+<dt>\(n\) u imeniocu</dt><dd>gušća plazma, manje \(r_D\). Ima više čestica koje mogu da zaklone, pa je oblak manji.</dd>
+<dt>\(e^2\) u imeniocu</dt><dd>jače naelektrisane čestice jače reaguju na polje, pa brže zaklone.</dd>
+<dt>\(\varepsilon_0\)</dt><dd>konstanta iz Gausovog zakona.</dd>
+<dt>\(2\)</dt><dd>zato što ekraniraju <b>i</b> elektroni <b>i</b> joni (pretpostavljamo istu temperaturu). U mnogim knjigama se računa samo sa elektronima, pa nema dvojke.</dd>
+<dt>\(\sqrt{\ }\)</dt><dd>4 puta gušća plazma daje samo 2 puta manji radijus.</dd>
+</dl>
+</div>
+<div class="box num"><span class="lbl">Primeri sa brojevima</span>
+<div class="tablewrap"><table>
+<tr><th>Plazma</th><th>\(n\) [m⁻³]</th><th>\(k_BT\)</th><th>\(r_D\)</th></tr>
+<tr><td>fluorescentna cev</td><td>\(10^{17}\)</td><td>1 eV</td><td>≈ 17 μm (tanje od vlasi kose)</td></tr>
+<tr><td>jonosfera</td><td>\(10^{12}\)</td><td>0,1 eV</td><td>≈ 2 mm</td></tr>
+<tr><td>fuzioni reaktor (tokamak)</td><td>\(10^{20}\)</td><td>10 keV</td><td>≈ 50 μm</td></tr>
+<tr><td>međuzvezdani gas</td><td>\(10^{6}\)</td><td>1 eV</td><td>≈ 5 m</td></tr>
+</table></div>
+</div>
+
+<h2>4. Rešenje: Debaj-Hikelov (ekranirani) potencijal</h2>
+<p>Pošto je električno polje jedne čestice <b>sferno simetrično</b> (isto u svim pravcima, zavisi samo od rastojanja \(r\)), Laplasijan u sfernim koordinatama ima jednostavan oblik:</p>
+\[\nabla^2\varphi = \frac{1}{r}\frac{d^2}{dr^2}(r\varphi) = \frac{\varphi}{r_D^2}\]
+<p>pa je potencijal u okolini jedne naelektrisane čestice, koja je okružena naelektrisanjima suprotnog znaka:</p>
+<div class="box eq"><span class="lbl">Rezultat</span>
+\[\boxed{\varphi(r) = \frac{1}{4\pi\varepsilon_0}\,\frac{e}{r}\,e^{-\frac{r}{r_D}}}\]
+<dl class="parts">
+<dt>\(\frac{1}{4\pi\varepsilon_0}\frac{e}{r}\)</dt><dd>običan <b>Kulonov</b> potencijal usamljenog naelektrisanja.</dd>
+<dt>\(e^{-r/r_D}\)</dt><dd><b>faktor ekraniranja</b>. Za \(r \ll r_D\) je skoro 1 (blizu se oseća pun Kulon), a za \(r \gg r_D\) brzo pada na nulu.</dd>
+</dl>
+<p>Ovaj potencijal se zove <b>Debaj-Hikelov (ekranirani) potencijal</b>. Debaj i Hikel su ga 1923. izveli za jone u slanoj vodi (elektrolitu), a ista matematika važi za plazmu.</p>
+</div>
+<figure>
+<svg viewBox="0 0 520 260" role="img" aria-label="Kulonov i ekranirani potencijal">
+  <style>
+    .ax{stroke:var(--ink);stroke-width:2}
+    .cu{stroke:var(--muted);stroke-width:2.5;fill:none;stroke-dasharray:7 5}
+    .db{stroke:var(--sky-ink);stroke-width:3;fill:none}
+    .lt{fill:var(--ink);font:16px Nunito,sans-serif}
+  </style>
+  <line class="ax" x1="60" y1="220" x2="500" y2="220"/><line class="ax" x1="60" y1="220" x2="60" y2="20"/>
+  <text class="lt" x="20" y="34">φ</text><text class="lt" x="455" y="248">r / r<tspan baseline-shift="sub" font-size="12">D</tspan></text>
+  <text class="lt" x="160" y="242">1</text><text class="lt" x="265" y="242">2</text><text class="lt" x="370" y="242">3</text>
+  <path class="cu" d="M81.0,30.0 L83.0,46.5 L85.0,60.3 L87.0,72.1 L89.0,82.3 L91.0,91.2 L93.0,99.0 L95.0,105.9 L97.0,112.0 L99.0,117.6 L101.0,122.6 L102.9,127.1 L104.9,131.2 L106.9,135.0 L108.9,138.5 L110.9,141.6 L112.9,144.6 L114.9,147.3 L116.9,149.9 L118.9,152.3 L120.9,154.5 L122.9,156.6 L124.9,158.5 L126.9,160.3 L128.9,162.1 L130.9,163.7 L132.9,165.2 L134.9,166.7 L136.9,168.1 L138.9,169.4 L140.9,170.6 L142.8,171.8 L144.8,173.0 L146.8,174.1 L148.8,175.1 L150.8,176.1 L152.8,177.0 L154.8,177.9 L156.8,178.8 L158.8,179.6 L160.8,180.4 L162.8,181.2 L164.8,181.9 L166.8,182.6 L168.8,183.3 L170.8,184.0 L172.8,184.6 L174.8,185.2 L176.8,185.8 L178.8,186.4 L180.8,187.0 L182.7,187.5 L184.7,188.0 L186.7,188.5 L188.7,189.0 L190.7,189.5 L192.7,189.9 L194.7,190.4 L196.7,190.8 L198.7,191.2 L200.7,191.6 L202.7,192.0 L204.7,192.4 L206.7,192.8 L208.7,193.2 L210.7,193.5 L212.7,193.9 L214.7,194.2 L216.7,194.5 L218.7,194.9 L220.7,195.2 L222.6,195.5 L224.6,195.8 L226.6,196.1 L228.6,196.3 L230.6,196.6 L232.6,196.9 L234.6,197.1 L236.6,197.4 L238.6,197.7 L240.6,197.9 L242.6,198.1 L244.6,198.4 L246.6,198.6 L248.6,198.8 L250.6,199.1 L252.6,199.3 L254.6,199.5 L256.6,199.7 L258.6,199.9 L260.5,200.1 L262.5,200.3 L264.5,200.5 L266.5,200.7 L268.5,200.9 L270.5,201.0 L272.5,201.2 L274.5,201.4 L276.5,201.6 L278.5,201.7 L280.5,201.9 L282.5,202.1 L284.5,202.2 L286.5,202.4 L288.5,202.5 L290.5,202.7 L292.5,202.8 L294.5,203.0 L296.5,203.1 L298.5,203.3 L300.5,203.4 L302.4,203.5 L304.4,203.7 L306.4,203.8 L308.4,203.9 L310.4,204.1 L312.4,204.2 L314.4,204.3 L316.4,204.4 L318.4,204.6 L320.4,204.7 L322.4,204.8 L324.4,204.9 L326.4,205.0 L328.4,205.1 L330.4,205.2 L332.4,205.4 L334.4,205.5 L336.4,205.6 L338.4,205.7 L340.4,205.8 L342.3,205.9 L344.3,206.0 L346.3,206.1 L348.3,206.2 L350.3,206.3 L352.3,206.4 L354.3,206.4 L356.3,206.5 L358.3,206.6 L360.3,206.7 L362.3,206.8 L364.3,206.9 L366.3,207.0 L368.3,207.1 L370.3,207.1 L372.3,207.2 L374.3,207.3 L376.3,207.4 L378.3,207.5 L380.2,207.5 L382.2,207.6 L384.2,207.7 L386.2,207.8 L388.2,207.8 L390.2,207.9 L392.2,208.0 L394.2,208.1 L396.2,208.1 L398.2,208.2 L400.2,208.3 L402.2,208.3 L404.2,208.4 L406.2,208.5 L408.2,208.5 L410.2,208.6 L412.2,208.7 L414.2,208.7 L416.2,208.8 L418.2,208.9 L420.2,208.9 L422.1,209.0 L424.1,209.0 L426.1,209.1 L428.1,209.2 L430.1,209.2 L432.1,209.3 L434.1,209.3 L436.1,209.4 L438.1,209.4 L440.1,209.5 L442.1,209.6 L444.1,209.6 L446.1,209.7 L448.1,209.7 L450.1,209.8 L452.1,209.8 L454.1,209.9 L456.1,209.9 L458.1,210.0 L460.1,210.0 L462.0,210.1 L464.0,210.1 L466.0,210.2 L468.0,210.2 L470.0,210.3 L472.0,210.3 L474.0,210.4 L476.0,210.4 L478.0,210.5 L480.0,210.5"/>
+  <path class="db" d="M81.0,64.4 L83.0,80.6 L85.0,94.2 L87.0,105.6 L89.0,115.5 L91.0,124.1 L93.0,131.6 L95.0,138.2 L97.0,144.1 L99.0,149.3 L101.0,154.0 L102.9,158.3 L104.9,162.1 L106.9,165.6 L108.9,168.8 L110.9,171.8 L112.9,174.5 L114.9,176.9 L116.9,179.2 L118.9,181.3 L120.9,183.3 L122.9,185.1 L124.9,186.9 L126.9,188.5 L128.9,189.9 L130.9,191.3 L132.9,192.6 L134.9,193.9 L136.9,195.0 L138.9,196.1 L140.9,197.2 L142.8,198.1 L144.8,199.0 L146.8,199.9 L148.8,200.7 L150.8,201.5 L152.8,202.2 L154.8,202.9 L156.8,203.6 L158.8,204.2 L160.8,204.8 L162.8,205.4 L164.8,206.0 L166.8,206.5 L168.8,207.0 L170.8,207.5 L172.8,207.9 L174.8,208.3 L176.8,208.8 L178.8,209.2 L180.8,209.5 L182.7,209.9 L184.7,210.2 L186.7,210.6 L188.7,210.9 L190.7,211.2 L192.7,211.5 L194.7,211.8 L196.7,212.1 L198.7,212.3 L200.7,212.6 L202.7,212.8 L204.7,213.0 L206.7,213.3 L208.7,213.5 L210.7,213.7 L212.7,213.9 L214.7,214.1 L216.7,214.3 L218.7,214.4 L220.7,214.6 L222.6,214.8 L224.6,214.9 L226.6,215.1 L228.6,215.3 L230.6,215.4 L232.6,215.5 L234.6,215.7 L236.6,215.8 L238.6,215.9 L240.6,216.0 L242.6,216.2 L244.6,216.3 L246.6,216.4 L248.6,216.5 L250.6,216.6 L252.6,216.7 L254.6,216.8 L256.6,216.9 L258.6,217.0 L260.5,217.1 L262.5,217.1 L264.5,217.2 L266.5,217.3 L268.5,217.4 L270.5,217.4 L272.5,217.5 L274.5,217.6 L276.5,217.7 L278.5,217.7 L280.5,217.8 L282.5,217.8 L284.5,217.9 L286.5,218.0 L288.5,218.0 L290.5,218.1 L292.5,218.1 L294.5,218.2 L296.5,218.2 L298.5,218.3 L300.5,218.3 L302.4,218.4 L304.4,218.4 L306.4,218.5 L308.4,218.5 L310.4,218.5 L312.4,218.6 L314.4,218.6 L316.4,218.6 L318.4,218.7 L320.4,218.7 L322.4,218.8 L324.4,218.8 L326.4,218.8 L328.4,218.8 L330.4,218.9 L332.4,218.9 L334.4,218.9 L336.4,219.0 L338.4,219.0 L340.4,219.0 L342.3,219.0 L344.3,219.1 L346.3,219.1 L348.3,219.1 L350.3,219.1 L352.3,219.2 L354.3,219.2 L356.3,219.2 L358.3,219.2 L360.3,219.2 L362.3,219.3 L364.3,219.3 L366.3,219.3 L368.3,219.3 L370.3,219.3 L372.3,219.3 L374.3,219.4 L376.3,219.4 L378.3,219.4 L380.2,219.4 L382.2,219.4 L384.2,219.4 L386.2,219.5 L388.2,219.5 L390.2,219.5 L392.2,219.5 L394.2,219.5 L396.2,219.5 L398.2,219.5 L400.2,219.5 L402.2,219.6 L404.2,219.6 L406.2,219.6 L408.2,219.6 L410.2,219.6 L412.2,219.6 L414.2,219.6 L416.2,219.6 L418.2,219.6 L420.2,219.6 L422.1,219.6 L424.1,219.7 L426.1,219.7 L428.1,219.7 L430.1,219.7 L432.1,219.7 L434.1,219.7 L436.1,219.7 L438.1,219.7 L440.1,219.7 L442.1,219.7 L444.1,219.7 L446.1,219.7 L448.1,219.7 L450.1,219.8 L452.1,219.8 L454.1,219.8 L456.1,219.8 L458.1,219.8 L460.1,219.8 L462.0,219.8 L464.0,219.8 L466.0,219.8 L468.0,219.8 L470.0,219.8 L472.0,219.8 L474.0,219.8 L476.0,219.8 L478.0,219.8 L480.0,219.8"/>
+  <line class="cu" x1="300" y1="50" x2="330" y2="50"/><text class="lt" x="338" y="55">Kulon (vakuum)</text>
+  <line class="db" x1="300" y1="78" x2="330" y2="78"/><text class="lt" x="338" y="83">ekraniran (plazma)</text>
+</svg>
+<figcaption>Kulonov potencijal opada sporo. Ekranirani potencijal posle nekoliko \(r_D\) praktično nestaje.</figcaption>
+</figure>
+<div class="box num"><span class="lbl">Koliko brzo nestaje</span>
+<div class="tablewrap"><table>
+<tr><th>\(r\)</th><th>\(r_D\)</th><th>\(2r_D\)</th><th>\(3r_D\)</th><th>\(5r_D\)</th></tr>
+<tr><td>\(e^{-r/r_D}\)</td><td>0,37</td><td>0,14</td><td>0,05</td><td>0,007</td></tr>
+</table></div>
+<p>Već na 5 Debajevih radijusa ostaje manje od 1% Kulonovog potencijala.</p>
+</div>
+
+<h2>5. Izvođenje potencijala u detalje</h2>
+<div class="box eq"><span class="lbl">Korak po korak</span>
+<p><b>1.</b> Iz (1) i \(\Delta\varphi = \frac1r\frac{\partial^2(r\varphi)}{\partial r^2}\) (\(\Delta\) je druga oznaka za Laplasijan \(\nabla^2\)) sledi:</p>
+\[\frac1r\frac{\partial^2(r\varphi)}{\partial r^2} = \frac{2n_0e^2}{\varepsilon_0kT}\,\varphi\qquad\Big/\cdot r\]
+<p><b>2.</b> Uvedemo <b>smenu</b> \(u = r\varphi\). Ideja smene: pretvoriti tešku jednačinu u neku koju već znamo da rešimo. Pomnožimo obe strane sa \(r\), pa desno \(r\varphi\) postaje \(u\):</p>
+\[\frac{d^2u}{dr^2} = \frac{2n_0e^2}{\varepsilon_0kT}\,u,\qquad\text{gde je}\quad \frac{2n_0e^2}{\varepsilon_0kT} \equiv \frac{1}{r_D^2}\]
+<p><b>3.</b> Dobili smo jednostavnu diferencijalnu jednačinu:</p>
+\[u'' - \frac{1}{r_D^2}u = 0\]
+<p>Pitamo: koja funkcija, kad je dvaput izvedemo, daje samu sebe puta \(\frac{1}{r_D^2}\)? To su eksponencijalne funkcije \(e^{+r/r_D}\) i \(e^{-r/r_D}\). Rešenje koje <b>raste</b> sa \(r\) odbacujemo, jer potencijal daleko od čestice ne može biti beskonačan. Ostaje:</p>
+\[u = A\,e^{-\frac{r}{r_D}}\]
+<p><b>4.</b> Konstantu \(A\) određujemo iz <b>graničnog uslova</b> za male \(r\): sasvim blizu čestice ekraniranje još ne deluje, pa potencijal mora preći u Kulonov (\(\varphi \approx \frac{e}{4\pi\varepsilon_0 r}\), tj. \(u = r\varphi \to \frac{e}{4\pi\varepsilon_0}\)):</p>
+\[u(0) = \frac{e}{4\pi\varepsilon_0}\quad\Longrightarrow\quad A = \frac{e}{4\pi\varepsilon_0}\]
+\[u(r) = \frac{e}{4\pi\varepsilon_0}\,e^{-\frac{r}{r_D}} = \varphi(r)\cdot r\quad\Longrightarrow\quad \varphi(r) = \frac{e}{4\pi\varepsilon_0 r}\,e^{-\frac{r}{r_D}}\]
+</div>
+
+<h2>6. Uslovi da gas bude plazma</h2>
+<div class="box term"><span class="lbl">Kvazineutralnost i idealna plazma</span>
+<p><b>1. Dimenzije plazme \(L \gg r_D\).</b> Da bi bila zadovoljena <b>makroskopska neutralnost</b> plazme, njene dimenzije moraju biti mnogo veće od Debajevog radijusa. Na skali manjoj od \(r_D\) mogu postojati „neravnoteže” naelektrisanja, ali na velikoj skali sve se izbalansira. Ako bi posuda bila manja od \(r_D\), ne bi bilo prostora za ekraniranje i gas se ne bi ponašao kao plazma.</p>
+<p><b>2. Broj čestica u Debajevoj sferi \(N_D \gg 1\).</b> Uzima se da je plazma <b>idealna</b> ako je broj čestica u Debajevoj sferi (lopta poluprečnika \(r_D\)) mnogo veći od 1:</p>
+\[N_D = \frac43\pi r_D^3\,n \gg 1\]
+<p>Ekraniranje je <b>statistički</b> efekat: „oblak” mora imati mnogo čestica da bi se ponašao glatko, kako smo pretpostavili (Bolcman). Sa samo jednom-dve čestice nema „oblaka”.</p>
+</div>
+<div class="box num"><span class="lbl">Primer</span>
+<p>Fluorescentna cev: \(r_D \approx 17\) μm, \(n = 10^{17}\) m⁻³, pa je \(N_D \approx 2000 \gg 1\) (idealna). Cev je široka par centimetara, a to je ≈ 1000 \(r_D\), pa je makroskopski neutralna. Obe stvari važe, dakle to je prava plazma.</p>
+</div>
+<div class="box life"><span class="lbl">Iz stvarnog života</span>
+<ul>
+<li><b>Slana voda</b> (more, krv, telesne tečnosti) puna je jona, i u njoj je Debajeva dužina oko jednog nanometra. Zato molekuli u ćelijama „osećaju” električne sile samo na vrlo malim rastojanjima. Ovo je važno u biologiji i hemiji.</li>
+<li><b>Zašto plazma izgleda neutralno</b>: iako je puna naelektrisanja, svako je „zaklonjeno” na mikroskopskoj skali. Zato munja ili plamen nemaju ukupno naelektrisanje koje bi privuklo papirić sa strane.</li>
+</ul>
+</div>
+
+<div class="box exam"><span class="lbl">Ukratko za ispit (šta napisati)</span>
+<ol>
+<li>\(\rho = e(n_j - n_e)\) za plazmu \(A, A^+, e^-\). Iz \(\nabla\cdot\vec E = \rho/\varepsilon_0\) i \(\vec E = -\nabla\varphi\) sledi \(-\nabla^2\varphi = \frac1{\varepsilon_0}(n_j - n_e)e\) (1).</li>
+<li>Bolcman: \(n_j = ne^{-e\varphi/k_BT}\), \(n_e = ne^{e\varphi/k_BT}\), pa je \(\nabla^2\varphi = \frac{2}{\varepsilon_0}ne\,\mathrm{sh}\frac{e\varphi}{k_BT}\).</li>
+<li>Za \(\frac{e\varphi}{k_BT}\ll1\): \(\mathrm{sh}\,x\approx x\), pa \(\nabla^2\varphi = \frac{\varphi}{r_D^2}\), \(r_D = \sqrt{\frac{k_BT\varepsilon_0}{2ne^2}}\), tzv. Debajev radijus ekraniranja.</li>
+<li>Sferna simetrija, smena \(u = r\varphi\), \(u'' - u/r_D^2 = 0\), \(u = Ae^{-r/r_D}\), \(A = \frac{e}{4\pi\varepsilon_0}\) (blizu čestice važi Kulon). Odatle \(\varphi(r) = \frac{1}{4\pi\varepsilon_0}\frac{e}{r}e^{-r/r_D}\), Debaj-Hikelov (ekranirani) potencijal.</li>
+<li>Plazma: dimenzije \(\gg r_D\) (makroskopska neutralnost). Idealna plazma: broj čestica u Debajevoj sferi \(\gg 1\).</li>
+</ol>
+</div>
+
+<h3>Proveri sebe</h3>
+<details><summary>Šta se dešava sa \(r_D\) ako se plazma zagreje? A ako postane gušća?</summary><p>Zagrevanje povećava \(r_D\) (\(\sim\sqrt{T}\)), jer brze čestice teže formiraju oblak. Veća gustina smanjuje \(r_D\) (\(\sim 1/\sqrt n\)), jer ima više čestica za ekraniranje.</p></details>
+<details><summary>Zašto smo mogli zameniti \(\mathrm{sh}\,x\) sa \(x\)?</summary><p>Jer je pretpostavljeno \(e\varphi \ll k_BT\), tj. \(x\ll1\), a za male \(x\) je \(\mathrm{sh}\,x\approx x\).</p></details>
+<details><summary>Zašto se odbacuje rešenje \(e^{+r/r_D}\)?</summary><p>Jer bi potencijal rastao do beskonačnosti daleko od čestice, a to fizički nema smisla.</p></details>
+<details><summary>Odakle uslov \(u(0) = \frac{e}{4\pi\varepsilon_0}\)?</summary><p>Sasvim blizu čestice ekraniranje ne deluje i potencijal je Kulonov \(\frac{e}{4\pi\varepsilon_0r}\). Pomnožen sa \(r\) daje \(\frac{e}{4\pi\varepsilon_0}\).</p></details>
+<details><summary>Koja su dva uslova da je jonizovan gas (idealna) plazma?</summary><p>Dimenzije sistema \(\gg r_D\) (kvazineutralnost) i broj čestica u Debajevoj sferi \(\gg 1\).</p></details>
+</section>
+
 <!-- KRAJ PITANJA -->
 
 </main>
