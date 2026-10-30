@@ -1369,6 +1369,167 @@ nav.bottom{position:fixed;left:0;right:0;bottom:0;z-index:5;background:color-mix
 <details><summary>Koja su dva uslova da je jonizovan gas (idealna) plazma?</summary><p>Dimenzije sistema \(\gg r_D\) (kvazineutralnost) i broj čestica u Debajevoj sferi \(\gg 1\).</p></details>
 </section>
 
+<!-- ===================== PITANJE 6 ===================== -->
+<section class="q" data-title="Plazmena frekvencija">
+<span class="qnum">PITANJE 6</span>
+<h1>Plazmena frekvencija</h1>
+<p class="lead">Plazma „mrzi” da bude naelektrisana. Ako pomeriš elektrone, oni jure nazad, preskoče ravnotežni položaj, vrate se… i tako osciluju kao teg na opruzi. Frekvencija tog oscilovanja je <b>plazmena frekvencija</b>. Od nje zavisi da li će radio-talas proći kroz plazmu ili će se odbiti.</p>
+
+<h2>0. Pojmovi koje moraš znati</h2>
+
+<div class="box term"><span class="lbl">Novi pojam · Elektroneutralnost</span>
+<p><b>Elektroneutralnost</b> (kvazineutralnost) je osobina plazme da u svakom iole većem delu ima jednako mnogo pozitivnog i negativnog naelektrisanja (videli smo u pitanju 5). Ako se ta ravnoteža naruši, odmah se javljaju jake električne sile koje „vraćaju red”. Ova težnja za neutralnošću određuje i kako plazma reaguje na <b>spoljašnje elektromagnetno (EM) polje</b>, npr. na radio-talas ili svetlost.</p>
+</div>
+
+<div class="box term"><span class="lbl">Novi pojam · Oscilovanje i kružna frekvencija \(\omega\)</span>
+<p><b>Oscilovanje</b> je periodično kretanje „tamo-amo” oko ravnotežnog položaja: klatno, ljuljaška, teg na opruzi, žica gitare.</p>
+<p><b>Frekvencija</b> \(f\) kaže koliko punih oscilacija se desi u sekundi (Hz). <b>Kružna frekvencija</b> \(\omega\) (grčko „omega”) je isto to, samo izraženo u radijanima u sekundi: \(\omega = 2\pi f\).</p>
+</div>
+
+<div class="box term"><span class="lbl">Novi pojam · Harmonijski oscilator (teg na opruzi)</span>
+<p>Kad je sila koja vraća telo <b>srazmerna pomeraju</b> i usmerena <b>suprotno</b> od njega (\(F = -Kx\), Hukov zakon), telo osciluje sa kružnom frekvencijom</p>
+\[\omega = \sqrt{\frac{K}{m}}\]
+<p>Tvrđa opruga (veće \(K\)) daje brže oscilovanje, a teži teg (veće \(m\)) sporije. Ovo ćemo prepoznati i kod plazme.</p>
+</div>
+
+<div class="box term"><span class="lbl">Novi pojam · Ravni kondenzator i površinska gustina \(\sigma\)</span>
+<p><b>Ravni kondenzator</b> su dve paralelne ploče, jedna pozitivno, druga negativno naelektrisana. Između njih je <b>homogeno</b> (svuda isto) električno polje:</p>
+\[E = \frac{\sigma}{\varepsilon_0}\]
+<p>\(\sigma\) („sigma”) je <b>površinska gustina naelektrisanja</b>: koliko kulona ima na jednom kvadratnom metru ploče (C/m²).</p>
+</div>
+
+<h2>1. Model: pomerimo elektrone</h2>
+<p>Pretpostavimo da je u delu plazme \(AB\) došlo do <b>delimičnog razdvajanja</b> pozitivnih i negativnih naelektrisanja.</p>
+<figure>
+<svg viewBox="0 0 520 210" role="img" aria-label="Razdvajanje naelektrisanja u plazmi">
+  <style>
+    .fr{fill:none;stroke:var(--ink);stroke-width:2}
+    .pl{fill:var(--sky)}
+    .ion{fill:var(--peach)}
+    .ele{fill:var(--lav)}
+    .dl{stroke:var(--muted);stroke-width:1.5;stroke-dasharray:5 4}
+    .lt{fill:var(--ink);font:16px Nunito,sans-serif}
+    .lb{fill:var(--ink);font:bold 18px Nunito,sans-serif}
+    .ar{stroke:var(--ink);stroke-width:2}
+  </style>
+  <defs><marker id="pa" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink)"/></marker></defs>
+  <rect class="ion" x="40" y="20" width="60" height="150"/>
+  <rect class="pl" x="100" y="20" width="320" height="150"/>
+  <rect class="ele" x="420" y="20" width="60" height="150"/>
+  <rect class="fr" x="40" y="20" width="440" height="150"/>
+  <line class="dl" x1="100" y1="20" x2="100" y2="170"/><line class="dl" x1="420" y1="20" x2="420" y2="170"/>
+  <text class="lb" x="62" y="60">+</text><text class="lb" x="62" y="100">+</text><text class="lb" x="62" y="140">+</text>
+  <text class="lb" x="446" y="60">−</text><text class="lb" x="446" y="100">−</text><text class="lb" x="446" y="140">−</text>
+  <text class="lb" x="225" y="100">Plazma</text>
+  <text class="lt" x="34" y="192">A</text><text class="lt" x="95" y="192">A′</text>
+  <text class="lt" x="414" y="192">B</text><text class="lt" x="474" y="192">B′</text>
+  <line class="ar" x1="200" y1="140" x2="320" y2="140" marker-end="url(#pa)"/>
+  <text class="lt" x="200" y="132">elektroni pomereni za x</text>
+</svg>
+<figcaption>Elektroni su se pomerili udesno (oblast BB′ ima višak minusa), a u oblasti AA′ su ostali „goli” pozitivni joni.</figcaption>
+</figure>
+<p>Neka se elektroni pomere <b>udesno</b> za rastojanje \(x\) (oblast \(BB'\)) i pri tome ostave jone u oblasti \(AA'\). Joni su mnogo teži (pitanje 2), pa se za to kratko vreme praktično ne pomeraju. Dobili smo dve „ploče” suprotnog naelektrisanja, dakle <b>ravan kondenzator</b>, i on stvara <b>električno polje</b>.</p>
+
+<div class="box eq"><span class="lbl">Polje ravnog kondenzatora</span>
+\[E = \frac{\sigma}{\varepsilon_0} = \frac{e\,n_e\,x}{\varepsilon_0}\]
+<dl class="parts">
+<dt>\(\sigma = e n_e x\)</dt><dd>površinska gustina naelektrisanja „ploče”. Zamisli kvadrat površine 1 m² i debljine \(x\): u njemu je \(n_e\cdot x\) elektrona (koncentracija × zapremina), a svaki nosi \(e\).</dd>
+<dt>\(n_e\)</dt><dd>koncentracija elektrona.</dd>
+<dt>\(x\)</dt><dd>za koliko su se elektroni pomerili. Što se više pomere, veće je razdvojeno naelektrisanje i jače polje.</dd>
+<dt>\(\varepsilon_0\)</dt><dd>dielektrična propustljivost vakuuma.</dd>
+</dl>
+</div>
+
+<h2>2. Jednačina kretanja</h2>
+<p>Polje vuče elektrone <b>nazad</b>, ka jonima (suprotno od pomeraja). Primenimo drugi Njutnov zakon \(ma = F\):</p>
+<div class="box eq"><span class="lbl">Jednačina kretanja</span>
+\[m_e\frac{d^2x}{dt^2} = -eE = -\frac{e^2n_e}{\varepsilon_0}\,x\]
+<dl class="parts">
+<dt>\(m_e\)</dt><dd>masa elektrona.</dd>
+<dt>\(\dfrac{d^2x}{dt^2}\)</dt><dd><b>ubrzanje</b>: drugi izvod položaja po vremenu (izvod brzine).</dd>
+<dt>\(-eE\)</dt><dd>sila na elektron. Minus jer je elektron negativan, pa ga polje vuče suprotno od smera polja, tj. nazad ka jonima.</dd>
+<dt>\(-\dfrac{e^2n_e}{\varepsilon_0}\,x\)</dt><dd>ubacili smo \(E\). Sila je <b>srazmerna pomeraju \(x\) i suprotna mu</b>, baš kao opruga \(F = -Kx\) sa „krutošću” \(K = \frac{e^2n_e}{\varepsilon_0}\)!</dd>
+</dl>
+</div>
+
+<div class="box eq"><span class="lbl">Rešenje: elektroni osciluju</span>
+<p>Podelimo sa \(m_e\) i označimo \(\omega_{pe}^2 = \frac{e^2n_e}{\varepsilon_0 m_e}\):</p>
+\[\frac{d^2x}{dt^2} + \omega_{pe}^2\,x = 0\]
+<p>Pitamo: koja funkcija, dvaput izvedena, daje samu sebe sa minusom puta \(\omega^2\)? To su sinus i kosinus. Ako elektrone pustimo iz pomeraja \(x_0\):</p>
+\[x(t) = x_0\cos(\omega_{pe}t)\]
+<p>Elektroni se vraćaju, zbog inercije „pretrče” ravnotežni položaj, polje se okrene i vuče ih nazad… i tako u krug. To su <b>plazmene oscilacije</b> (Langmirove oscilacije).</p>
+</div>
+
+<div class="box eq"><span class="lbl">Plazmena frekvencija (uokvireno u skripti)</span>
+\[\boxed{\omega_{pe} = \left(\frac{e^2n_e}{\varepsilon_0m_e}\right)^{\frac12}}\]
+<dl class="parts">
+<dt>\(\omega_{pe}\)</dt><dd>elektronska plazmena (kružna) frekvencija. Indeks \(p\) = plazma, \(e\) = elektroni.</dd>
+<dt>\(n_e\) u brojiocu</dt><dd>gušća plazma znači jaču „oprugu” (više naelektrisanja se razdvoji), pa brže osciluje.</dd>
+<dt>\(m_e\) u imeniocu</dt><dd>lakše čestice osciluju brže. Zato se gledaju elektroni: jonska plazmena frekvencija je stotinama puta manja.</dd>
+<dt>\(e^2\)</dt><dd>jedno \(e\) je od naelektrisanja koje stvara polje, drugo od sile kojom polje deluje na elektron.</dd>
+<dt>\((\ )^{1/2}\)</dt><dd>isto što i \(\sqrt{\ }\), jer je \(\omega = \sqrt{K/m}\).</dd>
+</dl>
+<p><b>Važno:</b> plazmena frekvencija zavisi <b>samo od gustine elektrona</b> (ne od temperature!). Praktična formula: \(f_p = \frac{\omega_{pe}}{2\pi} \approx 9\sqrt{n_e}\ \text{Hz}\), uz \(n_e\) u m⁻³.</p>
+</div>
+
+<div class="box num"><span class="lbl">Primeri sa brojevima</span>
+<div class="tablewrap"><table>
+<tr><th>Sredina</th><th>\(n_e\) [m⁻³]</th><th>\(f_p\)</th><th>Područje</th></tr>
+<tr><td>jonosfera (noću)</td><td>\(10^{10}\)</td><td>≈ 0,9 MHz</td><td>srednji talasi (AM radio)</td></tr>
+<tr><td>jonosfera (danju)</td><td>\(10^{12}\)</td><td>≈ 9 MHz</td><td>kratki talasi</td></tr>
+<tr><td>fluorescentna cev</td><td>\(10^{17}\)</td><td>≈ 2,8 GHz</td><td>mikrotalasi</td></tr>
+<tr><td>metal (bakar, slobodni elektroni)</td><td>\(8{,}5\cdot10^{28}\)</td><td>≈ \(2{,}6\cdot10^{15}\) Hz</td><td>ultraljubičasto</td></tr>
+</table></div>
+</div>
+
+<h2>3. Plazma u spoljašnjem promenljivom polju: tri slučaja</h2>
+<p>Kada se plazma nađe u spoljašnjem <b>promenljivom</b> električnom polju (npr. naiđe EM talas frekvencije \(\omega_{sp.polja}\)), ponašanje zavisi od toga kako se ta frekvencija odnosi prema \(\omega_p\):</p>
+
+<div class="box eq"><span class="lbl">1. \(\omega_{sp.polja} \ll \omega_p\) · sporo polje</span>
+<p>Tada <b>plazma osciluje s poljem</b>. Elektroni su dovoljno „brzi” da prate svaku promenu polja i preraspodele se tako da ga ponište (ekraniraju). Plazma se tada <b>ponaša kao metal</b> i dolazi do <b>disipacije energije</b> (elektroni u kretanju se sudaraju i deo energije pretvaraju u toplotu). <b>EM talasi takvih frekvencija ne prolaze kroz plazmu</b>, nego se odbijaju.</p>
+</div>
+<div class="box eq"><span class="lbl">2. \(\omega_{sp.polja} \gg \omega_p\) · brzo polje</span>
+<p>Tada <b>plazma neće oscilovati s poljem</b>. Polje se menja prebrzo i elektroni zbog svoje inercije ne stignu da reaguju: pre nego što krenu na jednu stranu, polje se već okrene. Plazma je za takav talas skoro kao vakuum. <b>Ovakvi EM talasi prolaze kroz plazmu.</b></p>
+</div>
+<div class="box eq"><span class="lbl">3. \(\omega_{sp.polja} \approx \omega_p\) · rezonancija</span>
+<p>Polje „gura” elektrone tačno njihovom prirodnom frekvencijom. Dolazi do <b>refleksije i apsorpcije EM talasa</b>.</p>
+</div>
+
+<div class="box life"><span class="lbl">Analogija · ljuljaška</span>
+<p>Zamisli da guraš dete na ljuljašci:</p>
+<ul>
+<li><b>Guraš jako sporo</b> (mnogo sporije od prirodnog ritma ljuljaške): ljuljaška samo prati tvoju ruku. To je slučaj 1, plazma „prati” polje.</li>
+<li><b>Treseš je brzo</b> (100 puta u sekundi): ljuljaška ne stigne da reaguje i praktično stoji. To je slučaj 2, polje „prolazi” bez efekta.</li>
+<li><b>Guraš tačno u ritmu</b>: ljuljaška ide sve više, uzima mnogo energije od tebe. To je slučaj 3, <b>rezonancija</b>.</li>
+</ul>
+</div>
+
+<div class="box life"><span class="lbl">Iz stvarnog života</span>
+<ul>
+<li><b>Radio „preko sveta”</b>: AM i kratkotalasne stanice imaju frekvencije <b>niže</b> od plazmene frekvencije jonosfere, pa se od nje <b>odbijaju</b> kao od ogledala i vraćaju na Zemlju hiljadama kilometara dalje. Zato radio-amateri mogu da pričaju sa drugim kontinentom.</li>
+<li><b>FM radio, TV, GPS, mobilni, satelitski internet</b> rade na frekvencijama od 100 MHz do nekoliko GHz, <b>mnogo višim</b> od \(f_p\) jonosfere. Prolaze kroz nju, pa sateliti mogu da komuniciraju sa Zemljom. Zato se FM stanica ne čuje u drugoj državi, a AM često može.</li>
+<li><b>Zašto su metali sjajni</b>: metal je „plazma” slobodnih elektrona sa \(f_p\) u ultraljubičastom. Vidljiva svetlost ima nižu frekvenciju, pa se <b>odbija</b>, i zato je ogledalo napravljeno od metala. Neki metali (npr. natrijum, kalijum) postaju providni za ultraljubičasto, iznad svoje \(f_p\).</li>
+<li><b>„Radio-mrak” svemirske kapsule</b>: pri ulasku u atmosferu oko kapsule nastane gusta plazma, njena \(f_p\) postane veća od frekvencije radio-veze i signal se odbija. Nekoliko minuta nema kontakta sa posadom.</li>
+</ul>
+</div>
+
+<div class="box exam"><span class="lbl">Ukratko za ispit (šta napisati)</span>
+<ol>
+<li>Težnja ka elektroneutralnosti uslovljava specifičan odziv plazme na spoljašnje EM polje.</li>
+<li>Skica: elektroni pomereni udesno za \(BB'\), joni ostaju u \(AA'\), pa nastaje polje ravnog kondenzatora \(E = \frac{\sigma}{\varepsilon_0} = \frac{en_ex}{\varepsilon_0}\).</li>
+<li>Jednačina kretanja: \(m_e\frac{d^2x}{dt^2} = -eE = -\frac{e^2n_ex}{\varepsilon_0}\), harmonijsko oscilovanje.</li>
+<li>Plazmena frekvencija: \(\omega_{pe} = \left(\frac{e^2n_e}{\varepsilon_0m_e}\right)^{1/2}\).</li>
+<li>Tri slučaja: \(\omega_{sp}\ll\omega_p\): plazma osciluje s poljem, ponaša se kao metal, disipacija, talasi ne prolaze. \(\omega_{sp}\gg\omega_p\): ne osciluje, talasi prolaze. \(\omega_{sp}\approx\omega_p\): refleksija i apsorpcija.</li>
+</ol>
+</div>
+
+<h3>Proveri sebe</h3>
+<details><summary>Zašto se u izvođenju pomeraju samo elektroni, a joni stoje?</summary><p>Joni su hiljadama puta teži, pa za vreme jedne oscilacije elektrona praktično ne stignu da se pomere.</p></details>
+<details><summary>Po čemu prepoznajemo da će elektroni oscilovati?</summary><p>Sila je srazmerna pomeraju i suprotnog smera (\(F = -Kx\)), kao kod opruge. Takvo kretanje je uvek harmonijsko oscilovanje sa \(\omega = \sqrt{K/m}\).</p></details>
+<details><summary>Kako se menja \(\omega_{pe}\) ako se koncentracija elektrona poveća 4 puta?</summary><p>Poveća se 2 puta, jer je \(\omega_{pe}\sim\sqrt{n_e}\).</p></details>
+<details><summary>Zašto FM radio prolazi kroz jonosferu, a AM se odbija?</summary><p>FM (≈100 MHz) ima frekvenciju mnogo veću od \(f_p\) jonosfere (≈1–10 MHz), pa prolazi. AM (≈1 MHz) ima frekvenciju manju ili blisku \(f_p\), pa se odbija.</p></details>
+</section>
+
 <!-- KRAJ PITANJA -->
 
 </main>
