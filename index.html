@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fizika jonizovanih gasova</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<style>
+:root{
+  --bg:#f4f7f3; --card:#ffffff; --ink:#28343a; --muted:#5f6d73; --line:#e1e8e4;
+  --mint:#d6f1e5; --mint-ink:#2f7a5f;
+  --lav:#e6e0f6; --lav-ink:#5b4c96;
+  --sky:#dcecf9; --sky-ink:#2f6593;
+  --peach:#fde6d2; --peach-ink:#9a5a22;
+  --butter:#fbf2cc; --butter-ink:#7a6514;
+  --sage:#e8efe0; --sage-ink:#4f6a3a;
+  --accent:#6fb3a0; --accent-ink:#ffffff;
+  --shadow:0 6px 24px rgba(40,60,60,.08);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1b2125; --card:#232b30; --ink:#e4ece9; --muted:#a3b1b0; --line:#34403f;
+    --mint:#21392f; --mint-ink:#9fdcc2;
+    --lav:#2c2840; --lav-ink:#c5b9f0;
+    --sky:#1f3242; --sky-ink:#a6cdef;
+    --peach:#3d2c1f; --peach-ink:#f2c39a;
+    --butter:#38331c; --butter-ink:#ecd88a;
+    --sage:#2a3324; --sage-ink:#c3dba9;
+    --accent:#5aa08d; --accent-ink:#0f1a17;
+    --shadow:0 6px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1b2125; --card:#232b30; --ink:#e4ece9; --muted:#a3b1b0; --line:#34403f;
+  --mint:#21392f; --mint-ink:#9fdcc2;
+  --lav:#2c2840; --lav-ink:#c5b9f0;
+  --sky:#1f3242; --sky-ink:#a6cdef;
+  --peach:#3d2c1f; --peach-ink:#f2c39a;
+  --butter:#38331c; --butter-ink:#ecd88a;
+  --sage:#2a3324; --sage-ink:#c3dba9;
+  --accent:#5aa08d; --accent-ink:#0f1a17;
+  --shadow:0 6px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Nunito,system-ui,sans-serif;font-size:17.5px;line-height:1.7}
+header.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top-in{max-width:880px;margin:0 auto;padding:10px 16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.brand{font-family:Fraunces,Georgia,serif;font-weight:700;font-size:1.05rem;width:100%}
+select,button{font:inherit}
+#jump{flex:1;min-width:0;max-width:100%;padding:6px 10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+#theme{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:6px 10px;cursor:pointer}
+.progress{height:4px;background:var(--line)}
+.progress>div{height:100%;background:var(--accent);transition:width .3s}
+main{max-width:880px;margin:0 auto;padding:22px 16px 120px}
+section.q{display:none;background:var(--card);border-radius:22px;box-shadow:var(--shadow);padding:26px 26px 30px}
+section.q.active{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.qnum{display:inline-block;background:var(--lav);color:var(--lav-ink);font-weight:800;border-radius:999px;padding:2px 14px;font-size:.85rem;letter-spacing:.04em}
+h1{font-family:Fraunces,Georgia,serif;font-size:1.75rem;line-height:1.25;margin:10px 0 6px}
+h2{font-family:Fraunces,Georgia,serif;font-size:1.3rem;margin:34px 0 8px;padding-bottom:6px;border-bottom:2px solid var(--line)}
+h3{font-size:1.08rem;margin:24px 0 6px}
+p{margin:10px 0}
+.lead{color:var(--muted);font-size:1.02rem}
+.box{border-radius:16px;padding:14px 18px;margin:16px 0}
+.box>.lbl{display:block;font-weight:800;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.term{background:var(--lav)} .term>.lbl{color:var(--lav-ink)}
+.eq{background:var(--sky)} .eq>.lbl{color:var(--sky-ink)}
+.life{background:var(--mint)} .life>.lbl{color:var(--mint-ink)}
+.num{background:var(--butter)} .num>.lbl{color:var(--butter-ink)}
+.warn{background:var(--peach)} .warn>.lbl{color:var(--peach-ink)}
+.exam{background:var(--sage);border:2px dashed color-mix(in srgb,var(--sage-ink) 45%,transparent)} .exam>.lbl{color:var(--sage-ink)}
+.box p:first-of-type{margin-top:0}
+.box ul,.box ol{margin:6px 0;padding-left:22px}
+.katex-display{margin:.7em 0;overflow-x:auto;overflow-y:hidden;padding:4px 0}
+dl.parts{margin:8px 0 2px;display:grid;grid-template-columns:auto 1fr;gap:6px 14px}
+dl.parts dt{font-weight:700;white-space:nowrap}
+dl.parts dd{margin:0}
+table{border-collapse:collapse;width:100%;margin:10px 0;font-size:.95rem}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--sky);color:var(--sky-ink)}
+.tablewrap{overflow-x:auto}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 14px;margin:8px 0}
+details summary{cursor:pointer;font-weight:700}
+figure{margin:16px 0;text-align:center}
+figure svg{max-width:100%;height:auto}
+figcaption{font-size:.88rem;color:var(--muted)}
+.wip{text-align:center;padding:50px 10px;color:var(--muted)}
+nav.bottom{position:fixed;left:0;right:0;bottom:0;z-index:5;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-top:1px solid var(--line)}
+.nav-in{max-width:880px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
+.nav-in button{border:none;border-radius:14px;padding:11px 20px;font-weight:800;cursor:pointer;background:var(--accent);color:var(--accent-ink);transition:transform .1s,opacity .2s}
+.nav-in button:active{transform:scale(.97)}
+.nav-in button:disabled{opacity:.35;cursor:default}
+#prev{background:var(--lav);color:var(--lav-ink)}
+#counter{flex:1;text-align:center;color:var(--muted);font-weight:700}
+.hint{font-size:.8rem;color:var(--muted);text-align:center;margin-top:18px}
+@media (max-width:560px){
+  body{font-size:16.5px}
+  section.q{padding:20px 16px 24px;border-radius:18px}
+  h1{font-size:1.45rem}
+  .nav-in button{padding:10px 14px}
+  dl.parts{grid-template-columns:1fr}
+  dl.parts dt{margin-top:6px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <div class="brand">Fizika jonizovanih gasova</div>
+    <select id="jump" aria-label="Izaberi pitanje"></select>
+    <button id="theme" title="Svetla / tamna tema">◐</button>
+  </div>
+  <div class="progress"><div id="bar"></div></div>
+</header>
+
+<main id="questions">
+
+<!-- ===================== PITANJE 1 ===================== -->
+<section class="q" data-title="Stvaranje i nestajanje naelektrisanih čestica u gasu">
+<span class="qnum">PITANJE 1</span>
+<h1>Stvaranje i nestajanje naelektrisanih čestica u gasu</h1>
+<p class="lead">Ovo pitanje odgovara na dva jednostavna pitanja: <b>odakle</b> se u gasu pojavljuju elektroni i joni, i <b>kako</b> oni ponovo nestaju. Sve ostalo u ovom predmetu stoji na tome.</p>
+
+<h2>0. Osnove koje moraš znati pre svega</h2>
+
+<div class="box term"><span class="lbl">Novi pojam · Atom</span>
+<p>Atom zamisli kao malu „zgradu”: u sredini je <b>jezgro</b> (pozitivno naelektrisano), a oko njega su <b>elektroni</b> (negativno naelektrisani). Normalno ima tačno onoliko elektrona koliko je pozitivnog naelektrisanja u jezgru, pa je atom <b>neutralan</b>, tj. ukupno naelektrisanje mu je nula.</p>
+<p>Isto važi i za <b>molekul</b>, samo što je to nekoliko atoma spojenih zajedno (npr. \(\mathrm{N_2}\), \(\mathrm{O_2}\) u vazduhu).</p>
+</div>
+
+<div class="box term"><span class="lbl">Novi pojam · Jon i jonizacija</span>
+<p><b>Jon</b> je atom (ili molekul) koji je izgubio ili dobio elektron, pa više nije neutralan. Ako je <i>izgubio</i> elektron, ostaje mu višak pozitivnog naelektrisanja i to je <b>pozitivan jon</b>, piše se \(A^+\).</p>
+<p><b>Jonizacija</b> je proces kojim se elektron „otkine” od atoma. Od jednog neutralnog atoma tako nastaju <b>dve</b> naelektrisane čestice: pozitivan jon \(A^+\) i slobodan elektron \(e^-\).</p>
+</div>
+
+<div class="box term"><span class="lbl">Novi pojam · Ekscitacija (pobuđivanje)</span>
+<p>Elektroni u atomu ne mogu da imaju bilo koju energiju, nego samo određene vrednosti, kao <b>spratovi zgrade</b> ili <b>prečage na merdevinama</b>. Najniži „sprat” je <b>osnovno stanje</b>.</p>
+<p><b>Ekscitacija</b> znači da elektron primi energiju i popne se na viši sprat, ali <b>ostane u atomu</b>. Takav atom zovemo <b>pobuđen (ekscitovan)</b> i pišemo \(A^*\) (zvezdica = „pobuđen”). Pobuđen atom ne ostaje dugo takav: posle oko \(10^{-8}\) s elektron „padne” nazad i višak energije izbaci kao svetlost (foton).</p>
+<p><b>Jonizacija</b> je kad elektron dobije toliko energije da „izleti iz zgrade”, tj. potpuno napusti atom.</p>
+</div>
+
+<figure>
+<svg viewBox="0 0 520 280" role="img" aria-label="Energetski nivoi atoma">
+  <style>
+    .lv{stroke:var(--ink);stroke-width:2.5}
+    .lvd{stroke:var(--muted);stroke-width:2;stroke-dasharray:6 5}
+    .t{fill:var(--ink);font:14px Nunito,sans-serif}
+    .tm{fill:var(--muted);font:13px Nunito,sans-serif}
+    .a1{stroke:var(--sky-ink);stroke-width:3;fill:none}
+    .a2{stroke:var(--mint-ink);stroke-width:3;fill:none}
+  </style>
+  <defs>
+    <marker id="hs" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--sky-ink)"/></marker>
+    <marker id="hm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--mint-ink)"/></marker>
+  </defs>
+  <line class="lvd" x1="60" y1="40" x2="330" y2="40"/>
+  <text class="t" x="340" y="45">granica jonizacije (eV<tspan baseline-shift="sub" font-size="10">j</tspan>)</text>
+  <text class="tm" x="70" y="30">iznad ove linije elektron je slobodan</text>
+  <line class="lv" x1="60" y1="90" x2="330" y2="90"/>
+  <line class="lv" x1="60" y1="130" x2="330" y2="130"/>
+  <text class="t" x="340" y="135">pobuđeno stanje A* (eV<tspan baseline-shift="sub" font-size="10">ex</tspan>)</text>
+  <line class="lv" x1="60" y1="250" x2="330" y2="250"/>
+  <text class="t" x="340" y="255">osnovno stanje A</text>
+  <line class="a1" x1="120" y1="246" x2="120" y2="136" marker-end="url(#hs)"/>
+  <text class="tm" x="78" y="200">ekscitacija</text>
+  <line class="a2" x1="250" y1="246" x2="250" y2="20" marker-end="url(#hm)"/>
+  <text class="tm" x="258" y="200">jonizacija</text>
+</svg>
+<figcaption>Energetski „spratovi” atoma. Ekscitacija = penjanje na viši sprat. Jonizacija = izlazak iz zgrade.</figcaption>
+</figure>
+
+<div class="box term"><span class="lbl">Novi pojam · Elektronvolt (eV)</span>
+<p>U atomskoj fizici energije su toliko male da džul (J) nije praktičan. Zato koristimo <b>elektronvolt</b>: to je energija koju elektron dobije kad ga ubrza napon od 1 volta.</p>
+\[1\ \text{eV} = 1{,}6\cdot 10^{-19}\ \text{J}\]
+<p>Primer: baterija od 1,5 V „gurne” elektron i on dobije 1,5 eV energije. Elektron u starom televizoru (katodnoj cevi) ubrzan sa 20 000 V dobija 20 000 eV.</p>
+</div>
+
+<div class="box term"><span class="lbl">Novi pojam · Plazma i jonizovan gas</span>
+<p>Gas u kome postoji primetan broj slobodnih elektrona i jona zove se <b>jonizovan gas</b>. Kad ih ima toliko da se gas kolektivno ponaša kao celina i provodi struju, kažemo da je to <b>plazma</b> (četvrto agregatno stanje, posle čvrstog, tečnog i gasovitog).</p>
+<p>Plazma je, na primer: munja, plamen (delimično), unutrašnjost neonske i fluorescentne cevi, Sunce i sve zvezde, polarna svetlost.</p>
+</div>
+
+<h2>1. Uvod: zašto u gasu uopšte ima naelektrisanih čestica?</h2>
+<p>U normalnim uslovima (sobna temperatura, atmosferski pritisak) gas je skoro savršen <b>izolator</b>, tj. ne provodi struju. Zato vazduh između dve rupe u utičnici ne pravi kratak spoj. Ipak, gas <b>nije potpuno</b> bez naelektrisanih čestica: uvek ima <b>vrlo malo</b> jona i elektrona. Oni stalno nastaju zbog tri izvora:</p>
+<ul>
+<li><b>UV zračenje</b> (ultraljubičasto) sa Sunca,</li>
+<li><b>kosmičko zračenje</b>: čestice velike energije koje stalno padaju na Zemlju iz svemira,</li>
+<li><b>radioaktivno zračenje</b> iz tla, stena i građevinskog materijala (npr. gas radon koji izlazi iz zemlje).</li>
+</ul>
+<div class="box life"><span class="lbl">Iz stvarnog života</span>
+<p>U svakom kubnom centimetru vazduha koji udišeš ima otprilike <b>hiljadu</b> parova jona. To zvuči mnogo, ali u istom kubnom centimetru ima oko \(2{,}5\cdot10^{19}\) molekula. Dakle naelektrisan je otprilike jedan od \(10^{16}\), što je kao jedna kap u ogromnom jezeru.</p>
+<p>Istorijski primer: naelektrisan elektroskop (dva listića koji se razmiču) se sam od sebe polako „isprazni” i u zatvorenoj kutiji. Naučnici su se pitali zašto. Odgovor: vazduh nije savršen izolator, joni u njemu polako neutrališu naboj. Viktor Hes je 1912. godine poneo elektroskop u balon i video da se na visini prazni <b>brže</b>. Tako je otkriveno <b>kosmičko zračenje</b>.</p>
+</div>
+
+<h2>2. Procesi jonizacije: kako nastaju naelektrisane čestice</h2>
+<p>Osnovno pravilo važi za sve procese: <b>da bi nešto jonizovalo (ili pobudilo) atom, mora da mu preda bar onoliko energije koliko je potrebno za jonizaciju (ili ekscitaciju)</b>. To „nešto” može biti foton (kvant svetlosti), druga čestica ili toplota.</p>
+
+<h3>Oznake koje koristimo</h3>
+<div class="box eq"><span class="lbl">Oznake</span>
+<dl class="parts">
+<dt>\(h\nu\)</dt><dd>energija <b>fotona</b> (kvanta zračenja). \(h = 6{,}626\cdot10^{-34}\ \text{J}\cdot\text{s}\) je <b>Plankova konstanta</b> (prirodna konstanta, uvek ista), a \(\nu\) (grčko slovo „ni”) je <b>frekvencija</b> svetlosti, tj. koliko puta u sekundi talas zatitra. Što je frekvencija veća, foton nosi više energije.</dd>
+<dt>\(V_j\)</dt><dd><b>potencijal jonizacije</b> (u voltima). Kad ga pomnožiš sa \(e\) dobiješ <b>energiju jonizacije</b> \(eV_j\): koliko energije treba da se elektron otkine od atoma.</dd>
+<dt>\(V_{ex}\)</dt><dd><b>potencijal ekscitacije</b>. \(eV_{ex}\) je energija potrebna da se atom pobudi. Uvek je \(eV_{ex} \lt eV_j\), jer je lakše popeti se na sprat nego izaći iz zgrade.</dd>
+<dt>\(e\)</dt><dd><b>elementarno naelektrisanje</b>, naelektrisanje jednog elektrona: \(e = 1{,}6\cdot10^{-19}\ \text{C}\).</dd>
+<dt>\(A\)</dt><dd>neutralan atom/molekul gasa.</dd>
+<dt>\(A^+\)</dt><dd>pozitivan jon gasa.</dd>
+<dt>\(A^*\)</dt><dd>pobuđen (ekscitovan) atom/molekul gasa.</dd>
+<dt>\(e^-\)</dt><dd>slobodan elektron.</dd>
+</dl>
+</div>
+
+<div class="box num"><span class="lbl">Brojevi da dobiješ osećaj</span>
+<div class="tablewrap"><table>
+<tr><th>Gas</th><th>Energija jonizacije \(eV_j\)</th></tr>
+<tr><td>natrijum (Na)</td><td>5,1 eV (vrlo lako se jonizuje)</td></tr>
+<tr><td>kiseonik (O₂)</td><td>12,1 eV</td></tr>
+<tr><td>vodonik (H)</td><td>13,6 eV</td></tr>
+<tr><td>azot (N₂)</td><td>15,6 eV</td></tr>
+<tr><td>argon (Ar)</td><td>15,8 eV</td></tr>
+<tr><td>neon (Ne)</td><td>21,6 eV</td></tr>
+<tr><td>helijum (He)</td><td>24,6 eV (najteže od svih)</td></tr>
+</table></div>
+<p>Za poređenje, foton vidljive svetlosti ima samo 1,8 eV (crvena) do 3,1 eV (ljubičasta). Zato obična svetlost <b>ne može</b> da jonizuje vazduh, a UV i X-zraci mogu.</p>
+<p>Korisna formula za prevođenje talasne dužine u energiju fotona: \(E\,[\text{eV}] \approx \dfrac{1240}{\lambda\,[\text{nm}]}\). Za vodonik je potrebno \(\lambda \lt 1240/13{,}6 \approx 91\ \text{nm}\), a to je daleko ultraljubičasto zračenje.</p>
+</div>
+
+<h3>2.1 Jonizacija zračenjem (fotojonizacija)</h3>
+<p>Ovde energiju donosi <b>foton</b>, „paketić” svetlosti.</p>
+
+<p><b>(a) Direktna fotojonizacija</b>: jedan foton ima dovoljno energije da odmah otkine elektron.</p>
+<div class="box eq"><span class="lbl">Uslov i reakcija</span>
+\[h\nu \gt eV_j \qquad\Longrightarrow\qquad h\nu + A \;\to\; A^+ + e^-\]
+<dl class="parts">
+<dt>\(h\nu \gt eV_j\)</dt><dd>uslov: energija fotona mora biti veća od energije jonizacije.</dd>
+<dt>\(h\nu + A\)</dt><dd>„pre”: foton nailazi na neutralan atom.</dd>
+<dt>\(\to\)</dt><dd>„prelazi u”, tj. šta nastaje posle.</dd>
+<dt>\(A^+ + e^-\)</dt><dd>„posle”: foton nestaje (apsorbovan je), a ostaju pozitivan jon i slobodan elektron.</dd>
+</dl>
+<p>Višak energije \(h\nu - eV_j\) ne propada: elektron ga odnosi kao <b>kinetičku energiju</b> (energiju kretanja).</p>
+</div>
+<div class="box num"><span class="lbl">Primer sa brojevima</span>
+<p>Foton od 20 eV pogodi atom vodonika (\(eV_j=13{,}6\) eV). Jonizacija se dešava, a elektron odleti sa \(20 - 13{,}6 = 6{,}4\) eV kinetičke energije.</p>
+<p>Foton od 10 eV <b>ne može</b> direktno jonizovati vodonik, koliko god takvih fotona bilo. Jedan foton daje energiju samo jednom elektronu, nema „sabiranja”.</p>
+</div>
+<div class="box life"><span class="lbl">Iz stvarnog života</span>
+<ul>
+<li><b>Jonosfera</b>: na visini 60–1000 km Sunčevo UV i rendgensko zračenje stalno jonizuje vazduh. Taj sloj odbija radio-talase, pa noću AM radio stanicu iz daleke zemlje možeš da hvataš sa druge strane planete.</li>
+<li><b>Opekotine od sunca</b> postoje iz istog razloga: UV fotoni imaju dovoljno energije da kidaju veze u molekulima kože, a vidljiva svetlost nema.</li>
+<li><b>Rendgen u bolnici</b>: X-zraci su „jonizujuće zračenje”, pa zato tehničar izlazi iz sobe dok snima.</li>
+</ul>
+</div>
+
+<p><b>(b) Stepenasta fotojonizacija</b>: jedan foton nije dovoljan za jonizaciju, ali jeste za ekscitaciju. Onda je potrebno <b>dva koraka</b>.</p>
+<div class="box eq"><span class="lbl">Uslov i reakcija</span>
+\[h\nu \lt eV_j,\quad h\nu \gt eV_{ex} \qquad\Longrightarrow\qquad h\nu + A \to A^*,\quad h\nu + A^* \to A^+ + e^-\]
+<dl class="parts">
+<dt>\(h\nu \lt eV_j\)</dt><dd>foton je „preslab” da odmah otkine elektron…</dd>
+<dt>\(h\nu \gt eV_{ex}\)</dt><dd>…ali je dovoljno jak da pobudi atom.</dd>
+<dt>\(h\nu + A \to A^*\)</dt><dd>1. korak: prvi foton pobudi atom.</dd>
+<dt>\(h\nu + A^* \to A^+ + e^-\)</dt><dd>2. korak: drugi foton pogodi već pobuđen atom. Ovom elektronu treba još samo \(eV_j - eV_{ex}\), pa ga drugi foton otkine.</dd>
+</dl>
+</div>
+<div class="box life"><span class="lbl">Analogija</span>
+<p>Treba ti 1000 dinara za kartu, a imaš samo novčanice od 600. Jedna nije dovoljna, ali ako platiš „u dve rate” (600 + 400), uspeo si. Uslov: druga rata mora stići <b>pre nego što ti prva „istekne”</b>. Pobuđeno stanje živi samo oko \(10^{-8}\) s, pa drugi foton mora stići brzo. Zato je stepenasta jonizacija važna kod <b>vrlo jakih izvora svetlosti</b> (laseri), gde fotona ima ogroman broj.</p>
+</div>
+
+<h3>2.2 Jonizacija sudarom sa naelektrisanim česticama (udarna jonizacija)</h3>
+<p>Ovde energiju donosi <b>čestica koja se kreće</b>, najčešće elektron ubrzan električnim poljem. Ona udari u atom i preda mu deo svoje <b>kinetičke energije</b>.</p>
+
+<div class="box term"><span class="lbl">Novi pojam · Kinetička energija</span>
+\[E_k = \tfrac12 m v^2\]
+<dl class="parts">
+<dt>\(E_k\)</dt><dd>kinetička energija, tj. energija koju telo ima zato što se kreće.</dd>
+<dt>\(m\)</dt><dd>masa čestice. Za elektron \(m = 9{,}11\cdot10^{-31}\) kg.</dd>
+<dt>\(v\)</dt><dd>brzina. Pošto je na kvadrat, duplo veća brzina daje <b>četiri puta</b> veću energiju (zato je sudar automobila na 100 km/h mnogo gori nego na 50 km/h).</dd>
+<dt>\(\tfrac12\)</dt><dd>broj koji dolazi iz izvođenja formule (rad sile koja ubrzava telo).</dd>
+</dl>
+</div>
+
+<p><b>(a) Direktna udarna jonizacija</b>:</p>
+<div class="box eq"><span class="lbl">Uslov i reakcija</span>
+\[\tfrac12 m v^2 \gt eV_j \qquad\Longrightarrow\qquad A + e^- \to A^+ + 2e^-\]
+<dl class="parts">
+<dt>\(\tfrac12 mv^2 \gt eV_j\)</dt><dd>elektron koji udara mora imati kinetičku energiju veću od energije jonizacije.</dd>
+<dt>\(A + e^-\)</dt><dd>brzi elektron udara neutralan atom.</dd>
+<dt>\(A^+ + 2e^-\)</dt><dd>posle sudara imamo jon i <b>dva</b> elektrona: onaj koji je udario (sad sporiji) i onaj koji je izbijen.</dd>
+</dl>
+</div>
+<div class="box num"><span class="lbl">Primer sa brojevima</span>
+<p>Koliko brzo mora da ide elektron da bi jonizovao vodonik? Iz \(\tfrac12 mv^2 = eV_j\):</p>
+\[v = \sqrt{\frac{2eV_j}{m}} = \sqrt{\frac{2\cdot 13{,}6\cdot 1{,}6\cdot10^{-19}}{9{,}11\cdot10^{-31}}} \approx 2{,}2\cdot10^{6}\ \text{m/s}\]
+<p>To je oko <b>2200 km u sekundi</b>. Zvuči ogromno, ali elektron je toliko lak da tu brzinu dostigne ubrzan naponom od samo 13,6 V.</p>
+</div>
+<div class="box life"><span class="lbl">Iz stvarnog života: lavina</span>
+<p>Primeti da od <b>1</b> elektrona nastaju <b>2</b>. Polje ubrza oba, svaki od njih izbije još po jedan, pa imamo 4, pa 8, 16, 32… To se zove <b>elektronska lavina</b>, kao grudva snega koja se kotrlja niz brdo i raste.</p>
+<ul>
+<li><b>Munja</b>: električno polje između oblaka i zemlje je ogromno, lavine se množe i za delić sekunde vazduh postaje provodnik.</li>
+<li><b>Gajger-Milerov brojač</b> („pucketa” kod radioaktivnosti): jedna čestica napravi par jona, lavina to pojača toliko da se čuje „klik”.</li>
+<li><b>Neonska reklama i fluorescentna cev</b>: napon ubrzava elektrone, a oni sudarima jonizuju i pobuđuju gas, pa on svetli.</li>
+</ul>
+</div>
+
+<p><b>(b) Stepenasta udarna jonizacija</b>: elektron nema dovoljno energije da odmah jonizuje, ali ima dovoljno da pobudi. Opet su potrebna dva koraka:</p>
+<div class="box eq"><span class="lbl">Uslov i reakcija</span>
+\[eV_{ex} \lt \tfrac12 mv^2 \lt eV_j \qquad\Longrightarrow\qquad e^- + A \to A^*,\quad e^- + A^* \to A^+ + 2e^-\]
+<dl class="parts">
+<dt>\(eV_{ex} \lt \tfrac12 mv^2 \lt eV_j\)</dt><dd>energija elektrona je „između”: dovoljna za pobuđivanje, nedovoljna za jonizaciju.</dd>
+<dt>\(e^- + A \to A^*\)</dt><dd>prvi elektron pobudi atom (i sam nastavi dalje, ali sporiji).</dd>
+<dt>\(e^- + A^* \to A^+ + 2e^-\)</dt><dd>drugi elektron udari u već pobuđen atom i dovrši posao.</dd>
+</dl>
+<p>Ovo je posebno važno kod gasova koji imaju <b>metastabilna stanja</b>, tj. pobuđena stanja koja žive dugo (i do sekunde). Primeri su neon i argon, pa atom „čeka” drugi sudar.</p>
+</div>
+
+<h3>2.3 Termalna jonizacija</h3>
+<p>Kad se gas jako zagreje, atomi se kreću sve brže (temperatura i jeste mera tog haotičnog kretanja). Na dovoljno visokoj temperaturi sudari <b>između samih atoma</b> postaju toliko jaki da jedan atom jonizuje drugi:</p>
+<div class="box eq"><span class="lbl">Reakcija</span>
+\[A + A \to A^+ + A + e^-\]
+<dl class="parts">
+<dt>\(A + A\)</dt><dd>dva brza neutralna atoma se sudare.</dd>
+<dt>\(A^+ + A + e^-\)</dt><dd>jedan postane jon (i oslobodi elektron), drugi ostane neutralan, samo usporen.</dd>
+</dl>
+<p>Ovi procesi se zovu <b>zapreminski</b>, jer se dešavaju u <b>celoj zapremini</b> gasa, a ne samo na nekoj površini.</p>
+</div>
+<div class="box term"><span class="lbl">Novi pojam · Termalna energija \(kT\)</span>
+<p>Prosečna energija jedne čestice gasa na temperaturi \(T\) je reda veličine \(kT\), gde je \(k = 1{,}38\cdot10^{-23}\) J/K <b>Bolcmanova konstanta</b>, a \(T\) temperatura u kelvinima (K = °C + 273).</p>
+<p>Na sobnoj temperaturi (300 K) je \(kT \approx 0{,}025\) eV, a to je <b>500 puta manje</b> od 13,6 eV. Zato vazduh u sobi ne jonizuje sam sebe. Pošto su neki atomi mnogo brži od proseka (videćemo kod Maksvelove raspodele, pitanje 3), primetna termalna jonizacija počinje na nekoliko hiljada kelvina.</p>
+</div>
+<div class="box life"><span class="lbl">Iz stvarnog života</span>
+<ul>
+<li><b>Munja</b> zagreje kanal vazduha na oko 30 000 K, pet puta toplije od površine Sunca. Tu je termalna jonizacija ogromna.</li>
+<li><b>Sunce</b>: na površini (≈5800 K) jonizovan je mali deo atoma, a u jezgru (15 miliona K) skoro sve.</li>
+<li><b>Plamen</b>: ako u plamen šporeta prospeš malo soli, plamen postane jarko žut. Natrijum ima vrlo nisku energiju jonizacije i ekscitacije, pa se lako pobuđuje (i delimično jonizuje) već na temperaturi plamena.</li>
+<li><b>Svemirska kapsula pri povratku</b> u atmosferu: vazduh ispred nje se toliko zagreje da postane plazma, pa se nekoliko minuta gubi radio-veza.</li>
+</ul>
+</div>
+
+<h3>2.4 Stvaranje naelektrisanih čestica na elektrodama (površinski procesi)</h3>
+<div class="box term"><span class="lbl">Novi pojam · Elektrode, katoda, anoda</span>
+<p><b>Elektrode</b> su metalni delovi preko kojih struja ulazi u gas i izlazi iz njega. <b>Katoda</b> je negativna elektroda (elektroni beže od nje), a <b>anoda</b> je pozitivna (elektroni idu ka njoj). Kod neonke su to dva metalna kraja cevi.</p>
+<p>Metal ima mnogo slobodnih elektrona, ali ih „drži” na površini. Da bi elektron izašao iz metala treba mu energija koja se zove <b>izlazni rad</b> (obično 2–5 eV). To je slično energiji jonizacije, samo za metal.</p>
+</div>
+<p>Ovi procesi se odvijaju <b>na katodi</b> i zovu se <b>površinski</b>, jer se dešavaju na površini metala, a ne u gasu. Elektrode su ovde <b>izvor elektrona</b>.</p>
+<div class="tablewrap"><table>
+<tr><th>Proces</th><th>Zapis</th><th>Šta se dešava</th><th>Primer iz života</th></tr>
+<tr><td><b>(a) Fotoelektronska emisija</b></td><td>\(h\nu + \text{elektroda} \to e^-\)</td><td>foton pogodi metal i izbije elektron (fotoelektrični efekat, za koji je Ajnštajn dobio Nobelovu nagradu)</td><td>fotoćelije, fotomultiplikatori, kamere za noćno osmatranje</td></tr>
+<tr><td><b>(b) Sekundarna emisija jonima</b></td><td>\(A^+ + \text{elektroda} \to e^-\)</td><td>pozitivan jon ubrzan ka katodi udari u nju i izbije elektron (kao bilijarska kugla)</td><td>održava svetlenje u neonki: joni bombarduju katodu i daju nove elektrone</td></tr>
+<tr><td><b>(c) Termoelektronska emisija</b></td><td>\(\text{toplota} + \text{elektroda} \to e^-\)</td><td>zagrejan metal „isparava” elektrone, kao što vrela voda isparava molekule</td><td>stari CRT televizori, elektronske cevi u gitarskim pojačalima, rendgenska cev, magnetron u mikrotalasnoj</td></tr>
+<tr><td><b>(d) Emisija pod dejstvom polja</b></td><td>\(\text{jako el. polje} + \text{elektroda} \to e^-\)</td><td>ogromno električno polje (≈\(10^9\) V/m) bukvalno „iščupa” elektrone iz hladnog metala</td><td>elektronski mikroskopi; zato varnica najlakše „skače” sa šiljka (na šiljku je polje najjače)</td></tr>
+</table></div>
+
+<h2>3. Procesi nestajanja naelektrisanih čestica</h2>
+<p>Da se naelektrisane čestice samo stvaraju, gas bi postajao sve jonizovaniji, a to se ne dešava. Zato postoje procesi koji ih „troše”. Kada se stvaranje i nestajanje izjednače, broj jona i elektrona ostaje stalan (<b>ravnoteža</b>). Tako neonka svetli ujednačeno, ne sve jače i jače.</p>
+
+<h3>3.1 Radijativna rekombinacija</h3>
+<div class="box term"><span class="lbl">Novi pojam · Rekombinacija</span>
+<p><b>Rekombinacija</b> je obrnuto od jonizacije: elektron i pozitivan jon se ponovo spoje u neutralan atom. „Re-kombinacija” = ponovno spajanje.</p>
+</div>
+<div class="box eq"><span class="lbl">Reakcija</span>
+\[A^+ + e^- \to A \;/\; A^* + h\nu\]
+<dl class="parts">
+<dt>\(A^+ + e^-\)</dt><dd>jon „uhvati” slobodan elektron.</dd>
+<dt>\(A \,/\, A^*\)</dt><dd>nastaje neutralan atom, ili u osnovnom stanju (\(A\)) ili pobuđen (\(A^*\)). Kosa crta „/” znači „ili”.</dd>
+<dt>\(h\nu\)</dt><dd>izlazi foton. On odnosi <b>višak energije</b>.</dd>
+</dl>
+</div>
+<p><b>Zašto mora da izađe foton?</b> Kad se elektron „spusti” u atom, oslobađa se energija (bar onoliko koliko je trebalo da se otkine). Ta energija mora negde da ode, jer je energija <b>održana</b> (ne može da nestane). Ovde je odnosi svetlost, otud naziv <i>radijativna</i> (lat. <i>radiatio</i> = zračenje).</p>
+<div class="box life"><span class="lbl">Iz stvarnog života</span>
+<p>Deo svetlosti plazme (u gasnim lampama, u kanalu munje dok se hladi, u maglinama u svemiru) potiče upravo od rekombinacije. Astronomi po toj svetlosti prepoznaju vodonik u dalekim oblacima gasa.</p>
+</div>
+
+<h3>3.2 Rekombinacija pri sudaru tri čestice</h3>
+<div class="box eq"><span class="lbl">Reakcija</span>
+\[e^- + A^+ + e^- \,/\, A \;\to\; A + e^- \,/\, A\]
+<dl class="parts">
+<dt>\(e^- + A^+\)</dt><dd>elektron i jon koji treba da se spoje.</dd>
+<dt>\(+\ e^- / A\)</dt><dd><b>treća čestica</b>: ili još jedan elektron, ili neutralan atom.</dd>
+<dt>\(\to A\)</dt><dd>nastaje neutralan atom…</dd>
+<dt>\(+\ e^-/A\)</dt><dd>…a treća čestica ostaje, ali odleti <b>brža</b>, jer je preuzela višak energije.</dd>
+</dl>
+<p>Ovde se višak energije <b>ne oslobađa zračenjem</b>, nego ga preuzima treća čestica.</p>
+</div>
+<div class="box life"><span class="lbl">Analogija</span>
+<p>Zamisli lopticu koja se kotrlja ka rupi u zemlji. Ona upadne u rupu, ali ima previše energije pa se odmah otkotrlja na drugu stranu i izađe. Da bi <b>ostala</b> u rupi, neko mora da joj „oduzme” višak energije, npr. da je u tom trenutku udari druga loptica i odnese brzinu. Elektron i jon su isto tako: da bi se vezali u atom, višak energije mora otići. Kod radijativne rekombinacije odnosi ga foton, a ovde <b>treća čestica</b>.</p>
+<p>Pošto je potrebno da se <b>tri</b> čestice nađu na istom mestu u istom trenutku, ovo je važno tamo gde je gas <b>gust</b> (visok pritisak, velika koncentracija elektrona). U retkom gasu češća je radijativna rekombinacija.</p>
+</div>
+
+<h3>3.3 Difuzija</h3>
+<div class="box term"><span class="lbl">Novi pojam · Koncentracija i gradijent</span>
+<p><b>Koncentracija</b> \(n\) je broj čestica u jedinici zapremine (npr. koliko elektrona ima u 1 m³). Jedinica: \(\text{m}^{-3}\).</p>
+<p><b>Gradijent koncentracije</b> postoji kada koncentracija nije ista svuda, nego negde ima „više”, a negde „manje”. Gradijent je kao <b>nagib brda</b>: pokazuje koliko brzo i u kom pravcu se koncentracija menja.</p>
+<p><b>Difuzija</b> je spontano širenje čestica iz oblasti gde ih ima mnogo ka oblasti gde ih ima malo, samo zbog njihovog haotičnog kretanja. Niko ih ne „gura”, samo se nasumično raspršuju.</p>
+</div>
+<div class="box life"><span class="lbl">Iz stvarnog života</span>
+<ul>
+<li>Pošpricaš parfem u jednom uglu sobe, a posle nekoliko minuta se oseća svuda.</li>
+<li>Kesica čaja u šoljici: boja se sama raširi kroz vodu i bez mešanja.</li>
+<li>Kap mastila u čaši vode polako „izbledi” po celoj čaši.</li>
+</ul>
+</div>
+<p>Kada u jonizovanom gasu postoji gradijent koncentracije (a <b>uvek</b> postoji blizu zidova posude, tzv. graničnih oblasti), elektroni i joni difunduju ka zidovima. Na zidu se rekombinuju i nestaju, jer zid „upija” naelektrisanje. Zato koncentracija opada vremenom:</p>
+<div class="box eq"><span class="lbl">Jednačina difuzije (kako stoji u skripti)</span>
+\[\frac{dn}{dt} = -D\,\nabla^2 n\]
+<dl class="parts">
+<dt>\(n\)</dt><dd>koncentracija naelektrisanih čestica (čestica/m³).</dd>
+<dt>\(\dfrac{dn}{dt}\)</dt><dd><b>brzina promene</b> koncentracije u vremenu: za koliko se \(n\) promeni u jednoj sekundi. Ako je negativna, čestica je sve manje.</dd>
+<dt>\(D\)</dt><dd><b>koeficijent difuzije</b> (m²/s). Pokazuje koliko brzo se čestice šire. Laki i brzi elektroni imaju mnogo veće \(D\) od teških jona. Što je gas gušći (veći pritisak), \(D\) je manje, jer se čestice češće sudaraju i „zaglave”.</dd>
+<dt>\(\nabla^2 n\)</dt><dd><b>Laplasijan</b> koncentracije („nabla na kvadrat”). U jednoj dimenziji to je \(\dfrac{d^2n}{dx^2}\), druga izvodna po prostoru. Pokazuje <b>zakrivljenost</b> profila koncentracije, tj. da li je na tom mestu „vrh brda” ili „dno doline”.</dd>
+<dt>znak „−”</dt><dd>u skripti naglašava da se radi o <b>gubitku</b> čestica.</dd>
+</dl>
+</div>
+<div class="box warn"><span class="lbl">Pažnja · da razumeš smisao, ne samo znak</span>
+<p>U većini udžbenika jednačina difuzije piše se \(\dfrac{\partial n}{\partial t} = D\,\nabla^2 n\), bez minusa. Smisao je isti: u sredini cevi koncentracija ima <b>maksimum</b> („vrh brda”), a na vrhu brda je druga izvodna <b>negativna</b>. Zato \(n\) tu opada: čestice „cure” niz brdo ka zidovima. Na ispitu napiši kako je u skripti, ali znaj objasniti zašto koncentracija opada.</p>
+<p>Iz jednačine se vidi i da je difuzija <b>brža</b> kad je \(D\) veliko i kad je profil koncentracije „oštriji” (strmije brdo).</p>
+</div>
+<div class="box life"><span class="lbl">Iz stvarnog života</span>
+<p>U fluorescentnoj cevi elektroni i joni stalno difunduju ka staklenom zidu i tamo se rekombinuju. Zato cev mora stalno da troši struju, jer mora stalno da „dopunjuje” izgubljene čestice. Kad isključiš prekidač, jonizacija prestaje, a difuzija i rekombinacija za hiljaditi deo sekunde „počiste” gas, pa svetlo odmah nestane.</p>
+</div>
+
+<h3>3.4 Nestajanje čestica na elektrodama</h3>
+<p>Naelektrisane čestice putuju ka elektrodama (elektroni ka anodi, joni ka katodi) i tamo „izlaze” iz gasa: uđu u metal i postanu deo struje u žici. To je baš ono što pravi <b>električnu struju</b> kroz gas.</p>
+<div class="box eq"><span class="lbl">Jednačina</span>
+\[\frac{dn}{dt} = -\frac{j}{e\,d}\]
+<dl class="parts">
+<dt>\(\dfrac{dn}{dt}\)</dt><dd>brzina promene koncentracije (koliko čestica po m³ nestane u sekundi).</dd>
+<dt>\(j\)</dt><dd><b>gustina struje</b> (A/m²): kolika struja prolazi kroz jedan kvadratni metar poprečnog preseka. Na skici je vektor \(\vec j\) jer ima i pravac.</dd>
+<dt>\(e\)</dt><dd>naelektrisanje jedne čestice (\(1{,}6\cdot10^{-19}\) C). Deljenjem sa \(e\) prevodimo „kulone u sekundi” u „broj čestica u sekundi”.</dd>
+<dt>\(d\)</dt><dd>rastojanje između elektroda (m). Deljenjem sa \(d\) „raspoređujemo” gubitak na celu zapreminu gasa između elektroda.</dd>
+<dt>„−”</dt><dd>koncentracija se <b>smanjuje</b>.</dd>
+</dl>
+</div>
+<div class="box num"><span class="lbl">Odakle formula (logika, korak po korak)</span>
+<ol>
+<li>Neka elektrode imaju površinu \(S\). Kroz gas teče struja \(I = j\cdot S\).</li>
+<li>Struja je naelektrisanje u sekundi. Broj čestica koje u sekundi stignu na elektrodu je \(\dfrac{I}{e} = \dfrac{jS}{e}\).</li>
+<li>Te čestice dolaze iz zapremine gasa između elektroda \(V = S\cdot d\).</li>
+<li>Gubitak po jedinici zapremine: \(\dfrac{jS/e}{S d} = \dfrac{j}{e d}\). Površina \(S\) se skrati.</li>
+</ol>
+<p><b>Brojevi:</b> \(j = 10\ \text{A/m}^2\) (to je 1 mA po cm²), \(d = 1\ \text{cm} = 0{,}01\ \text{m}\):</p>
+\[\frac{j}{ed} = \frac{10}{1{,}6\cdot10^{-19}\cdot 0{,}01} \approx 6\cdot10^{21}\ \frac{\text{čestica}}{\text{m}^3\,\text{s}}\]
+</div>
+<div class="box life"><span class="lbl">Analogija</span>
+<p>Zamisli prodavnicu (zapremina gasa) sa kasom na izlazu (elektroda). Koliko brzo se prodavnica prazni zavisi od toga koliko ljudi u sekundi prođe kroz kasu (struja \(j\)) i koliko je prodavnica velika (\(d\)). Velika prodavnica sa istom kasom se prazni sporije, pa \(d\) stoji u imeniocu.</p>
+</div>
+
+<h2>4. Pregled na jednom mestu</h2>
+<div class="tablewrap"><table>
+<tr><th>Stvaranje</th><th>Nestajanje</th></tr>
+<tr><td>
+1. zračenjem: direktna \(h\nu + A\to A^+ + e^-\); stepenasta preko \(A^*\)<br>
+2. sudarom: direktna \(A + e^- \to A^+ + 2e^-\); stepenasta preko \(A^*\)<br>
+3. termalna: \(A + A \to A^+ + A + e^-\) <i>(zapreminski)</i><br>
+4. na elektrodama: fotoelektronska, sekundarna jonima, termoelektronska, pod dejstvom polja <i>(površinski, na katodi)</i>
+</td><td>
+1. radijativna rekombinacija: \(A^+ + e^- \to A/A^* + h\nu\)<br>
+2. rekombinacija pri sudaru 3 čestice: višak energije odnosi treća čestica<br>
+3. difuzija: \(\frac{dn}{dt} = -D\nabla^2 n\)<br>
+4. na elektrodama: \(\frac{dn}{dt} = -\frac{j}{ed}\)
+</td></tr>
+</table></div>
+
+<div class="box exam"><span class="lbl">Ukratko za ispit (šta napisati)</span>
+<ol>
+<li>Gasovi normalno sadrže <b>malo</b> naelektrisanih čestica, nastalih zbog UV, kosmičkog i radioaktivnog zračenja.</li>
+<li>Za jonizaciju/ekscitaciju čestica ili kvant mora imati energiju veću od \(eV_j\) / \(eV_{ex}\). Navedi oznake \(h\nu, V_j, V_{ex}, A, A^+, A^*\).</li>
+<li>Navedi 4 grupe procesa jonizacije sa uslovima i reakcijama (zračenjem, sudarom, termalna = zapreminski, na elektrodama = površinski, a/b/c/d).</li>
+<li>Navedi 4 procesa nestajanja: radijativna rekombinacija (višak → foton), trojni sudar (višak → treća čestica), difuzija sa jednačinom i značenjem \(D\), nestajanje na elektrodama sa \(\frac{dn}{dt} = -\frac{j}{ed}\).</li>
+</ol>
+</div>
+
+<h3>Proveri sebe</h3>
+<details><summary>Zašto obična sijalica ne jonizuje vazduh u sobi, a UV lampa može?</summary><p>Fotoni vidljive svetlosti imaju 1,8–3,1 eV, a za jonizaciju kiseonika/azota treba 12–16 eV. Jedan foton daje energiju samo jednom elektronu. UV (i još više X) fotoni imaju dovoljno energije.</p></details>
+<details><summary>Po čemu se razlikuju direktna i stepenasta jonizacija?</summary><p>Kod direktne jedan „udarac” (foton ili elektron) ima energiju veću od \(eV_j\). Kod stepenaste energija je između \(eV_{ex}\) i \(eV_j\), pa se atom prvo pobudi, a drugi udarac ga jonizuje.</p></details>
+<details><summary>Zašto je kod rekombinacije pri sudaru potrebna treća čestica?</summary><p>Da preuzme višak energije (i impulsa). Kod radijativne rekombinacije taj višak odnosi foton, a ovde ga odnosi treća čestica.</p></details>
+<details><summary>Šta je razlika između zapreminskih i površinskih procesa?</summary><p>Zapreminski (npr. termalna jonizacija) se dešavaju u celom gasu. Površinski se dešavaju na površini elektroda (najčešće katode).</p></details>
+<details><summary>Zašto u \(\frac{dn}{dt} = -\frac{j}{ed}\) stoji \(d\) u imeniocu?</summary><p>Isti broj čestica koje u sekundi odlaze na elektrode „raspoređuje” se na veću zapreminu gasa ako su elektrode dalje, pa je gubitak po jedinici zapremine manji.</p></details>
+</section>
+
+<!-- KRAJ PITANJA -->
+
+</main>
+
+<nav class="bottom">
+  <div class="nav-in">
+    <button id="prev">← Prethodno</button>
+    <div id="counter"></div>
+    <button id="next">Sledeće →</button>
+  </div>
+</nav>
+
+<script>
+(function(){
+  const ALL_TITLES = [
+    "Stvaranje i nestajanje naelektrisanih čestica u gasu",
+    "Elastični i neelastični sudari, značaj elektrona",
+    "Ravnotežna plazma (Saha, Bolcman, Maksvel, Plank)",
+    "Zračenje plazme, TD ravnoteža, Bolcman plot",
+    "Debajeva teorija ekraniranja",
+    "Plazmena frekvencija",
+    "Rasejanje čestica pri sudaru, efektivni presek",
+    "Diferencijalni presek",
+    "Raspodela slobodnih preleta",
+    "Gubitak impulsa i transportni preseci"
+  ];
+  const secs = Array.from(document.querySelectorAll("section.q"));
+  const jump = document.getElementById("jump");
+  const prev = document.getElementById("prev");
+  const next = document.getElementById("next");
+  const counter = document.getElementById("counter");
+  const bar = document.getElementById("bar");
+  const store = {
+    get(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } },
+    set(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+  };
+
+  ALL_TITLES.forEach((t,i)=>{
+    const o = document.createElement("option");
+    o.value = i;
+    o.textContent = (i+1) + ". " + t + (i < secs.length ? "" : " (uskoro)");
+    o.disabled = i >= secs.length;
+    jump.appendChild(o);
+  });
+
+  let cur = parseInt(store.get("jg-cur") || "0", 10);
+  if (isNaN(cur) || cur < 0 || cur >= secs.length) cur = 0;
+
+  function show(i, scroll){
+    cur = Math.max(0, Math.min(secs.length-1, i));
+    secs.forEach((s,k)=>s.classList.toggle("active", k===cur));
+    jump.value = cur;
+    prev.disabled = cur === 0;
+    next.disabled = cur === secs.length-1;
+    counter.textContent = "Pitanje " + (cur+1) + " / " + ALL_TITLES.length;
+    bar.style.width = ((cur+1)/ALL_TITLES.length*100) + "%";
+    store.set("jg-cur", cur);
+    if (scroll) window.scrollTo({top:0, behavior:"smooth"});
+  }
+  prev.onclick = ()=>show(cur-1, true);
+  next.onclick = ()=>show(cur+1, true);
+  jump.onchange = ()=>show(parseInt(jump.value,10), true);
+  document.addEventListener("keydown", e=>{
+    if (e.target.tagName === "SELECT") return;
+    if (e.key === "ArrowRight") show(cur+1, true);
+    if (e.key === "ArrowLeft") show(cur-1, true);
+  });
+
+  const themeBtn = document.getElementById("theme");
+  const savedTheme = store.get("jg-theme");
+  if (savedTheme) document.documentElement.dataset.theme = savedTheme;
+  themeBtn.onclick = ()=>{
+    const dark = document.documentElement.dataset.theme
+      ? document.documentElement.dataset.theme === "dark"
+      : matchMedia("(prefers-color-scheme: dark)").matches;
+    const t = dark ? "light" : "dark";
+    document.documentElement.dataset.theme = t;
+    store.set("jg-theme", t);
+  };
+
+  show(cur, false);
+
+  window.addEventListener("load", ()=>{
+    if (window.renderMathInElement) {
+      renderMathInElement(document.body, {
+        delimiters:[{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],
+        throwOnError:false
+      });
+    }
+  });
+})();
+</script>
+</body>
+</html>
