@@ -1810,6 +1810,209 @@ nav.bottom{position:fixed;left:0;right:0;bottom:0;z-index:5;background:color-mix
 <details><summary>Koja je veza između diferencijalnog i ukupnog preseka?</summary><p>Ukupni presek je integral diferencijalnog preseka po svim prostornim uglovima.</p></details>
 </section>
 
+<!-- ===================== PITANJE 9 ===================== -->
+<section class="q" data-title="Raspodela slobodnih preleta">
+<span class="qnum">PITANJE 9</span>
+<h1>Raspodela slobodnih preleta</h1>
+<p class="lead">Elektron u gasu leti pravo, udari u atom, promeni pravac, leti pravo, opet udari… Delovi puta između dva sudara su <b>slobodni preleti</b>. Ovde računamo koliko su prosečno dugi, koliko često se sudari dešavaju i kako su dužine preleta raspoređene (neki su kratki, neki dugi).</p>
+
+<h2>0. Pojmovi koje moraš znati</h2>
+<div class="box term"><span class="lbl">Novi pojam · Frekvencija sudara \(\nu\), srednje vreme \(\tau\), srednji slobodni put \(l\)</span>
+<dl class="parts">
+<dt>\(\nu\)</dt><dd>(„ni”) <b>frekvencija sudara</b>: koliko sudara čestica doživi u jednoj sekundi (s⁻¹).</dd>
+<dt>\(\tau = 1/\nu\)</dt><dd>(„tau”) <b>srednje vreme između dva sudara</b> (srednje vreme preleta). Ako se desi 1000 sudara u sekundi, između dva prođe u proseku 1/1000 s.</dd>
+<dt>\(l\) ili \(\lambda\)</dt><dd><b>srednji slobodni put</b> (srednji prelet): koliko čestica u proseku pređe između dva sudara.</dd>
+</dl>
+</div>
+<div class="box life"><span class="lbl">Analogija</span>
+<p>Hodaš kroz gužvu na koncertu i stalno se sudaraš sa ljudima. Broj sudara u minutu je \(\nu\). Prosečno vreme između dva „izvini” je \(\tau\). Prosečan broj koraka koji napraviš između dva sudara je \(l\). Što je gužva gušća i što su ljudi „širi”, to su \(\tau\) i \(l\) manji.</p>
+</div>
+
+<h2>1. Broj sudara u jedinici vremena</h2>
+<div class="box term"><span class="lbl">Slika „cilindra”</span>
+<p>Projektil brzine \(v\) za vreme \(t\) pređe put \(vt\). Pri tom „pomete” <b>cilindar</b> čija je osnova presek \(\sigma\), a dužina \(vt\). Zapremina mu je</p>
+\[V = \sigma\cdot vt.\]
+<p>Svaka meta čiji je centar u tom cilindru biće pogođena. Ako je koncentracija meta \(n\), u cilindru ih ima \(N = V\cdot n = vt\sigma n\).</p>
+</div>
+<figure>
+<svg viewBox="0 0 520 150" role="img" aria-label="Cilindar koji čestica pometa">
+  <style>
+    .cy{fill:var(--sky);stroke:var(--sky-ink);stroke-width:2}
+    .cye{fill:var(--sky);stroke:var(--sky-ink);stroke-width:2}
+    .tg{fill:var(--lav-ink)}
+    .tgo{fill:var(--muted);opacity:.55}
+    .pj{fill:var(--peach-ink)}
+    .lt{fill:var(--ink);font:16px Nunito,sans-serif}
+  </style>
+  <rect class="cy" x="70" y="45" width="360" height="60"/>
+  <ellipse class="cye" cx="70" cy="75" rx="14" ry="30"/>
+  <ellipse class="cye" cx="430" cy="75" rx="14" ry="30"/>
+  <circle class="pj" cx="70" cy="75" r="7"/>
+  <circle class="tg" cx="150" cy="60" r="6"/><circle class="tg" cx="250" cy="90" r="6"/><circle class="tg" cx="360" cy="70" r="6"/>
+  <circle class="tgo" cx="120" cy="25" r="6"/><circle class="tgo" cx="300" cy="125" r="6"/><circle class="tgo" cx="210" cy="20" r="6"/><circle class="tgo" cx="470" cy="40" r="6"/>
+  <text class="lt" x="200" y="145">dužina vt</text>
+  <text class="lt" x="445" y="85">osnova σ</text>
+</svg>
+<figcaption>Mete unutar cilindra (tamne) biće pogođene, a one van njega (svetle) neće.</figcaption>
+</figure>
+
+<p>Razmatramo <b>jednu česticu mete</b> ka kojoj ide snop projektila koncentracije \(n_1\). Broj sudara <b>u jedinici vremena</b> je:</p>
+<div class="box eq"><span class="lbl">Jedna meta</span>
+\[\nu_2 = \sigma n_1 v\]
+<p>Projektili brzine \(v\) koji prolaze kroz površinu \(\sigma\) oko mete: u sekundi ih kroz nju prođe \(n_1 v\sigma\) (koncentracija × brzina = koliko ih prođe kroz 1 m² u sekundi).</p>
+</div>
+<p>Ako nemamo jednu metu, već je njihova koncentracija \(n_2\), tada je broj sudara u jedinici vremena <b>u jedinici zapremine</b>:</p>
+<div class="box eq"><span class="lbl">Sve mete u 1 m³</span>
+\[\nu_2 n_2 = \sigma n_1 n_2 v\]
+<p>Ako sa \(\nu_1 = \sigma n_2 v\) označimo broj sudara <b>jednog projektila</b> sa metama u jedinici vremena, onda je:</p>
+\[\nu_2 n_2 = \nu_1 n_1\]
+<dl class="parts">
+<dt>\(\nu_1\)</dt><dd>koliko puta u sekundi <b>jedan projektil</b> udari u neku metu.</dd>
+<dt>\(\nu_2\)</dt><dd>koliko puta u sekundi <b>jednu metu</b> udari neki projektil.</dd>
+<dt>\(\nu_2 n_2 = \nu_1 n_1\)</dt><dd>ukupan broj sudara u 1 m³ u sekundi je isti, bilo da brojiš „sa strane” projektila ili „sa strane” meta. Svaki sudar ima tačno jednog učesnika od svake vrste. Kao na igranci: broj „parova koji plešu” je isti, bilo da brojiš momke ili devojke.</dd>
+</dl>
+</div>
+
+<h2>2. Srednje vreme i srednji slobodni put</h2>
+<div class="box eq"><span class="lbl">Definicije</span>
+<p>Veličina \(\frac{1}{\nu_1}\) bila bi <b>srednje vreme između dva sudara</b> jednog projektila sa metama. U nastavku izostavljamo indeks i pišemo samo:</p>
+\[\tau = \frac{1}{\nu}\]
+<p>Sada možemo definisati i <b>srednji slobodni put</b> (prelet):</p>
+\[l = v\tau = \frac{1}{\sigma n}\]
+<dl class="parts">
+<dt>\(l = v\tau\)</dt><dd>put = brzina × vreme, i to vreme između dva sudara.</dd>
+<dt>\(\frac{1}{\sigma n}\)</dt><dd>jer je \(\tau = \frac{1}{\nu} = \frac{1}{\sigma n v}\), pa se \(v\) skrati. Srednji slobodni put <b>ne zavisi od brzine</b>, samo od veličine i gustine meta.</dd>
+</dl>
+</div>
+<div class="box num"><span class="lbl">Postavka preko cilindra (skica iz skripte)</span>
+<p>Broj sudara za vreme \(t\) je broj meta u „cilindru” preseka \(\sigma\) i dužine \(vt\):</p>
+\[N = V\cdot n = vt\,\sigma n\qquad\Longrightarrow\qquad \text{frekvencija sudara}\ \ \nu = \frac{N}{t} = v\sigma n\]
+<p><b>Jedan sudar</b> (\(N = 1\)) se desi za vreme \(\tau\):</p>
+\[1 = v\tau\sigma n\quad\Longrightarrow\quad \tau = \frac{1}{v\sigma n}\quad(\text{srednje vreme preleta})\]
+\[\lambda = v\tau = \frac{1}{\sigma n}\quad(\text{srednji slobodni put})\]
+</div>
+<div class="box num"><span class="lbl">Primer sa brojevima · vazduh oko tebe</span>
+<p>Iz pitanja 7: na 1 atm je \(\sigma n\approx 1{,}2\cdot10^7\) m⁻¹, pa je \(l = \frac{1}{\sigma n}\approx 0{,}08\) μm. Molekul ima brzinu oko 470 m/s, pa je</p>
+\[\nu = \frac{v}{l} = \frac{470}{8\cdot10^{-8}} \approx 6\cdot10^{9}\ \text{sudara u sekundi}\]
+<p>Svaki molekul vazduha koji udišeš se <b>šest milijardi puta u sekundi</b> sudari sa drugim! Zato miris parfema putuje kroz sobu sporo (difuzija, pitanje 1), iako molekuli jure brže od zvuka: stalno se odbijaju i menjaju pravac.</p>
+</div>
+
+<h2>3. Verovatnosni pristup: kolika je verovatnoća da prelet bude dug \(x\)?</h2>
+<p>Srednji slobodni put je samo <b>prosek</b>. Neki preleti su kraći, neki duži. Sada izvodimo njihovu <b>raspodelu</b>.</p>
+
+<div class="box eq"><span class="lbl">Korak 1 · verovatnoća da na putu \(x\) nema sudara</span>
+<p>Neka je projektil elektron, a mete čestice gasa. Ako projektil preleti rastojanje \(x\) <b>bez sudara</b>, znamo da se u zapremini \(V = \sigma x\) (njegov „cilindar”) ne nalazi nijedna čestica mete.</p>
+<p>Neka se u (velikoj) zapremini \(V_0\) nalazi \(N\) čestica-meta. Tada je njihova koncentracija \(n = \frac{N}{V_0}\).</p>
+<ul>
+<li>Verovatnoća da se <b>jedna određena</b> meta nađe baš u zapremini \(V\) je \(\frac{V}{V_0}\) (deo prostora koji \(V\) zauzima).</li>
+<li>Verovatnoća da ta meta <b>nije</b> u \(V\) je \(1 - \frac{V}{V_0}\).</li>
+<li>Meta ima \(N\) i svaka je nezavisno raspoređena. Verovatnoća da <b>nijedna</b> nije u \(V\) (dakle da ne dođe do sudara) je proizvod: \(\left(1 - \frac{V}{V_0}\right)^N\).</li>
+</ul>
+<p>Ubacimo \(V = \sigma x\) i \(V_0 = \frac{N}{n}\), pa pustimo \(N\to\infty\):</p>
+\[\left(1 - \frac{\sigma x}{V_0}\right)^N = \left(1 - \frac{n\sigma x}{N}\right)^N \;\xrightarrow{N\to\infty}\; e^{-n\sigma x}\]
+</div>
+<div class="box term"><span class="lbl">Novi pojam · granična vrednost \(\left(1 - \frac{a}{N}\right)^N \to e^{-a}\)</span>
+<p>Ovo je jedna od najpoznatijih granica u matematici. Proveri za \(a = 1\):</p>
+<div class="tablewrap"><table>
+<tr><th>\(N\)</th><th>10</th><th>100</th><th>1000</th><th>\(\infty\)</th></tr>
+<tr><td>\(\left(1-\frac1N\right)^N\)</td><td>0,349</td><td>0,366</td><td>0,368</td><td>\(e^{-1} = 0{,}3679\)</td></tr>
+</table></div>
+<p><b>Primer iz života:</b> ovako je Bernuli otkrio broj \(e\), računajući <b>kamatu u banci</b>. Ako kamatu od 100% godišnje pripisuješ sve češće (mesečno, dnevno, svake sekunde…), uloženi dinar na kraju godine ne raste beskonačno, nego teži ka \(e\approx 2{,}718\) dinara.</p>
+</div>
+
+<div class="box eq"><span class="lbl">Rezultat · verovatnoća da nema sudara</span>
+<p>Verovatnoća da do sudara <b>ne dođe</b> eksponencijalno opada sa rastojanjem:</p>
+\[\omega(x) = e^{-n\sigma x} = e^{-\frac{x}{l}}\]
+<dl class="parts">
+<dt>\(\omega(x)\)</dt><dd>(„omega”) verovatnoća da projektil preleti put \(x\) bez ijednog sudara.</dd>
+<dt>\(x/l\)</dt><dd>put izražen „u srednjim slobodnim putevima”.</dd>
+</dl>
+<p>Na \(x = l\) bez sudara je stiglo 37%, na \(x = 2l\) 14%, na \(x = 3l\) samo 5%.</p>
+</div>
+
+<div class="box eq"><span class="lbl">Korak 2 · raspodela slobodnih preleta \(p(x)\)</span>
+<p>Označimo sa \(p(x)\) <b>gustinu verovatnoće</b>: \(p(x)\,dx\) je verovatnoća da se (prvi) sudar desi baš na malom delu puta između \(x\) i \(x + dx\). Da bi se to desilo, projektil mora da stigne do \(x\) bez sudara, ali ne i do \(x + dx\). Zato je ta verovatnoća <b>razlika</b>:</p>
+\[p(x)\,dx = \omega(x) - \omega(x + dx)\qquad\Big/:dx\]
+<p>Kad podelimo sa \(dx\), desna strana postane (minus) <b>izvod</b> funkcije \(\omega\):</p>
+\[p(x) = -\frac{d\omega}{dx} = -\left(-\frac1l\,e^{-\frac xl}\right)\quad\Longrightarrow\quad \boxed{p(x) = \frac1l\,e^{-\frac xl}}\]
+<dl class="parts">
+<dt>\(\frac{d}{dx}e^{-x/l} = -\frac1l e^{-x/l}\)</dt><dd>izvod eksponencijalne funkcije: ona sama puta izvod eksponenta.</dd>
+<dt>\(\frac1l\)</dt><dd>normalizacija: obezbeđuje da je ukupna verovatnoća \(\int_0^\infty p(x)\,dx = 1\) (sudar će se <b>negde</b> sigurno desiti).</dd>
+</dl>
+<p>Ovo je <b>raspodela slobodnih preleta</b>: eksponencijalna raspodela.</p>
+</div>
+<figure>
+<svg viewBox="0 0 520 240" role="img" aria-label="Raspodela slobodnih preleta">
+  <style>
+    .ax{stroke:var(--ink);stroke-width:2}
+    .ex{stroke:var(--sky-ink);stroke-width:3;fill:none}
+    .ar2{fill:var(--mint);opacity:.9}
+    .lt{fill:var(--ink);font:16px Nunito,sans-serif}
+    .vl{stroke:var(--muted);stroke-width:1.5;stroke-dasharray:5 4}
+  </style>
+  <path class="ar2" d="M60,200 L60.0,40.0 L62.1,43.2 L64.2,46.3 L66.3,49.3 L68.4,52.3 L70.5,55.2 L72.6,58.1 L74.7,60.9 L76.8,63.7 L78.9,66.4 L81.0,69.0 L83.1,71.6 L85.2,74.1 L87.3,76.6 L89.4,79.1 L91.5,81.5 L93.6,83.8 L95.7,86.1 L97.8,88.4 L99.9,90.6 L102.0,92.7 L104.1,94.9 L106.2,97.0 L108.3,99.0 L110.4,101.0 L112.5,103.0 L114.6,104.9 L116.7,106.8 L118.8,108.6 L120.9,110.4 L123.0,112.2 L125.1,113.9 L127.2,115.6 L129.3,117.3 L131.4,118.9 L133.5,120.5 L135.6,122.1 L137.7,123.7 L139.8,125.2 L141.9,126.7 L144.0,128.1 L146.1,129.5 L148.2,130.9 L150.3,132.3 L152.4,133.6 L154.5,134.9 L156.6,136.2 L158.7,137.5 L160.8,138.7 L162.9,140.0 L165.0,141.1 L165.0,200 Z"/>
+  <path class="ex" d="M60.0,40.0 L62.1,43.2 L64.2,46.3 L66.3,49.3 L68.4,52.3 L70.5,55.2 L72.6,58.1 L74.7,60.9 L76.8,63.7 L78.9,66.4 L81.0,69.0 L83.1,71.6 L85.2,74.1 L87.3,76.6 L89.4,79.1 L91.5,81.5 L93.6,83.8 L95.7,86.1 L97.8,88.4 L99.9,90.6 L102.0,92.7 L104.1,94.9 L106.2,97.0 L108.3,99.0 L110.4,101.0 L112.5,103.0 L114.6,104.9 L116.7,106.8 L118.8,108.6 L120.9,110.4 L123.0,112.2 L125.1,113.9 L127.2,115.6 L129.3,117.3 L131.4,118.9 L133.5,120.5 L135.6,122.1 L137.7,123.7 L139.8,125.2 L141.9,126.7 L144.0,128.1 L146.1,129.5 L148.2,130.9 L150.3,132.3 L152.4,133.6 L154.5,134.9 L156.6,136.2 L158.7,137.5 L160.8,138.7 L162.9,140.0 L165.0,141.1 L167.1,142.3 L169.2,143.4 L171.3,144.6 L173.4,145.7 L175.5,146.7 L177.6,147.8 L179.7,148.8 L181.8,149.8 L183.9,150.8 L186.0,151.8 L188.1,152.8 L190.2,153.7 L192.3,154.6 L194.4,155.5 L196.5,156.4 L198.6,157.3 L200.7,158.1 L202.8,158.9 L204.9,159.7 L207.0,160.5 L209.1,161.3 L211.2,162.1 L213.3,162.8 L215.4,163.6 L217.5,164.3 L219.6,165.0 L221.7,165.7 L223.8,166.4 L225.9,167.0 L228.0,167.7 L230.1,168.3 L232.2,169.0 L234.3,169.6 L236.4,170.2 L238.5,170.8 L240.6,171.3 L242.7,171.9 L244.8,172.5 L246.9,173.0 L249.0,173.6 L251.1,174.1 L253.2,174.6 L255.3,175.1 L257.4,175.6 L259.5,176.1 L261.6,176.5 L263.7,177.0 L265.8,177.5 L267.9,177.9 L270.0,178.3 L272.1,178.8 L274.2,179.2 L276.3,179.6 L278.4,180.0 L280.5,180.4 L282.6,180.8 L284.7,181.2 L286.8,181.5 L288.9,181.9 L291.0,182.3 L293.1,182.6 L295.2,183.0 L297.3,183.3 L299.4,183.6 L301.5,184.0 L303.6,184.3 L305.7,184.6 L307.8,184.9 L309.9,185.2 L312.0,185.5 L314.1,185.8 L316.2,186.1 L318.3,186.3 L320.4,186.6 L322.5,186.9 L324.6,187.1 L326.7,187.4 L328.8,187.6 L330.9,187.9 L333.0,188.1 L335.1,188.4 L337.2,188.6 L339.3,188.8 L341.4,189.0 L343.5,189.2 L345.6,189.5 L347.7,189.7 L349.8,189.9 L351.9,190.1 L354.0,190.3 L356.1,190.5 L358.2,190.7 L360.3,190.8 L362.4,191.0 L364.5,191.2 L366.6,191.4 L368.7,191.5 L370.8,191.7 L372.9,191.9 L375.0,192.0 L377.1,192.2 L379.2,192.3 L381.3,192.5 L383.4,192.6 L385.5,192.8 L387.6,192.9 L389.7,193.1 L391.8,193.2 L393.9,193.3 L396.0,193.5 L398.1,193.6 L400.2,193.7 L402.3,193.9 L404.4,194.0 L406.5,194.1 L408.6,194.2 L410.7,194.3 L412.8,194.4 L414.9,194.6 L417.0,194.7 L419.1,194.8 L421.2,194.9 L423.3,195.0 L425.4,195.1 L427.5,195.2 L429.6,195.3 L431.7,195.4 L433.8,195.4 L435.9,195.5 L438.0,195.6 L440.1,195.7 L442.2,195.8 L444.3,195.9 L446.4,196.0 L448.5,196.0 L450.6,196.1 L452.7,196.2 L454.8,196.3 L456.9,196.3 L459.0,196.4 L461.1,196.5 L463.2,196.6 L465.3,196.6 L467.4,196.7 L469.5,196.8 L471.6,196.8 L473.7,196.9 L475.8,196.9 L477.9,197.0 L480.0,197.1"/>
+  <line class="ax" x1="60" y1="200" x2="500" y2="200"/><line class="ax" x1="60" y1="200" x2="60" y2="20"/>
+  <line class="vl" x1="165" y1="200" x2="165" y2="60"/>
+  <text class="lt" x="160" y="222">l</text><text class="lt" x="262" y="222">2l</text><text class="lt" x="367" y="222">3l</text>
+  <text class="lt" x="470" y="222">x</text><text class="lt" x="20" y="34">p(x)</text>
+  <text class="lt" x="78" y="186">63%</text>
+  <text class="lt" x="230" y="80">p(x) = (1/l)·e^(−x/l)</text>
+</svg>
+<figcaption>Kratki preleti su najčešći. Čak 63% preleta je kraće od srednjeg slobodnog puta \(l\), ali retki dugački preleti „vuku” prosek naviše.</figcaption>
+</figure>
+
+<div class="box eq"><span class="lbl">Korak 3 · srednji slobodni put iz raspodele</span>
+<p>Srednju vrednost dobijamo kao „ponderisani prosek”: svaku dužinu \(x\) pomnožimo njenom verovatnoćom i saberemo (integralimo):</p>
+\[\langle x\rangle = \int_0^\infty x\,p(x)\,dx = \frac1l\int_0^\infty x\,e^{-\frac xl}\,dx\]
+\[\langle x\rangle = l = \frac{1}{\sigma n}\]
+<dl class="parts">
+<dt>\(\langle x\rangle\)</dt><dd>srednja (očekivana) dužina preleta. Uglaste zagrade znače „prosek”.</dd>
+<dt>\(\int_0^\infty x\,e^{-x/l}\,dx = l^2\)</dt><dd>dobija se <b>parcijalnom integracijom</b>. Zato je \(\frac1l\cdot l^2 = l\).</dd>
+</dl>
+<p>Vidimo da se rezultat <b>poklapa</b> sa već definisanim srednjim preletom \(l = \frac{1}{\sigma n}\). Dva različita pristupa (cilindar i verovatnoća) daju isto, pa je slika dosledna.</p>
+</div>
+
+<h2>4. Veza sa efektivnim presekom (pitanje 7)</h2>
+<div class="box eq"><span class="lbl">Spajamo sve</span>
+<p>Efektivni presek smo definisali sa \(Q = \sigma n\), gde je \(\frac{1}{\sigma n} = l\). Odatle je</p>
+\[Q = \frac1l\]
+<p>pa <b>broj nesudarenih čestica</b> projektila nakon pređenog puta \(x\) možemo zapisati kao:</p>
+\[\boxed{N = N_0\,e^{-Qx}}\]
+<p>To je isti zakon slabljenja snopa iz pitanja 7, sada izveden iz verovatnoće: od \(N_0\) čestica, svaka sa verovatnoćom \(\omega(x) = e^{-x/l}\) „preživi” put \(x\), pa ih preživi \(N_0e^{-x/l}\).</p>
+<p>Inače, za srednji slobodni put koristi se i oznaka \(\lambda\).</p>
+</div>
+<div class="box warn"><span class="lbl">Pažnja · greška u skripti</span>
+<p>U originalu piše „\(Q = \sigma n\), gde je \(\sigma n = l\)”. Ispravno je \(\frac{1}{\sigma n} = l\), što je i upotrebljeno u sledećem koraku (\(Q = 1/l\)).</p>
+</div>
+
+<div class="box life"><span class="lbl">Iz stvarnog života · eksponencijalna raspodela svuda oko nas</span>
+<ul>
+<li><b>Radioaktivni raspad</b>: vreme do raspada jednog atoma ima istu raspodelu, \(\frac1\tau e^{-t/\tau}\).</li>
+<li><b>Čekanje na poziv u kol-centru</b> ili na taksi koji nailazi nasumično: kratka čekanja su najčešća, ali ponekad čekaš jako dugo.</li>
+<li><b>„Nema pamćenja”</b>: elektron koji je već preleteo \(5l\) bez sudara nema ništa veću šansu da se sudari „uskoro”. Atomi ne znaju koliko je on već leteo, i \(\omega\) uvek počinje ispočetka.</li>
+</ul>
+</div>
+
+<div class="box exam"><span class="lbl">Ukratko za ispit (šta napisati)</span>
+<ol>
+<li>Jedna meta, snop koncentracije \(n_1\): \(\nu_2 = \sigma n_1v\). Za koncentraciju meta \(n_2\): \(\nu_2n_2 = \sigma n_1n_2v\). Sa \(\nu_1 = \sigma n_2v\) važi \(\nu_2n_2 = \nu_1n_1\).</li>
+<li>\(\tau = \frac1\nu\) je srednje vreme između dva sudara, a \(l = v\tau = \frac{1}{\sigma n}\) srednji slobodni put. Postavka sa cilindrom: \(N = Vn = vt\sigma n\), \(\nu = v\sigma n\), za jedan sudar \(\tau = \frac{1}{v\sigma n}\), \(\lambda = \frac{1}{\sigma n}\).</li>
+<li>Verovatnosni pristup: \(\left(1 - \frac{V}{V_0}\right)^N = \left(1 - \frac{n\sigma x}{N}\right)^N\to e^{-n\sigma x}\), pa je \(\omega(x) = e^{-x/l}\).</li>
+<li>\(p(x)dx = \omega(x) - \omega(x+dx)\), pa \(p(x) = -\frac{d\omega}{dx} = \frac1le^{-x/l}\).</li>
+<li>\(\langle x\rangle = \int_0^\infty xp(x)dx = l = \frac{1}{\sigma n}\), poklapa se sa srednjim preletom.</li>
+<li>\(Q = \sigma n = \frac1l\), pa je \(N = N_0e^{-Qx}\).</li>
+</ol>
+</div>
+
+<h3>Proveri sebe</h3>
+<details><summary>Zašto srednji slobodni put ne zavisi od brzine čestice?</summary><p>Jer brža čestica za isto vreme pređe duži put, ali na tom putu „pomete” proporcionalno više meta. \(\tau = \frac{1}{\sigma nv}\) se smanjuje tačno onoliko koliko \(v\) raste, pa je \(l = v\tau = \frac1{\sigma n}\).</p></details>
+<details><summary>Kolika je verovatnoća da elektron preleti put \(2l\) bez sudara?</summary><p>\(\omega(2l) = e^{-2}\approx 0{,}14\), tj. 14%.</p></details>
+<details><summary>Šta je \(p(x)\) i kako se dobija iz \(\omega(x)\)?</summary><p>\(p(x)\) je gustina verovatnoće da se sudar desi na mestu \(x\) (raspodela slobodnih preleta). Dobija se kao \(p(x) = -\frac{d\omega}{dx}\).</p></details>
+<details><summary>Šta se desi sa \(l\) ako se pritisak gasa udvostruči (na istoj temperaturi)?</summary><p>Koncentracija \(n\) se udvostruči, pa se \(l = \frac{1}{\sigma n}\) prepolovi.</p></details>
+<details><summary>Zašto je \(\nu_2n_2 = \nu_1n_1\)?</summary><p>Obe strane su ukupan broj sudara u jedinici zapremine u jedinici vremena. Svaki sudar ima tačno jedan projektil i jednu metu, pa je svejedno koga brojiš.</p></details>
+</section>
+
 <!-- KRAJ PITANJA -->
 
 </main>
