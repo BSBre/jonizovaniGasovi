@@ -1688,6 +1688,128 @@ nav.bottom{position:fixed;left:0;right:0;bottom:0;z-index:5;background:color-mix
 <details><summary>Ako je \(Ql = 1\), koliki deo snopa prođe bez sudara?</summary><p>\(e^{-1}\approx 37\%\).</p></details>
 </section>
 
+<!-- ===================== PITANJE 8 ===================== -->
+<section class="q" data-title="Diferencijalni presek">
+<span class="qnum">PITANJE 8</span>
+<h1>Diferencijalni presek</h1>
+<p class="lead">Ukupni presek (pitanje 7) kaže <b>koliko često</b> se čestica rasejava. Ali ne kaže <b>na koju stranu</b> odleti. Da li elektron samo malo skrene, ili se odbije nazad? To opisuje <b>diferencijalni presek</b>.</p>
+
+<h2>0. Pojmovi koje moraš znati</h2>
+<div class="box term"><span class="lbl">Novi pojam · Ugao rasejanja \(\theta\) i azimut \(\phi\)</span>
+<p>Pravac u prostoru opisujemo pomoću dva ugla:</p>
+<ul>
+<li>\(\theta\) („teta”), <b>ugao rasejanja</b>: za koliko je čestica skrenula u odnosu na prvobitni pravac snopa. \(\theta = 0\) znači da je nastavila pravo, \(\theta = 90^\circ\) da je otišla u stranu, a \(\theta = 180^\circ\) da se odbila pravo nazad.</li>
+<li>\(\phi\) („fi”), <b>azimutni ugao</b>: na koju stranu „oko ose snopa” je skrenula (levo, desno, gore, dole…), od 0 do 360°.</li>
+</ul>
+<p>Kao na globusu: \(\theta\) je kao geografska širina merena od Severnog pola, a \(\phi\) kao geografska dužina.</p>
+</div>
+
+<div class="box term"><span class="lbl">Novi pojam · Prostorni ugao \(\Omega\)</span>
+<p>Običan (ravni) ugao meri koliko je „otvoren” deo ravni. <b>Prostorni ugao</b> \(\Omega\) („omega”) meri koliko je „otvoren” deo <b>prostora</b>, kao <b>kupa</b> (fišek sladoleda) sa vrhom u meti.</p>
+<p>Definicija: ako oko vrha opišeš sferu poluprečnika \(R\), a kupa „iseče” na njoj površinu \(A\), onda je</p>
+\[\Omega = \frac{A}{R^2}\quad[\text{sr, steradijan}]\]
+<p>Cela sfera ima površinu \(4\pi R^2\), pa je ceo prostor oko tačke \(4\pi\approx 12{,}57\) sr.</p>
+<p><b>\(d\Omega\)</b> je <b>elementarni</b> (beskonačno mali) prostorni ugao, mala „kupica” oko pravca \((\theta, \phi)\).</p>
+</div>
+<div class="box life"><span class="lbl">Iz stvarnog života</span>
+<p>Baterijska lampa sa uskim snopom „pokriva” mali prostorni ugao, a sijalica bez abažura ceo prostor (4π sr). Pun Mesec na nebu zauzima samo oko 0,00007 sr. Detektor površine 1 cm² udaljen 1 m od mete „vidi” \(\Delta\Omega = 10^{-4}/1^2 = 10^{-4}\) sr.</p>
+</div>
+
+<div class="box term"><span class="lbl">Novi pojam · Izvod kao „gustina”</span>
+<p>Oznaka \(\dfrac{d\sigma}{d\Omega}\) znači „koliko preseka otpada na jedinicu prostornog ugla” u datom pravcu. Isto kao što je gustina naseljenosti „broj ljudi po km²”: ukupan broj ljudi dobiješ kad sabereš (integrališ) gustinu po celoj površini.</p>
+</div>
+
+<h2>1. Definicija diferencijalnog preseka</h2>
+<p>Do potrebe za njim dolazimo kada razmatramo <b>ugao pod kojim se rasejanje dogodilo</b>. Diferencijalni presek se definiše kao <b>diferencijal efikasnog preseka</b>:</p>
+<div class="box eq"><span class="lbl">Definicija (uokvireno u skripti)</span>
+\[d\sigma = \frac{\partial Q}{\partial\Omega}\,d\Omega\]
+<dl class="parts">
+<dt>\(d\sigma\)</dt><dd>„mali deo” ukupnog preseka koji odgovara rasejanju u mali prostorni ugao \(d\Omega\).</dd>
+<dt>\(Q\)</dt><dd>efikasni presek (u skripti se ovde koristi \(Q\) za presek).</dd>
+<dt>\(\dfrac{\partial Q}{\partial\Omega}\)</dt><dd><b>diferencijalni presek</b>: koliko preseka „pada” po jedinici prostornog ugla u pravcu \((\theta,\phi)\). \(\partial\) je <b>parcijalni izvod</b>: izvod po jednoj promenljivoj dok su ostale (npr. energija) fiksirane.</dd>
+<dt>\(d\Omega\)</dt><dd>elementarni prostorni ugao pod uglom \((\theta,\phi)\) pod kojim se rasejanje desilo.</dd>
+</dl>
+<p>Uobičajena oznaka za diferencijalni presek je \(\dfrac{d\sigma}{d\Omega}\) ili \(\dfrac{d\sigma(\theta)}{d\Omega}\). Jedinica je m²/sr.</p>
+</div>
+
+<figure>
+<svg viewBox="0 0 520 240" role="img" aria-label="Rasejanje u prostorni ugao">
+  <style>
+    .sn{stroke:var(--ink);stroke-width:2}
+    .ax2{stroke:var(--muted);stroke-width:1.5;stroke-dasharray:6 4}
+    .co{stroke:var(--sky-ink);stroke-width:2;fill:none}
+    .pa{fill:var(--sky);stroke:var(--sky-ink);stroke-width:2}
+    .mt2{fill:var(--ink)}
+    .lt{fill:var(--ink);font:16px Nunito,sans-serif}
+    .ag{stroke:var(--peach-ink);stroke-width:2;fill:none}
+  </style>
+  <defs><marker id="sa" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink)"/></marker></defs>
+  <line class="sn" x1="20" y1="150" x2="120" y2="150" marker-end="url(#sa)"/>
+  <line class="sn" x1="20" y1="170" x2="120" y2="170" marker-end="url(#sa)"/>
+  <line class="sn" x1="20" y1="190" x2="120" y2="190" marker-end="url(#sa)"/>
+  <line class="sn" x1="20" y1="210" x2="120" y2="210" marker-end="url(#sa)"/>
+  <text class="lt" x="30" y="135">snop</text>
+  <circle class="mt2" cx="200" cy="190" r="6"/><text class="lt" x="180" y="220">meta</text>
+  <line class="ax2" x1="200" y1="190" x2="500" y2="190"/>
+  <line class="co" x1="200" y1="190" x2="415" y2="45"/>
+  <line class="co" x1="200" y1="190" x2="440" y2="80"/>
+  <ellipse class="pa" cx="428" cy="62" rx="12" ry="20" transform="rotate(-30 428 62)"/>
+  <text class="lt" x="448" y="50">dΩ</text>
+  <path class="ag" d="M270,190 A70,70 0 0,0 262,152"/>
+  <text class="lt" x="278" y="175">θ</text>
+</svg>
+<figcaption>Snop pada na metu. Čestica se raseje pod uglom θ u mali prostorni ugao dΩ, gde stoji detektor.</figcaption>
+</figure>
+
+<div class="box life"><span class="lbl">Analogija · crevo i kamen</span>
+<p>Usmeri mlaz vode iz creva na veliki kamen. Većina kapi samo malo skrene i nastavi napred (mali \(\theta\)), neke odu u stranu, a ponešto se odbije nazad ka tebi (veliki \(\theta\)). Ukupni presek kaže koliko vode „udari” u kamen. Diferencijalni presek kaže <b>koliko vode odlazi u svaki pravac</b>. Kad bi oko kamena postavio čaše u krug, svaka čaša bi „merila” diferencijalni presek za svoj pravac.</p>
+</div>
+
+<h2>2. Kako se meri</h2>
+<p>Meri se \(\dfrac{d\sigma(\theta)}{d\Omega}\) <b>u eksperimentu</b>: detektor male površine postavi se pod uglom \(\theta\), broji koliko čestica u njega stiže, pa se pomeri na drugi ugao i ponovi. Broj registrovanih čestica je srazmeran sa \(\dfrac{d\sigma}{d\Omega}\cdot\Delta\Omega\), gde je \(\Delta\Omega\) prostorni ugao koji detektor „vidi”.</p>
+<div class="box life"><span class="lbl">Iz stvarnog života · Raderfordov eksperiment</span>
+<p>1909–1911. Raderfordovi saradnici gađali su tanku zlatnu foliju alfa-česticama i merili koliko se rasejava pod kojim uglom (diferencijalni presek!). Skoro sve su prošle sa malim skretanjem, ali je otprilike jedna u 8000 odbijena <b>unazad</b>. Raderford je rekao da je to „kao da ispališ topovsko đule na maramicu, a ono se odbije nazad”. Iz oblika \(d\sigma/d\Omega\) zaključio je da atom ima <b>sićušno, teško jezgro</b>. Tako je otkriveno atomsko jezgro.</p>
+<p>Drugi primer: <b>zašto je nebo plavo</b>. Molekuli vazduha rasejavaju plavu svetlost mnogo jače od crvene, i to u <b>sve pravce</b> (diferencijalni presek nije nula ni pod 90°). Zato plava svetlost dolazi sa celog neba, a ne samo iz pravca Sunca.</p>
+</div>
+
+<h2>3. Od diferencijalnog do ukupnog preseka</h2>
+<p>Ako „saberemo” diferencijalni presek po <b>svim</b> pravcima, dobijamo ukupni presek:</p>
+<div class="box eq"><span class="lbl">Ukupni presek</span>
+\[\sigma = \int\frac{d\sigma}{d\Omega}\,d\Omega\quad\Longrightarrow\quad \sigma = \int\frac{d\sigma(\theta)}{d\Omega}\,\sin\theta\,d\theta\,d\phi\]
+<dl class="parts">
+<dt>\(\int\)</dt><dd><b>integral</b>: sabiranje beskonačno mnogo beskonačno malih delova. Ovde sabiramo doprinose iz svih pravaca.</dd>
+<dt>\(d\Omega = \sin\theta\,d\theta\,d\phi\)</dt><dd>element prostornog ugla izražen preko uglova. To je površina malog „pravougaonika” na sferi poluprečnika 1, sa stranicama \(d\theta\) i \(\sin\theta\,d\phi\).</dd>
+<dt>\(\sin\theta\)</dt><dd>zašto se pojavljuje: krug oko ose snopa na uglu \(\theta\) ima poluprečnik \(\sin\theta\) (na jediničnoj sferi). Blizu „polova” (\(\theta\approx0\) ili \(180^\circ\)) krugovi su mali, a na „ekvatoru” (\(\theta = 90^\circ\)) najveći. Kao na globusu: paralela kod Severnog pola je kratka, a ekvator dugačak.</dd>
+<dt>granice</dt><dd>\(\theta\) od 0 do \(\pi\) (napred → nazad), \(\phi\) od 0 do \(2\pi\) (pun krug oko snopa).</dd>
+</dl>
+</div>
+<div class="box num"><span class="lbl">Dva korisna primera</span>
+<p><b>1. Simetrija oko snopa.</b> Najčešće rasejanje ne zavisi od \(\phi\) (svejedno je da li čestica skrene levo ili desno). Tada integral po \(\phi\) daje samo \(2\pi\):</p>
+\[\sigma = 2\pi\int_0^\pi\frac{d\sigma(\theta)}{d\Omega}\,\sin\theta\,d\theta\]
+<p><b>2. Izotropno rasejanje</b> (podjednako u sve pravce): \(\frac{d\sigma}{d\Omega} = C\) = konstanta. Onda je</p>
+\[\sigma = C\int d\Omega = 4\pi C\]
+<p>jer je ceo prostorni ugao \(4\pi\). Npr. ako je \(C = 10^{-20}\) m²/sr, ukupni presek je \(\sigma \approx 1{,}26\cdot10^{-19}\) m².</p>
+</div>
+<div class="box life"><span class="lbl">Zašto nam je ovo važno u plazmi</span>
+<p>Za kretanje elektrona kroz gas nije svejedno da li su skretanja mala ili velika. Elektron koji se odbije nazad „izgubi” sav impuls u pravcu kretanja, a onaj koji malo skrene skoro ništa. Zato se u pitanju 10 diferencijalni presek „meri” faktorom \((1 - \cos\theta)\) i tako dobija <b>transportni presek</b>.</p>
+</div>
+
+<div class="box exam"><span class="lbl">Ukratko za ispit (šta napisati)</span>
+<ol>
+<li>Diferencijalni presek se definiše kao diferencijal efikasnog preseka: \(d\sigma = \frac{\partial Q}{\partial\Omega}d\Omega\).</li>
+<li>Do potrebe za njim dolazimo kad razmatramo ugao pod kojim se rasejanje dogodilo. \(d\Omega\) je elementarni prostorni ugao pod uglom \((\theta,\phi)\) pod kojim se rasejanje desilo.</li>
+<li>Skica: snop → meta → rasejanje pod uglom \(\theta\) u \(d\Omega\).</li>
+<li>Meri se \(\frac{d\sigma(\theta)}{d\Omega}\) u eksperimentu, a ukupni presek je \(\sigma = \int\frac{d\sigma}{d\Omega}d\Omega = \int\frac{d\sigma(\theta)}{d\Omega}\sin\theta\,d\theta\,d\phi\).</li>
+</ol>
+</div>
+
+<h3>Proveri sebe</h3>
+<details><summary>Šta znači \(\theta = 0\), a šta \(\theta = 180^\circ\)?</summary><p>\(\theta = 0\): čestica nastavlja pravo (bez skretanja). \(\theta = 180^\circ\): čestica se odbija pravo nazad.</p></details>
+<details><summary>Koliki je prostorni ugao cele sfere?</summary><p>\(4\pi\) steradijana.</p></details>
+<details><summary>Zašto se u integralu pojavljuje \(\sin\theta\)?</summary><p>Jer je \(d\Omega = \sin\theta\,d\theta\,d\phi\): krug oko ose snopa na uglu \(\theta\) ima poluprečnik srazmeran \(\sin\theta\), pa je i površina „trake” na sferi srazmerna njemu.</p></details>
+<details><summary>Koja je veza između diferencijalnog i ukupnog preseka?</summary><p>Ukupni presek je integral diferencijalnog preseka po svim prostornim uglovima.</p></details>
+</section>
+
 <!-- KRAJ PITANJA -->
 
 </main>
